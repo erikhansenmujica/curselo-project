@@ -1,15 +1,15 @@
 import React, { Component } from "react";
+import Main from '../components/Main'
 
-
-export default class main extends Component {
+export default class MainConTainer extends Component {
 
     constructor(props) {
         super(props);
       }
 
       render() {
-        return <div>LA RE CONCHA DE TU RE PUTA MADRE COMELA</div>;
-      }
-
-
+        return(
+          <Main />
+        )
+    }
 }

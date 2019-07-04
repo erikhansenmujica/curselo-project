@@ -5,45 +5,6 @@ document.addEventListener("DOMContentLoaded", event => {
   
     // const myPost = db.collection("posts").doc("firstpost");
   
-    console.log("YO SOY APP!!", app)
-  
-    // QUERY
-  
-    //   myPost.get().then(function(doc) {
-    //     if (doc.exists) {
-    //         const data = doc.data()
-  
-    //         document.write(data.title + `<br>`)
-    //         document.write(data.views)
-  
-    //     } else {
-    //         // doc.data() will be undefined in this case
-    //         console.log("No such document!");
-    //     }
-    // }).catch(function(error) {
-    //     console.log("Error getting document:", error);
-    // });
-  
-    // --------------------------------------------------------
-  
-  //  REAL TIME
-  
-  // READ
-  
-  
-    // myPost.onSnapshot(doc => {
-    //     const data = doc.data()
-  
-    //         document.write(data.title + `<br>`)
-    //         document.write(data.views +`<br>`)
-    // })
-  
-  // WRITE
-  // myPost.onSnapshot(doc => {
-  //     const data = doc.data();
-  //     document.querySelector('#title').innerHTML = data.title
-  // })
-  
   });
   
   function googleLogin() {
