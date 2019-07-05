@@ -1,6 +1,4 @@
 import CREATE_COURSE from '../constants'
-import db from '../../public/app'
-
 
 export default createCourse = (course)=>{
     return{
@@ -9,6 +7,11 @@ export default createCourse = (course)=>{
     }
 }
 
-export default createCourse = ()=>{
-    const myCourses = db.collection('cursos')
-}
+// export default createCourse = (state)=>{
+//     db.collection('cursos').add({
+//         titulo:state.titulo,
+//         descripcion:state.descripcion,
+
+
+//     })
+// }

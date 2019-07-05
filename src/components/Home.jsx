@@ -1,33 +1,45 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 const styles = {
-  buttonLeft: {
-    marginLeft:"2%",
+  container:{
+    display: 'flex',
+    justifyContent: 'space-evenly', 
   },
-  buttonRigth:{
-    marginRigth:"30%"
+  child:{
+    margin:'auto',
+    marginTop:"25%",
+    paddingLeft:"20%"
   },
-  div: {
-    marginTop: "20%"
+  child1:{
+    margin:'auto',
+    marginTop:"25%",
+    paddingRight:"20%"
   }
 };
 
 export default () => (
   <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <div className="container">
+    <div className="container" style={styles.container}>
+    <div style={styles.child}>
+
       <Link to="/crear">
-        <button  style = {styles.buttonRigth} className="btn btn-lg btn-primary">
+        <button  className="btn btn-lg btn-primary">
           Quiero enseñar!
         </button>
-      </Link>
+        </Link>
+    </div>
+    <div style={styles.child1}>
       <Link to="/cursos">
         <button
-          style={styles.buttonRigth}
           className="btn btn-lg btn-primary"
         >
           Quiero aprender!
         </button>
       </Link>
+
+    </div>
+     
     </div>
   </div>
 );

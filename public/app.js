@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", event => {
     const app = firebase.app();
   
+    const db = firebase.firestore();
   
     // const myPost = db.collection("posts").doc("firstpost");
   
@@ -26,4 +27,3 @@ document.addEventListener("DOMContentLoaded", event => {
     const myPost = db.collection('posts').doc('firstpost');
     myPost.update({title : e.target.value})
   }
-  module.exports = db

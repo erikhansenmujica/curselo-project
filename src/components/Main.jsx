@@ -1,7 +1,7 @@
 import React from "react";
 import Home from "../components/Home";
 import { Route } from "react-router-dom";
-import CrearContainer from "../containers/CrearContainer";
+import CrearContainer from "../containers/instructor/CrearContainer";
 import InstructorCursos from "../containers/instructor/InstructorCursos";
 
 export default () => (

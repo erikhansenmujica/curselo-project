@@ -8,12 +8,12 @@ const styles={
 }
 
 
-export default () => (
+export default ({handleChange, handleSubmit}) => (
   
   <div className="container">
   <br/>
   <br/>
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label>Título</label>
         <input
@@ -21,6 +21,7 @@ export default () => (
           name="titulo"
           className="form-control"
           placeholder="Aprendiendo Javascript"
+          onChange={handleChange}
         />
       </div>
       <div className="form-group">
@@ -30,6 +31,8 @@ export default () => (
           type="text"
           className="form-control"
           placeholder="descripcion"
+          onChange={handleChange}
+
         />
       </div>
       <div className="form-group">
@@ -39,6 +42,8 @@ export default () => (
           type="number"
           className="form-control"
           placeholder="numbers"
+          onChange={handleChange}
+
         />
       </div>
       <div className="form-group">
@@ -48,6 +53,8 @@ export default () => (
           type="text"
           className="form-control"
           placeholder="00:00"
+          onChange={handleChange}
+
         />
       </div>
       <button type="submit" className="btn btn-primary">
