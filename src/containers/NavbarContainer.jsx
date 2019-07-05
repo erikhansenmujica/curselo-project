@@ -26,6 +26,6 @@ export default class LoginContainer extends React.Component {
   }
 
   render() {
-    return <Navbar props={this.state} Logout={this.Logout}/>;
+    return <Navbar props={this.state} Logout={this.Logout} />;
   }
 }

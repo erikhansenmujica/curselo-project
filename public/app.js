@@ -1,16 +1,15 @@
 document.addEventListener("DOMContentLoaded", event => {
-    const app = firebase.app();
-  
-    const db = firebase.firestore();
-  
-    // const myPost = db.collection("posts").doc("firstpost");
-  
-  });
-  
-  function googleLogin() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    
-    firebase
+  const app = firebase.app();
+
+  const db = firebase.firestore();
+
+  // const myPost = db.collection("posts").doc("firstpost");
+});
+
+function googleLogin() {
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  firebase
     .auth()
     .signInWithPopup(provider)
     .then(result => {
@@ -19,11 +18,10 @@ document.addEventListener("DOMContentLoaded", event => {
       console.log("YO SOY USER", user);
     })
     .catch(console.log);
-  }
-  
-  
-  function updatePost(e) {
-    const db = firebase.firestore();
-    const myPost = db.collection('posts').doc('firstpost');
-    myPost.update({title : e.target.value})
-  }
+}
+
+function updatePost(e) {
+  const db = firebase.firestore();
+  const myPost = db.collection("posts").doc("firstpost");
+  myPost.update({ title: e.target.value });
+}
