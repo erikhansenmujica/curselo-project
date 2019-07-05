@@ -25,7 +25,7 @@ export default class CrearContainer extends React.Component {
       duracion: this.state.duracion,
       precio: this.state.precio,
       descripcion: this.state.descripcion
-    }).then(()=>res.send('ok'));
+    }).then(res=>res.status(200));
   }
 
   render() {
