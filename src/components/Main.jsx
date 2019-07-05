@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "../components/Home";
+import HomeContainer from "../containers/HomeContainer";
 import { Route } from "react-router-dom";
 import CrearContainer from "../containers/instructor/CrearContainer";
 import InstructorCursos from "../containers/instructor/InstructorCursos";
@@ -10,6 +10,6 @@ export default () => (
     <NavBar />
     <Route path="/crear" component={CrearContainer} />
     <Route path="/cursos" component={InstructorCursos} />
-    <Route exact path="/" component={Home} />
+    <Route exact path="/" component={HomeContainer} />
   </div>
 );
