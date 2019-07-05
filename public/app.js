@@ -9,21 +9,22 @@ document.addEventListener("DOMContentLoaded", event => {
   
   function googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
-  
+    
     firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then(result => {
-        const user = result.user;
-        document.write(`Hello ${user.displayName}`);
-        console.log("YO SOY USER", user);
-      })
-      .catch(console.log);
+    .auth()
+    .signInWithPopup(provider)
+    .then(result => {
+      const user = result.user;
+      document.write(`Hello ${user.displayName}`);
+      console.log("YO SOY USER", user);
+    })
+    .catch(console.log);
   }
   
   
   function updatePost(e) {
-      const db = firebase.firestore();
-      const myPost = db.collection('posts').doc('firstpost');
-      myPost.update({title : e.target.value})
+    const db = firebase.firestore();
+    const myPost = db.collection('posts').doc('firstpost');
+    myPost.update({title : e.target.value})
   }
+  module.exports = db
