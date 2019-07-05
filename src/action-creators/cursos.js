@@ -5,14 +5,14 @@ const addCursos = (cursos)=>({
     cursos
 })
 
-export const fetchCursos = () => {
-
+export const fetchCursos = () => (dispatch)=>
     db.collection("cursos").get()
     .then(curso=>{
         const arr = []
         curso.forEach(doc=> {
-            
-            console.log(doc.id, " => ", doc.data());
+            const obj=doc.data()
+            obj["id"]=doc.id
+            arr.push(obj)
         });
+        dispatch(addCursos(arr))
     });
-}
