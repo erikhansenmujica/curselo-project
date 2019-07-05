@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --reporter spec",
     "build": "webpack -w"
   },
   "repository": {
@@ -34,6 +34,9 @@
     "webpack": "^4.35.2"
   },
   "devDependencies": {
+    "firebase-functions-test": "^0.1.6",
+    "mocha": "^6.1.4",
+    "supertest": "^4.0.2",
     "webpack-cli": "^3.3.5"
   }
 }
