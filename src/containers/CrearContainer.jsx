@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import React from "react";
 import db from "../../public/app"
 import CrearCurso from "../components/CrearCurso";
+=======
+import React from 'react'
+import CrearCurso from '../components/instructor/CrearCurso'
+>>>>>>> 700054dd0dcca4e7041b9591e9505722ccdfa1d9
 
 export default class CrearContainer extends React.Component {
   constructor(props) {
