@@ -11,18 +11,19 @@ class MainConTainer extends Component {
         this.props.fetchCursos()
       }
       render() {
+          console.log(this.props.cursos)
         return(
-          <Cursos />
+          <Cursos cursos={this.props.cursos}/>
         )
     }
 }
 
 const mapStateToProps =(state)=>({
-    //cursos:state.instructor.cursos
+    cursos:state.cursos.todos
 })
 
-const mapDispatchToProps=()=>({
-    fetchCursos:fetchCursos
+const mapDispatchToProps=(dispatch)=>({
+    fetchCursos:()=>dispatch(fetchCursos())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainConTainer)
