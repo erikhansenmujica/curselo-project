@@ -11,7 +11,6 @@ class MainConTainer extends Component {
         this.props.fetchCursos()
       }
       render() {
-          console.log(this.props.cursos)
         return(
           <Cursos cursos={this.props.cursos}/>
         )

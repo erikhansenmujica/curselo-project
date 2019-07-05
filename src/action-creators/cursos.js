@@ -13,7 +13,6 @@ export const fetchCursos = () => (dispatch)=>
             const obj=doc.data()
             obj["id"]=doc.id
             arr.push(obj)
-            console.log(obj);
         });
         dispatch(addCursos(arr))
     });
