@@ -1,28 +1,32 @@
 import React, { Component } from "react";
 import Cursos from "../../components/instructor/VerCursos";
+import PropTypes from 'prop-types'
 import { connect } from "react-redux";
-import { fetchCursos } from "../../action-creators/cursos";
-class MainConTainer extends Component {
+import { compose } from 'redux'
+import { firestoreConnect } from 'react-redux-firebase'
+
+
+class instructor extends Component {
+    
   constructor(props) {
     super(props);
   }
-  componentDidMount() {
-    this.props.fetchCursos();
-  }
+
+  
   render() {
     return <Cursos cursos={this.props.cursos} />;
   }
 }
 
-const mapStateToProps = state => ({
-  cursos: state.cursos.todos
-});
+export default compose(
+  firestoreConnect([
+  'cursos'
+  ]),
+  connect(
+    (state) => ({
+      cursos:state.firestore.ordered.cursos
+    })
+  )
+)(instructor)
 
-const mapDispatchToProps = dispatch => ({
-  fetchCursos: () => dispatch(fetchCursos())
-});
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MainConTainer);

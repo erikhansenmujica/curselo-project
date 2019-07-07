@@ -2,17 +2,20 @@ import React from "react";
 const style = {
   container: {
     display: "flex",
+    flexFlow: "row wrap",
     justifyContent: "space-evenly"
   },
   childs: {
-    width: "18rem"
+    width: "18rem",
+    marginTop:"1%",
+    marginBottom:"1%"
   }
 };
 export default ({ cursos }) => (
   <div style={style.container}>
-    {cursos.length &&
+    {cursos?
       cursos.map(curso => (
-        <div className="card" style={style.childs}>
+        <div key={curso.id}className="card" style={style.childs}>
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTUyfcgnFWzf2GBPS8kpRhpa01uVuyuN40ZxOWNz-WcMXvUBgtkg"
             className="card-img-top"
@@ -21,14 +24,13 @@ export default ({ cursos }) => (
           <div className="card-body">
             <h5 className="card-title">{curso.titulo}</h5>
             <p className="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              {curso.descripcion.length>120?curso.descripcion.split("").slice(0,120).join("")+"...":curso.descripcion}
             </p>
             <a href="#" className="btn btn-primary">
               Go somewhere
             </a>
           </div>
         </div>
-      ))}
+      )):<p>Buscando...</p>  }
   </div>
 );
