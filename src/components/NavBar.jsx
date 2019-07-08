@@ -1,20 +1,19 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const styles = {
   colors: {
     backgroundColor: "#7CE2EF"
   },
-  img:{
-    width:"65px",
+  img: {
+    width: "65px"
   },
-  search:{
-    display:"block",
-    margin:"auto"
+  search: {
+    display: "block",
+    margin: "auto"
   },
-  child:{
-    paddingLeft:"20%"
-  },
-  
+  child: {
+    paddingLeft: "20%"
+  }
 };
 
 export default () => (
@@ -30,14 +29,16 @@ export default () => (
     >
       <span className="navbar-toggler-icon" />
     </button>
+    <Link to='/instructor'>
+      <div>
+        <img
+          src="https://lh3.googleusercontent.com/ZmqnvDIzqxMj4NBjqevd7G-yyIixYtBnNSpEiThXoUjVnjKUORQgfuML-kW_SMQ5hWaMRHazEtRHalAvy23DvQ=s0"
+          alt=""
+          style={styles.img}
+        />
+      </div>
+    </Link>
     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <div>
-      <img
-        src="https://lh3.googleusercontent.com/ZmqnvDIzqxMj4NBjqevd7G-yyIixYtBnNSpEiThXoUjVnjKUORQgfuML-kW_SMQ5hWaMRHazEtRHalAvy23DvQ=s0"
-        alt=""
-        style={styles.img}
-      ></img>
-    </div>
       <form className="form-inline my-2 my-lg-0" style={styles.search}>
         <input
           className="form-control mr-sm-2"
@@ -45,13 +46,13 @@ export default () => (
           placeholder="Search"
           aria-label="Search"
         />
-        <button className="btn btn-primary"type="submit">
+        <button className="btn btn-primary" type="submit">
           Search
         </button>
       </form>
-        <ul className="navbar-nav mr-auto mt-2 mt-lg-0" style={styles.child}>
+      <ul className="navbar-nav mr-auto mt-2 mt-lg-0" style={styles.child}>
         <li className="nav-item">
-          <a className="nav-link" href="#" >
+          <a className="nav-link" href="#">
             LogIn
           </a>
         </li>

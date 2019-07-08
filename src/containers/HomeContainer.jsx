@@ -13,29 +13,25 @@ export default class HomeContainer extends Component {
   }
 
   setAlumno() {
-    console.log("estoy entrando a setAlumno");
     this.setState({
       alumno: true
     });
-    this.googleLogin()
+    this.googleLogin();
   }
 
   googleLogin() {
-    console.log("estoy entrando a glogin");
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase
       .auth()
       .signInWithPopup(provider)
       .then(result => {
         const user = result.user;
-
         this.state.alumno
           ? this.props.history.push("/aprender")
-          : this.props.history.push("/crear");
+          : this.props.history.push("/instructor");
       })
       .catch(console.log);
   }
-
   render() {
     return <Home googleLogin={this.googleLogin} setAlumno={this.setAlumno} />;
   }
