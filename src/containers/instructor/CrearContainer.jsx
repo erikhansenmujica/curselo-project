@@ -30,7 +30,7 @@ export default class CrearContainer extends React.Component {
       descripcion: this.state.descripcion,
       contenido:this.state.contenido,
       anexos:this.state.anexos
-    }).then(res=>console.log("SOY RES!", res));
+    })
   }
 
   render() {
