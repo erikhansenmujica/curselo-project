@@ -1,11 +1,12 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import { createLogger } from "redux-logger";
-import thunkMiddleware from "redux-thunk";
-import reducer from "../reducers";
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+import { createStore, applyMiddleware,compose } from "redux";
+import { reactReduxFirebase,getFirebase } from 'react-redux-firebase'
+import thunk from 'redux-thunk'
+import { reduxFirestore,getFirestore } from 'redux-firestore'
+import {rootReducer } from "../reducers"
+import config from '../config/app'
 
 export default createStore(
-  reducer,
-  composeEnhancers(applyMiddleware(createLogger(), thunkMiddleware))
-);
+  rootReducer, compose(
+    applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
+  reduxFirestore(config) 
+))

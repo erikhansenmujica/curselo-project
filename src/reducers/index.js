@@ -1,6 +1,10 @@
-import { combineReducers } from "redux";
-import cursosReducer from "./cursos";
+import { combineReducers } from 'redux'
+import { firestoreReducer } from 'redux-firestore'
+import {  firebaseReducer } from 'react-redux-firebase'
 
-export default combineReducers({
-  cursos: cursosReducer
-});
+
+// Add firebase to reducers
+export const rootReducer = combineReducers({
+  firestore: firestoreReducer,
+  firebase: firebaseReducer
+})
