@@ -9,6 +9,8 @@ export default class CrearContainer extends React.Component {
       duracion: 0,
       precio: 0,
       descripcion: "",
+      contenido:"",
+      anexos:""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,8 +26,10 @@ export default class CrearContainer extends React.Component {
       titulo: this.state.titulo,
       duracion: this.state.duracion,
       precio: this.state.precio,
-      descripcion: this.state.descripcion
-    }).then(()=>res.send('ok'));
+      descripcion: this.state.descripcion,
+      contenido:this.state.contenido,
+      anexos:this.state.anexos
+    }).then(res=>res.status(200));
   }
 
   render() {

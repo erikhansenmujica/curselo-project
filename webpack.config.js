@@ -9,6 +9,9 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     context: __dirname,
+    node: {
+      fs: 'empty'
+    },
     module: {
       rules: [
         {
