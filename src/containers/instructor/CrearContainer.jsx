@@ -1,5 +1,6 @@
 import React from "react";
 import CrearCurso from "../../components/instructor/CrearCurso";
+import {db} from "../../config/app"
 
 export default class CrearContainer extends React.Component {
   constructor(props) {
@@ -29,7 +30,7 @@ export default class CrearContainer extends React.Component {
       descripcion: this.state.descripcion,
       contenido:this.state.contenido,
       anexos:this.state.anexos
-    }).then(res=>res.status(200));
+    }).then(res=>console.log("SOY RES!", res));
   }
 
   render() {
