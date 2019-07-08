@@ -1,26 +1,30 @@
 import React from "react";
 
-
-const styles={
-  button:{
-    marginLeft: "1%"
+const styles = {
+  button: {
+    marginLeft: "1%", 
+  },
+  inputDescription: {
+    height: "200px"
   }, 
-  inputDescription:{
-    height:"200px",
-    
+  title:{
+    textAlign:"center"
   }
-}
+};
 
-
-export default ({handleChange, handleSubmit}) => (
-  
+export default ({ handleChange, handleSubmit }) => (
   <div className="container">
-  <br/>
-  <br/>
-    <form onSubmit={(e)=>{
-      handleSubmit(e)
-      document.querySelectorAll(".form-control").forEach(input=>input.value="")
-    }}>
+  <h2 style={styles.title}>Carga tus conocimientos </h2>
+    <br />
+    <br />
+    <form
+      onSubmit={e => {
+        handleSubmit(e);
+        document
+          .querySelectorAll(".form-control")
+          .forEach(input => (input.value = ""));
+      }}
+    >
       <div className="form-group">
         <label>Título</label>
         <input
@@ -30,7 +34,7 @@ export default ({handleChange, handleSubmit}) => (
           onChange={handleChange}
         />
       </div>
-      <div className="form-group" >
+      <div className="form-group">
         <label>Descripción</label>
         <textarea
           style={styles.inputDescription}
@@ -38,7 +42,16 @@ export default ({handleChange, handleSubmit}) => (
           type="text"
           className="form-control"
           onChange={handleChange}
-
+        />
+      </div>
+      <div className="form-group">
+        <label>Contenido</label>
+        <textarea
+          style={styles.inputDescription}
+          name="contenido"
+          type="text"
+          className="form-control"
+          onChange={handleChange}
         />
       </div>
       <div className="form-group">
@@ -47,9 +60,16 @@ export default ({handleChange, handleSubmit}) => (
           name="precio"
           type="number"
           className="form-control"
-          
           onChange={handleChange}
-
+        />
+      </div>
+      <div className="form-group">
+        <label>Anexos</label>
+        <input
+          type="text"
+          name="anexos"
+          className="form-control"
+          onChange={handleChange}
         />
       </div>
       <div className="form-group">
@@ -58,9 +78,7 @@ export default ({handleChange, handleSubmit}) => (
           name="duracion"
           type="text"
           className="form-control"
-         
           onChange={handleChange}
-
         />
 
 <div>
@@ -88,5 +106,9 @@ export default ({handleChange, handleSubmit}) => (
         Cancelar
       </button>
     </form>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
   </div>
 );

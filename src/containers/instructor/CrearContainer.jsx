@@ -1,5 +1,6 @@
 import React from "react";
 import CrearCurso from "../../components/instructor/CrearCurso";
+import {db} from "../../config/app"
 
 export default class CrearContainer extends React.Component {
   constructor(props) {
@@ -9,6 +10,8 @@ export default class CrearContainer extends React.Component {
       duracion: 0,
       precio: 0,
       descripcion: "",
+      contenido:"",
+      anexos:""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,8 +27,10 @@ export default class CrearContainer extends React.Component {
       titulo: this.state.titulo,
       duracion: this.state.duracion,
       precio: this.state.precio,
-      descripcion: this.state.descripcion
-    }).then(res=>res.status(200));
+      descripcion: this.state.descripcion,
+      contenido:this.state.contenido,
+      anexos:this.state.anexos
+    })
   }
 
   render() {
