@@ -8,6 +8,5 @@ import config from '../config/app'
 export default createStore(
   rootReducer, compose(
     applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
-  reactReduxFirebase(config), 
   reduxFirestore(config) 
 ))

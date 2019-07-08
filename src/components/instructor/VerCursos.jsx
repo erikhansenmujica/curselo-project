@@ -24,7 +24,7 @@ export default ({ cursos }) => (
           <div className="card-body">
             <h5 className="card-title">{curso.titulo}</h5>
             <p className="card-text">
-              {curso.descripcion.length>120?curso.descripcion.split("").slice(0,120).join("")+"...":curso.descripcion}
+              {curso.descripcion.length>120?curso.descripcion.slice(0,120)+"...":curso.descripcion} 
             </p>
             <a href="#" className="btn btn-primary">
               Go somewhere
