@@ -21,6 +21,7 @@
     "@babel/core": "^7.5.0",
     "@babel/preset-env": "^7.5.0",
     "@babel/preset-react": "^7.0.0",
+    "@u-wave/react-vimeo": "^0.8.0",
     "babel": "^6.23.0",
     "babel-loader": "^8.0.6",
     "firebase": "^6.2.4",
@@ -33,6 +34,7 @@
     "redux-firestore": "^0.8.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "vimeo": "^2.1.1",
     "webpack": "^4.35.2"
   },
   "devDependencies": {

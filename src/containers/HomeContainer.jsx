@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Home from "../components/Home";
+import firebase from '../config/app'
+
 
 export default class HomeContainer extends Component {
   constructor(props) {
@@ -30,7 +32,7 @@ export default class HomeContainer extends Component {
         const user = result.user;
 
         this.state.alumno
-          ? this.props.history.push("/aprender")
+          ? this.props.history.push("/cursos")
           : this.props.history.push("/crear");
       })
       .catch(console.log);

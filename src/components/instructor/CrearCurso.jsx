@@ -62,11 +62,29 @@ export default ({handleChange, handleSubmit}) => (
           onChange={handleChange}
 
         />
+
+<div>
+
+
+<label htmlFor='icon'>PDF File</label>
+
+
+<input accept='.pdf' type='file' id='uploadPdf' name='icon'/> 
+    
+
+</div>
+
+
+
+<button type='submit'>Upload PDF!</button> 
+
+
+
       </div>
       <button type="submit" className="btn btn-primary">
         Crear Curso
       </button>
-      <button style={styles.button} type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary">
         Cancelar
       </button>
     </form>
