@@ -17,6 +17,6 @@ import 'firebase/auth';
   const db = firebase.firestore()
   
 
-export default {firebase, db} 
+export {firebase, db}
 
 

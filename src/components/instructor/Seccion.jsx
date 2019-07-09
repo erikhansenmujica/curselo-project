@@ -14,7 +14,7 @@ const styles = {
     justifyContent: "center"
   }
 };
-export default () => (
+export default ({ handleCrear, handleSubmit }) => (
   <div>
     <div className="container-fluid">
       <div className="row">
@@ -30,25 +30,35 @@ export default () => (
         </div>
       </div>
     </div>
-    <div className="container" style={styles.content}>
-      <input
-        className="form-control form-control-lg"
-        type="text"
-        name="texto"
-        placeholder=".form-control-lg"
-      />
-       <input
-        className="form-control form-control-lg"
-        type="file"
-        name="archivo"
-        placeholder=".form-control-lg"
-      />
-       <input
-        className="form-control form-control-lg"
-        type="file"
-        name="video"
-        placeholder=".form-control-lg"
-      />
-    </div>
+    <form action="" onSubmit={handleSubmit}>
+      <div className="container" style={styles.content}>
+        <input
+          className="form-control form-control-lg"
+          type="text"
+          name="texto"
+          placeholder=".form-control-md"
+          onChange={handleCrear}
+        />
+        {/* <input
+          className="form-control form-control-lg"
+          type="file"
+          name="archivo"
+          placeholder=".form-control-md"
+          onChange={handleCrear}
+
+        />
+        <input
+          className="form-control form-control-lg"
+          type="file"
+          name="video"
+          placeholder=".form-control-md"
+          onChange={handleCrear}
+
+        /> */}
+      </div>
+      <button type="submit">
+        Agregar
+      </button>
+    </form>
   </div>
 );
