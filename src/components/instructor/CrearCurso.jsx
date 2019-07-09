@@ -2,19 +2,19 @@ import React from "react";
 
 const styles = {
   button: {
-    marginLeft: "1%", 
+    marginLeft: "1%",
   },
   inputDescription: {
     height: "200px"
-  }, 
-  title:{
-    textAlign:"center"
+  },
+  title: {
+    textAlign: "center"
   }
 };
 
-export default ({ handleChange, handleSubmit }) => (
+export default ({ handleChange, handleSubmit, handleUpload, handleSetFile }) => (
   <div className="container">
-  <h2 style={styles.title}>Carga tus conocimientos </h2>
+    <h2 style={styles.title}>Carga tus conocimientos </h2>
     <br />
     <br />
     <form
@@ -80,17 +80,28 @@ export default ({ handleChange, handleSubmit }) => (
           className="form-control"
           onChange={handleChange}
         />
+
       </div>
+
+
+
       <button type="submit" className="btn btn-primary">
         Crear Curso
       </button>
-      <button style={styles.button} type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary">
         Cancelar
       </button>
     </form>
-   <br/>
-   <br/>
-   <br/>
-   <br/>
+      <form action="" onSubmit={handleUpload}>
+
+        <label htmlFor='icon'>PDF File</label>
+        <input type='file' name='pdf' accept='.pdf' onChange={handleSetFile}/>
+        <button type='submit'>Upload PDF!</button>
+
+      </form>
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
 );

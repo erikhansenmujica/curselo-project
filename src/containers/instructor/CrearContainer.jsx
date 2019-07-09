@@ -1,6 +1,6 @@
 import React from "react";
 import CrearCurso from "../../components/instructor/CrearCurso";
-import {db} from "../../config/app"
+import { firebase, db } from "../../config/app";
 
 export default class CrearContainer extends React.Component {
   constructor(props) {
@@ -10,11 +10,15 @@ export default class CrearContainer extends React.Component {
       duracion: 0,
       precio: 0,
       descripcion: "",
-      contenido:"",
-      anexos:""
+      contenido: "",
+      anexos: "",
+      file: "ffffffff",
+      propDePrueba: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
+    this.handleSetFile = this.handleSetFile.bind(this);
   }
   handleChange(e) {
     this.setState({
@@ -22,15 +26,30 @@ export default class CrearContainer extends React.Component {
     });
   }
   handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     db.collection("cursos").add({
       titulo: this.state.titulo,
       duracion: this.state.duracion,
       precio: this.state.precio,
       descripcion: this.state.descripcion,
-      contenido:this.state.contenido,
-      anexos:this.state.anexos
-    })
+      contenido: this.state.contenido,
+      anexos: this.state.anexos
+    });
+  }
+
+  handleSetFile(e) {
+    e.preventDefault();
+    let f = e.target.files[0];
+    this.setState({
+      file: f
+    });
+  }
+
+  handleUpload(e) {
+    e.preventDefault();
+    const file = this.state.file
+    const storageRef = firebase.storage().ref(`/files/${file.name}`);
+    storageRef.put(file).then(file => console.log("FILE?", file));
   }
 
   render() {
@@ -38,6 +57,8 @@ export default class CrearContainer extends React.Component {
       <CrearCurso
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
+        handleUpload={this.handleUpload}
+        handleSetFile={this.handleSetFile}
       />
     );
   }
