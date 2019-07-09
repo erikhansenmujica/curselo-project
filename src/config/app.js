@@ -1,6 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/storage'
+
 
 // Replace this with your own config details
  var firebaseConfig = {
@@ -17,6 +19,5 @@ import 'firebase/auth';
   const db = firebase.firestore()
   
 
-export {firebase, db}
 
-
+export  {firebase , db}
