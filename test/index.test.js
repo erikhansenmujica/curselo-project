@@ -4,4 +4,4 @@ const test = require('firebase-functions-test')({
     projectId: 'curselo',
   }, '../curselo-0c232d003939.json');
 
-  const admin = require('firebase-admin');
+  //const admin = require('firebase-admin');
