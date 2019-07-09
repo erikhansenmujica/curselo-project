@@ -1,0 +1,31 @@
+import React from "react";
+import Seccion from "../../components/instructor/Seccion";
+import {db} from "../../config/app"
+export default class SeccionContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tema: "",
+      archivo: "",
+      video: ""
+    };
+    this.handleCrear = this.handleCrear.bind(this);
+  }
+  handleCrear(e) {
+    e.preventDefault();
+    this.setState({
+      tema: e.target.value,
+      archivo: e.target.file,
+      video: e.target.file
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(this.state, "kjsnjnjvnnc");
+    db.collection("cursos").where("/cursosId")
+  }
+  render() {
+    return <Seccion handleCrear={this.handleCrear} />;
+  }
+}

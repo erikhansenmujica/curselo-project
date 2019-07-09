@@ -14,10 +14,10 @@ import 'firebase/auth';
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.firestore()
+  const db = firebase.firestore()
   
 
 
-export default firebase 
+export default {firebase, db} 
 
 
