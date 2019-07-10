@@ -14,7 +14,7 @@ const styles = {
     justifyContent: "center"
   }
 };
-export default ({ handleCrear, handleSubmit }) => (
+export default ({ handleCrear, handleSubmit, handleSection }) => (
   <div>
     <div className="container-fluid">
       <div className="row">
@@ -23,7 +23,7 @@ export default ({ handleCrear, handleSubmit }) => (
             <li className="nav-item">
               <a className="nav-link active" href="#">
                 <span data-feather="home" />
-                Tema de Clase <span className="sr-only">(current)</span>
+                Temas de Clase <span className="sr-only">(current)</span>
               </a>
             </li>
           </ul>
@@ -32,12 +32,13 @@ export default ({ handleCrear, handleSubmit }) => (
     </div>
     <form action="" onSubmit={handleSubmit}>
       <div className="container" style={styles.content}>
+     
         <input
           className="form-control form-control-lg"
           type="text"
           name="texto"
           placeholder=".form-control-md"
-          onChange={handleCrear}
+          onChange={handleSection}
         />
         {/* <input
           className="form-control form-control-lg"

@@ -1,6 +1,8 @@
 import React from "react";
 import CrearCurso from "../../components/instructor/CrearCurso";
 import { firebase, db } from "../../config/app";
+import {connect} from 'react-redux'
+
 
 export default class CrearContainer extends React.Component {
   constructor(props) {
@@ -12,8 +14,8 @@ export default class CrearContainer extends React.Component {
       descripcion: "",
       contenido: "",
       anexos: "",
-      file: "ffffffff",
-      propDePrueba: ""
+      file: "",
+      secciones:{}
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -63,3 +65,9 @@ export default class CrearContainer extends React.Component {
     );
   }
 }
+
+// const mapDispatchToProps= (dispatch)=>{
+//   return (
+
+//   )
+// }

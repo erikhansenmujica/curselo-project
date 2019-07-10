@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import Cursos from "../../components/instructor/VerCursos";
-import PropTypes from 'prop-types'
 import { connect } from "react-redux";
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
-
 
 class instructor extends Component {
     
@@ -28,5 +26,3 @@ export default compose(
     })
   )
 )(instructor)
-
-
