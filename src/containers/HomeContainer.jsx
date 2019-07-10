@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Home from "../components/Home";
-import firebase from "../config/app"
+import {firebase} from "../config/app"
+
 export default class HomeContainer extends Component {
   constructor(props) {
     super(props);
