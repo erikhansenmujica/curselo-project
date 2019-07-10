@@ -26,6 +26,7 @@
     "babel": "^6.23.0",
     "babel-loader": "^8.0.6",
     "firebase": "^6.2.4",
+    "fs": "0.0.1-security",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^5.1.1",

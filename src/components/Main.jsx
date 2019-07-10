@@ -2,11 +2,11 @@ import React from "react";
 import HomeContainer from "../containers/HomeContainer";
 import { Route, Switch } from "react-router-dom";
 import CrearContainer from "../containers/instructor/CrearContainer";
-import InstructorCursos from "../containers/instructor/InstructorCursos";
-import InstructorContainer from "../containers/instructor/InstructorContainer";
+import Cursos from "../containers/alumnos/Cursos";
+import InstructorContainer from "../containers/instructor/InstructorContainer"
 import NavBar from "./NavBar";
 import SingleCursoInstructorContainer from "../containers/instructor/SingleCursoInstructorContainer";
-import SingleCursoAlumnoContainer from "../containers/SingleCursoAlumnoContainer"
+import SingleCursoAlumnoContainer from "../containers/alumnos/SingleCursoAlumnoContainer"
 
 export default () => (
   <div>
@@ -23,7 +23,7 @@ export default () => (
         path="/cursos/alumno/:cursoId"
         component={SingleCursoAlumnoContainer}
       />
-      <Route path="/cursos" component={InstructorCursos} />
+      <Route path="/cursos" component={Cursos} />
       <Route path="/instructor" component={InstructorContainer} />
       <Route exact path="/" component={HomeContainer} />
     </Switch>
