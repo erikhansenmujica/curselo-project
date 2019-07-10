@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom"
+
 const style = {
   container: {
     display: "flex",
@@ -16,6 +18,7 @@ export default ({ cursos }) => (
     {cursos?
       cursos.map(curso => (
         <div key={curso.id}className="card" style={style.childs}>
+          
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTUyfcgnFWzf2GBPS8kpRhpa01uVuyuN40ZxOWNz-WcMXvUBgtkg"
             className="card-img-top"
@@ -26,9 +29,12 @@ export default ({ cursos }) => (
             <p className="card-text">
               {curso.descripcion.length>120?curso.descripcion.slice(0,120)+"...":curso.descripcion} 
             </p>
-            <a href="#" className="btn btn-primary">
+            
+            <Link to={`/cursos/alumno/${curso.id}`} >
+            <div className="btn btn-primary">
               Go somewhere
-            </a>
+            </div>
+            </Link>
           </div>
         </div>
       )):<p>Buscando...</p>  }

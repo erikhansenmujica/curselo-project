@@ -16,8 +16,8 @@ export default class HomeContainer extends Component {
   setAlumno() {
     this.setState({
       alumno: true
-    });
-    this.googleLogin();
+    })
+    this.props.history.push("/cursos")
   }
 
   googleLogin() {
