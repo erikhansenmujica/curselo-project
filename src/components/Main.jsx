@@ -8,6 +8,7 @@ import NavBar from "./NavBar";
 import SingleCursoInstructorContainer from "../containers/instructor/SingleCursoInstructorContainer";
 import SingleCursoAlumnoContainer from "../containers/alumnos/SingleCursoAlumnoContainer";
 import SideBar from "../components/instructor/SideBar";
+import InstructorCursosContainer from "../containers/instructor/InstructorCursosContainer";
 
 export default () => (
   <div>
@@ -34,13 +35,15 @@ const alumnos = () => (
 
 const instructor = () => (
   <div>
-    <SideBar />
-    <Route path="/instructor/" component={InstructorContainer} />
-    <Route path="/crear" component={CrearContainer} />
+    <Switch>
+    <Route exact path="/instructor/" component={InstructorContainer} />
+    <Route exact path="/instructor/cursos" component={InstructorCursosContainer}/>
+    <Route path="/instructor/crear" component={CrearContainer} />
     <Route
       exact
       path="/cursos/instructor/:cursoId"
       component={SingleCursoInstructorContainer}
     />
+    </Switch>
   </div>
 );
