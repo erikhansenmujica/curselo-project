@@ -33,11 +33,16 @@ export default () => (
     </div>
     <br />
     <br />
-    <Link to="/crear">
+    <Link to="/instructor/crear">
       <div>
         <button style={button} className="btn btn-primary">
           Crear tu curso
         </button>
+      </div>
+    </Link>
+    <Link to="/instructor/cursos">
+      <div>
+        <button style={button} className="btn btn-primary">Ir a mis cursos</button>
       </div>
     </Link>
   </div>
