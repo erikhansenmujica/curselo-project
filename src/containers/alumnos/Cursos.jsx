@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
 
-
 class instructor extends Component {
     
   constructor(props) {
@@ -27,5 +26,3 @@ export default compose(
     })
   )
 )(instructor)
-
-

@@ -29,7 +29,7 @@ export default () => (
     >
       <span className="navbar-toggler-icon" />
     </button>
-    <Link to='/instructor'>
+    <Link to="/instructor">
       <div>
         <img
           src="https://lh3.googleusercontent.com/ZmqnvDIzqxMj4NBjqevd7G-yyIixYtBnNSpEiThXoUjVnjKUORQgfuML-kW_SMQ5hWaMRHazEtRHalAvy23DvQ=s0"
