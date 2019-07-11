@@ -15,9 +15,6 @@ import { Link } from "react-router-dom";
 //     console.log('Failed because: ' + error)
 //   }
 // )
-
-
-
 const styles = {
   container: {
     display: "flex",
