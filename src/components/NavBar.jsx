@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const styles = {
   colors: {
-    backgroundColor: "#7CE2EF"
+    backgroundColor: "#90CAF9 "
   },
   img: {
     width: "65px"
