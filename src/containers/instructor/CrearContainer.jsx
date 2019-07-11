@@ -34,6 +34,9 @@ export default class CrearContainer extends React.Component {
       descripcion: this.state.descripcion,
       contenido: this.state.contenido,
       anexos: this.state.anexos
+    })
+    .then(data => {
+      this.props.history.push(`cursos/instructor/${data.id}`)
     });
   }
 

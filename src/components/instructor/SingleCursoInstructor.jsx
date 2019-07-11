@@ -1,10 +1,12 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-export default () => (
+export default (props) => (
     <div>
+        
+    {console.log(props, "SOY PROPS EN COMP TONTO")}
         <h1>
-            HOLA HOLA HOLA! BIENVENIDOS A SINGLE CURSO!
+            {props.curso.length?  props.curso.titulo : <p>BUSCANDO</p>}
         </h1>
 
 
