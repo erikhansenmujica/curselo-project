@@ -3,26 +3,31 @@ import InstructorCursos from "../../components/instructor/InstructorCursos";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
+import {auth} from "../../config/app"
 
-export default class InstructorCursosContainer extends Component {
+class InstructorCursosContainer extends Component {
+    
   constructor(props) {
     super(props);
   }
 
   render() {
-    return <InstructorCursos  />;
+      console.log("cursos en container", this.props.instructorCursos)
+    return <InstructorCursos cursos = {this.props.instructorCursos}/>;
   }
 }
-//
 
 
-// const mapStateToProps = (state, ownProps) => {
-//     console.log(state, 'skdjncsjdc')
-//   return {
-//     cursos :state.firestore.ordered.cursos
-//   }
-// }
-
-// export default compose(
-//   firestoreConnect(["cursos"]),
-//   connect(mapStateToProps)(InstructorCursosContainer))
+export default compose(
+    firestoreConnect(props =>[
+        {
+          collection: 'cursos',
+          where: [
+            ['instructorid', '==', auth.currentUser.uid]
+          ],
+        }
+    ]),
+    connect((state) => ({
+      instructorCursos: state.firestore.ordered.cursos
+    }))
+   )(InstructorCursosContainer)
