@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const styles = {
   colors: {
-    backgroundColor: "#7CE2EF"
+    backgroundColor: "#90CAF9 "
   },
   img: {
     width: "65px"
@@ -29,7 +29,7 @@ export default () => (
     >
       <span className="navbar-toggler-icon" />
     </button>
-    <Link to='/instructor'>
+    <Link to="/instructor">
       <div>
         <img
           src="https://lh3.googleusercontent.com/ZmqnvDIzqxMj4NBjqevd7G-yyIixYtBnNSpEiThXoUjVnjKUORQgfuML-kW_SMQ5hWaMRHazEtRHalAvy23DvQ=s0"

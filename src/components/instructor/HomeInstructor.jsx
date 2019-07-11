@@ -7,10 +7,11 @@ const image = {
     "https://lh3.googleusercontent.com/JMLnCpPYwogPZqo3DZXs3b-n4KAQTJjCLIxs6emmrAd5oSiYBilYvvTOxfS4t4xKAEbVWgmHWwUT3GnDzKG533Y=w1351" +
     ")"
 };
-const button={
-    display:"block", 
-    margin:"auto"
-}
+const button = {
+  display: "block",
+  margin: "auto"
+};
+
 export default () => (
   <div>
     <div
@@ -30,11 +31,13 @@ export default () => (
       <div className="product-device shadow-sm d-none d-md-block" />
       <div className="product-device product-device-2 shadow-sm d-none d-md-block" />
     </div>
-    <br/>
-    <br/>
+    <br />
+    <br />
     <Link to="/crear">
       <div>
-        <button style={button} className="btn btn-primary">Crear tu curso</button>
+        <button style={button} className="btn btn-primary">
+          Crear tu curso
+        </button>
       </div>
     </Link>
     <Link to="/cursos/instructor">

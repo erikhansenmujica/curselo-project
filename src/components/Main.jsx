@@ -11,22 +11,36 @@ import InstructorCursosContainer from "../containers/instructor/InstructorCursos
 
 export default () => (
   <div>
-    <NavBar />
     <Switch>
-      <Route path="/crear" component={CrearContainer} />
-      <Route path="/cursos/instructor" component={InstructorCursosContainer} />
-      <Route
-        path="/cursos/alumno/:cursoId"
-        component={SingleCursoAlumnoContainer}
-      />
-      <Route
-        exact
-        path="/cursos/instructor/:cursoId"
-        component={SingleCursoInstructorContainer}
-      />
-      <Route path="/cursos" component={Cursos} />
-      <Route path="/instructor" component={InstructorContainer} />
       <Route exact path="/" component={HomeContainer} />
+
+      <Route extact path="/instructor" component={instructor} />
+      <Route path="/alumnos" component={alumnos} />
     </Switch>
+  </div>
+);
+
+const alumnos = () => (
+  <div>
+    <NavBar />
+    <Route exact path="/alumnos/cursos" component={Cursos} />
+    <Route
+      exact
+      path="/cursos/alumno/:cursoId"
+      component={SingleCursoAlumnoContainer}
+    />
+  </div>
+);
+
+const instructor = () => (
+  <div>
+    <Route path="/instructor/" component={InstructorContainer} />
+    <Route path="/instructor/cursos" component={InstructorCursosContainer}/>
+    <Route path="/crear" component={CrearContainer} />
+    <Route
+      exact
+      path="/cursos/instructor/:cursoId"
+      component={SingleCursoInstructorContainer}
+    />
   </div>
 );

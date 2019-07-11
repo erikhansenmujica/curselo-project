@@ -15,6 +15,12 @@ import { Link } from "react-router-dom";
 //     console.log('Failed because: ' + error)
 //   }
 // )
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> ec1b667ddbba48a040dcddb9b2009fbfda3739a2
 const styles = {
   container: {
     display: "flex",
