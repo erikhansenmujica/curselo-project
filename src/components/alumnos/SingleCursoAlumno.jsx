@@ -1,12 +1,10 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-export default () => (
+export default ({curso}) => (
     <div>
-        <h1>
-            HOLA HOLA HOLA! BIENVENIDOS A SINGLE CURSO ALUMNO!
-        </h1>
-
+        {curso&&<h1>{curso.titulo}</h1>}
+            
 
     </div>
 )
