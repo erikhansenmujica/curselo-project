@@ -40,5 +40,10 @@ export default () => (
         </button>
       </div>
     </Link>
+    <Link to="/instructor/cursos">
+      <div>
+        <button style={button} className="btn btn-primary">Ir a mis cursos</button>
+      </div>
+    </Link>
   </div>
 );

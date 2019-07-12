@@ -22,6 +22,7 @@
     "@babel/preset-env": "^7.5.0",
     "@babel/preset-react": "^7.0.0",
     "@google-cloud/storage": "^3.0.2",
+    "@trendmicro/react-sidenav": "^0.4.5",
     "@u-wave/react-vimeo": "^0.8.0",
     "babel": "^6.23.0",
     "babel-loader": "^8.0.6",

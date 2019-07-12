@@ -2,6 +2,7 @@ import React from "react";
 import CrearCurso from "../../components/instructor/CrearCurso";
 import { firebase, db } from "../../config/app";
 import {connect} from 'react-redux'
+import {auth} from "../../config/app"
 
 
 export default class CrearContainer extends React.Component {
@@ -15,7 +16,8 @@ export default class CrearContainer extends React.Component {
       contenido: "",
       anexos: "",
       file: "",
-      secciones:{}
+      secciones:{},
+      instructorid: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,10 +37,8 @@ export default class CrearContainer extends React.Component {
       precio: this.state.precio,
       descripcion: this.state.descripcion,
       contenido: this.state.contenido,
-      anexos: this.state.anexos
-    })
-    .then(data => {
-      this.props.history.push(`/instructor/cursos/${data.id}`)
+      anexos: this.state.anexos,
+      instructorid: auth.currentUser.uid
     });
   }
 
