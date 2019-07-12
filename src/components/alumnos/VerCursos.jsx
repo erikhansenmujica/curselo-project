@@ -30,7 +30,7 @@ export default ({ cursos }) => (
               {curso.descripcion.length>120?curso.descripcion.slice(0,120)+"...":curso.descripcion} 
             </p>
             
-            <Link to={`/cursos/alumno/${curso.id}`} >
+            <Link to={`/alumnos/cursos/${curso.id}`} >
             <div className="btn btn-primary">
               Go somewhere
             </div>
