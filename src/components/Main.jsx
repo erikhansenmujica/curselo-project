@@ -27,7 +27,7 @@ const alumnos = () => (
     <Route exact path="/alumnos/cursos" component={Cursos} />
     <Route
       exact
-      path="/cursos/alumno/:cursoId"
+      path="/alumnos/cursos/:cursoId"
       component={SingleCursoAlumnoContainer}
     />
   </div>
