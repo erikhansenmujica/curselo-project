@@ -68,9 +68,3 @@ export default class CrearContainer extends React.Component {
     );
   }
 }
-
-// const mapDispatchToProps= (dispatch)=>{
-//   return (
-
-//   )
-// }
