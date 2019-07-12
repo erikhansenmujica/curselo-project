@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import SingleCursoInstructor from "../../components/instructor/SingleCursoInstructor";
-import { firebase, db } from "../../config/app";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
@@ -8,9 +7,7 @@ import { firestoreConnect } from "react-redux-firebase";
 class SingleCursoInstructorContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      curso: {}
-    };
+
   }
 
   render() {

@@ -33,7 +33,7 @@ export default () => (
     </div>
     <br />
     <br />
-    <Link to="/crear">
+    <Link to="/instructor/crear">
       <div>
         <button style={button} className="btn btn-primary">
           Crear tu curso
