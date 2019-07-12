@@ -35,6 +35,8 @@ const alumnos = () => (
 
 const instructor = () => (
   <div>
+    <SideBar />
+  
     <Switch>
     <Route exact path="/instructor/" component={InstructorContainer} />
     <Route exact path="/instructor/cursos" component={InstructorCursosContainer}/>
