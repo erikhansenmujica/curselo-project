@@ -1,20 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const container = {
-  display: "flex",
-  flexFlow: "row wrap",
-  justifyContent: "space-evenly"
+const styles = {
+  nav: {
+    width: "100%",
+    marginLeft: "3%"
+  },
+  button: {
+    display:"inline",
+    marginLeft: "90%"
+    // marginTop:"auto"
+  }
 };
 
-const button = {
-  float: "right"
-};
 export default props => (
-  <div style={container}>
+  <div>
     {props.curso && (
       <div>
-        <h3> {props.curso.titulo} </h3>
+        <div className="card" style={styles.nav}>
+          <div className="card-body">
+            <h5 className="card-title">{props.curso.titulo}</h5>
+            <button className="btn btn-primary" style={styles.button}>
+              Nueva Seccion
+            </button>
+          </div>
+        </div>
+
+        {/* <h3> {props.curso.titulo} </h3>
         <h3> {props.curso.descripcion}</h3>
         <h3> {props.curso.contenido}</h3>
         <h3> {props.curso.precio}</h3>
@@ -25,7 +37,7 @@ export default props => (
 
         <div style={button} className="btn btn-primary">
           Crear Nueva Clase
-        </div>
+        </div> */}
       </div>
     )}
   </div>
