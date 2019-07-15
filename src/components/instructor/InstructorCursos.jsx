@@ -1,5 +1,5 @@
 import React from "react";
-//import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const style = {
   container: {
@@ -33,9 +33,9 @@ export default ({ cursos }) => (
                   : curso.description}
               </p>
 
-              {/* <Link to={`/cursos/alumno/${curso.id}`} > */}
+              <Link to={`/instructor/cursos/${curso.id}`} >
               <div className="btn btn-primary">Go somewhere</div>
-              {/* </Link> */}
+              </Link>
             </div>
           </div>
         ))

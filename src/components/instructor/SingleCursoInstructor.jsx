@@ -3,41 +3,32 @@ import { Link } from "react-router-dom";
 
 const styles = {
   nav: {
-    width: "100%",
-    marginLeft: "3%"
+    width:"80vw"
   },
   button: {
-    display:"inline",
+    display: "inline",
     marginLeft: "90%"
     // marginTop:"auto"
   }
 };
 
 export default props => (
-  <div>
+  <div style={{  
+    marginLeft:"10%",
+    marginTop:"3%"}}>
     {props.curso && (
-      <div>
-        <div className="card" style={styles.nav}>
-          <div className="card-body">
-            <h5 className="card-title">{props.curso.titulo}</h5>
-            <button className="btn btn-primary" style={styles.button}>
-              Nueva Seccion
-            </button>
+      <div >
+        <div className="media">
+          <div className="media-body">
+            <h5 className="mt-0">Curso: {props.curso.name}</h5>
           </div>
         </div>
-
-        {/* <h3> {props.curso.titulo} </h3>
-        <h3> {props.curso.descripcion}</h3>
-        <h3> {props.curso.contenido}</h3>
-        <h3> {props.curso.precio}</h3>
-
-        <div style={button} className="btn btn-primary">
-          Crear Nueva Seccion
+        <div className="card" style={styles.nav}>
+          <div className="card-header">Seccion:</div>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Tema: </li>
+          </ul>
         </div>
-
-        <div style={button} className="btn btn-primary">
-          Crear Nueva Clase
-        </div> */}
       </div>
     )}
   </div>
