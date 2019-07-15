@@ -5,8 +5,7 @@ const styles = {
     backgroundColor: "#90CAF9 "
   },
   img: {
-    width: "auto",
-    height: "auto",
+    width: "65px",
   },
   search: {
     display: "block",

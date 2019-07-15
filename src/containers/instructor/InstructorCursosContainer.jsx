@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import InstructorCursos from "../../components/instructor/InstructorCursos";
 import { connect } from "react-redux";
-import { compose } from "redux";
-import { firestoreConnect } from "react-redux-firebase";
+import {fetchCursosInstructor} from "../../action-creators/cursosInstructor"
+
 import {auth} from "../../config/app"
 
 class InstructorCursosContainer extends Component {
@@ -11,23 +11,23 @@ class InstructorCursosContainer extends Component {
     super(props);
   }
 
+  componentDidMount(){
+  this.props.getCursos(auth.currentUser.uid)
+  }
+
   render() {
-      console.log("cursos en container", this.props.instructorCursos)
-    return <InstructorCursos cursos = {this.props.instructorCursos}/>;
+    return <InstructorCursos cursos = {this.props.cursos}/>;
   }
 }
 
+const mapDispatchToProps =(dispatch)=> ({
+  getCursos:(id)=>dispatch(fetchCursosInstructor(id))
+})
 
-export default compose(
-    firestoreConnect(props =>[
-        {
-          collection: 'cursos',
-          where: [
-            ['instructorid', '==', auth.currentUser.uid]
-          ],
-        }
-    ]),
-    connect((state) => ({
-      instructorCursos: state.firestore.ordered.cursos
-    }))
-   )(InstructorCursosContainer)
+const mapStateToProps = state =>({
+  cursos:state.instructorCursos.all.items
+})
+export default
+  
+  connect(mapStateToProps, mapDispatchToProps)
+(InstructorCursosContainer)
