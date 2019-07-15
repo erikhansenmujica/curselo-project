@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 const styles = {
   wrapper: {
@@ -6,7 +7,7 @@ const styles = {
     width: "100%"
   },
   sidebar: {
-    width: " 175px",
+    width: " 200px",
     position: " fixed",
     top: "0",
     left: "0",
@@ -17,10 +18,14 @@ const styles = {
     transition: "all 0.3s"
   },
   text: {
+    color:'ligth-blue',
     margin: "10px"
   },
   img: {
     width: "95px"
+  },
+  btn: {
+    width: "100%"
   }
 };
 
@@ -29,25 +34,48 @@ export default () => (
     <nav id="sidebar" style={styles.sidebar}>
       <div style={styles.text}>
         <div>
-          <img
-            src="https://lh3.googleusercontent.com/ZmqnvDIzqxMj4NBjqevd7G-yyIixYtBnNSpEiThXoUjVnjKUORQgfuML-kW_SMQ5hWaMRHazEtRHalAvy23DvQ=s0"
-            alt=""
-            style={styles.img}
-          />
+          <center>
+            <img
+              src="https://lh3.googleusercontent.com/ZmqnvDIzqxMj4NBjqevd7G-yyIixYtBnNSpEiThXoUjVnjKUORQgfuML-kW_SMQ5hWaMRHazEtRHalAvy23DvQ=s0"
+              alt=""
+              style={styles.img}
+            />
+          </center>
         </div>
+        <br />
         <ul className="list-unstyled components">
-          <li className="active">
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
-              Home
-            </a>
-          </li>
+          <Link to="/instructor">
+            <button
+              type="button"
+              className='btn btn-outline-light'
+              style={styles.btn}
+            >
+              <li className="active">Home</li>
+            </button>
+          </Link>
           <li>
-            <a href="#"> About</a>
+            <br />
+            <Link to="/instructor/cursos">
+              <button
+                type="button"
+                className='btn btn-outline-light'
+                style={styles.btn}
+              >
+                Cursos
+              </button>
+            </Link>
           </li>
+          <br />
           <li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-              Pages
-            </a>
+            <Link to="/instructor/crear">
+              <button
+                type="button"
+                className='btn btn-outline-light'
+                style={styles.btn}
+              >
+                Crear Cursos
+              </button>
+            </Link>
           </li>
         </ul>
       </div>
