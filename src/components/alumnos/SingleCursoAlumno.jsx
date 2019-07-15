@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export default ({ curso }) => (
   <div
@@ -42,14 +41,14 @@ export default ({ curso }) => (
           float: "left"
         }}
       >
-        {curso && <h3>{curso.titulo}</h3>}
-        {curso && <p>{curso.descripcion}</p>}
+        {curso && <h3>{curso.name}</h3>}
+        {curso && <p>{curso.description}</p>}
       </div>
 
         </div>
     </div>
    <div style={{marginLeft: "10%"}}>
-      <button type="button" class="btn btn-outline-secondary btn-lg">Comprar: U$D{curso.precio}</button>
+      <button type="button" class="btn btn-outline-secondary btn-lg">Comprar: U$D{curso.price}</button>
    </div>
   </div>
 );

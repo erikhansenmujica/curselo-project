@@ -1,22 +1,30 @@
 import React, { Component } from "react";
 import SingleCursoAlumno from "../../components/alumnos/SingleCursoAlumno";
+import {fetchCursoAlumno} from "../../action-creators/cursosAlumnos"
 import { connect } from "react-redux";
-import { compose } from 'redux'
-import { firestoreConnect } from 'react-redux-firebase'
+
  class SingleCursoAlumnoContainer extends Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount(){
+    this.props.getCurso(this.props.match.params.cursoId)
+  }
+
   render() {
-    return <SingleCursoAlumno curso={this.props.curso[0]}/>;
+    return <SingleCursoAlumno curso={this.props.curso}/>;
   }
 }
 
-export default compose(
-  firestoreConnect((props)=>[
-    { collection: 'cursos', doc:props.match.params.cursoId }
-  ]),
-  connect(({ firestore: { ordered } }) => ({
-    curso: ordered.cursos
-  }))
-)(SingleCursoAlumnoContainer)
+const mapDispatchToProps =(dispatch)=> ({
+  getCurso:(id)=>dispatch(fetchCursoAlumno(id))
+})
+
+const mapStateToProps = state =>({
+  curso:state.alumnoCursos.course
+})
+export default
+  
+  connect(mapStateToProps, mapDispatchToProps)
+(SingleCursoAlumnoContainer)

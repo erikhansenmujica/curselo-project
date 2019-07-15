@@ -25,9 +25,9 @@ export default ({ cursos }) => (
             alt=""
           />
           <div className="card-body">
-            <h5 className="card-title">{curso.titulo}</h5>
+            <h5 className="card-title">{curso.name}</h5>
             <p className="card-text">
-              {curso.descripcion.length>120?curso.descripcion.slice(0,120)+"...":curso.descripcion} 
+              {curso.description.length>120?curso.description.slice(0,120)+"...":curso.description} 
             </p>
             
             <Link to={`/alumnos/cursos/${curso.id}`} >

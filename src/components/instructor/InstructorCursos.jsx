@@ -16,10 +16,8 @@ const style = {
 export default ({ cursos }) => (
   
   <div>
-    {console.log("cursos", cursos)}
-    <h1>ENTRO?</h1>
     <div style={style.container}>
-      {cursos ? (
+      {cursos? (
         cursos.map(curso => (
           <div key={curso.id} className="card" style={style.childs}>
             <img
@@ -28,11 +26,11 @@ export default ({ cursos }) => (
               alt=""
             />
             <div className="card-body">
-              <h5 className="card-title">{curso.titulo}</h5>
+              <h5 className="card-title">{curso.name}</h5>
               <p className="card-text">
-                {curso.descripcion.length > 120
-                  ? curso.descripcion.slice(0, 120) + "..."
-                  : curso.descripcion}
+                {curso.description.length > 120
+                  ? curso.description.slice(0, 120) + "..."
+                  : curso.description}
               </p>
 
               {/* <Link to={`/cursos/alumno/${curso.id}`} > */}
