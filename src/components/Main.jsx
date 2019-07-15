@@ -43,7 +43,7 @@ const instructor = () => (
     <Route path="/instructor/crear" component={CrearContainer} />
     <Route
       exact
-      path="/cursos/instructor/:cursoId"
+      path="/instructor/cursos/:cursoId"
       component={SingleCursoInstructorContainer}
     />
     </Switch>

@@ -1,9 +1,8 @@
 import React from "react";
 import CrearCurso from "../../components/instructor/CrearCurso";
 import { firebase, db } from "../../config/app";
-import {connect} from 'react-redux'
-import {auth} from "../../config/app"
-
+import { connect } from "react-redux";
+import { auth } from "../../config/app";
 
 export default class CrearContainer extends React.Component {
   constructor(props) {
@@ -16,7 +15,7 @@ export default class CrearContainer extends React.Component {
       contenido: "",
       anexos: "",
       file: "",
-      secciones:{},
+      secciones: {},
       instructorid: ""
     };
     this.handleChange = this.handleChange.bind(this);
@@ -31,15 +30,19 @@ export default class CrearContainer extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    db.collection("cursos").add({
-      titulo: this.state.titulo,
-      duracion: this.state.duracion,
-      precio: this.state.precio,
-      descripcion: this.state.descripcion,
-      contenido: this.state.contenido,
-      anexos: this.state.anexos,
-      instructorid: auth.currentUser.uid
-    });
+    db.collection("cursos")
+      .add({
+        titulo: this.state.titulo,
+        duracion: this.state.duracion,
+        precio: this.state.precio,
+        descripcion: this.state.descripcion,
+        contenido: this.state.contenido,
+        anexos: this.state.anexos,
+        instructorid: auth.currentUser.uid
+      })
+      .then(data => {
+        this.props.history.push(`/instructor/cursos/${data.id}`);
+      });
   }
 
   handleSetFile(e) {
@@ -52,7 +55,7 @@ export default class CrearContainer extends React.Component {
 
   handleUpload(e) {
     e.preventDefault();
-    const file = this.state.file
+    const file = this.state.file;
     const storageRef = firebase.storage().ref(`/files/${file.name}`);
     storageRef.put(file).then(file => console.log("FILE?", file));
   }
@@ -68,9 +71,3 @@ export default class CrearContainer extends React.Component {
     );
   }
 }
-
-// const mapDispatchToProps= (dispatch)=>{
-//   return (
-
-//   )
-// }
