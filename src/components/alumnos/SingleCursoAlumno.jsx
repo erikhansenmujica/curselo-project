@@ -48,7 +48,7 @@ export default ({ curso }) => (
         </div>
     </div>
    <div style={{marginLeft: "10%"}}>
-      <button type="button" class="btn btn-outline-secondary btn-lg">Comprar: U$D{curso.price}</button>
+      <button type="button" className="btn btn-outline-secondary btn-lg">Comprar: U$D{curso.price}</button>
    </div>
   </div>
 );
