@@ -45,5 +45,10 @@ export default () => (
         <button style={button} className="btn btn-primary">Ir a mis cursos</button>
       </div>
     </Link>
+    <Link to="/instructor/cursos/tema">
+      <div>
+        <button style={button} className="btn btn-primary">Ir a Crear Tema</button>
+      </div>
+    </Link>
   </div>
 );
