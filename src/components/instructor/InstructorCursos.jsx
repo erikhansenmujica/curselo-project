@@ -1,8 +1,9 @@
 import React from "react";
-//import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const style = {
   container: {
+    marginLeft: "15%",
     display: "flex",
     flexFlow: "row wrap",
     justifyContent: "space-evenly"
@@ -15,7 +16,7 @@ const style = {
 };
 export default ({ cursos }) => (
   
-  <div>
+  <div >
     <div style={style.container}>
       {cursos? (
         cursos.map(curso => (
@@ -33,9 +34,9 @@ export default ({ cursos }) => (
                   : curso.description}
               </p>
 
-              {/* <Link to={`/cursos/alumno/${curso.id}`} > */}
+              <Link to={`/instructor/cursos/${curso.id}`} >
               <div className="btn btn-primary">Go somewhere</div>
-              {/* </Link> */}
+              </Link>
             </div>
           </div>
         ))

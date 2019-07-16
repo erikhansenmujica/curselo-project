@@ -3,8 +3,9 @@ import CrearCurso from "../../components/instructor/CrearCurso";
 import { firebase, db } from "../../config/app";
 import { connect } from "react-redux";
 import { auth } from "../../config/app";
+import {createCourse} from "../../action-creators/cursosInstructor"
 
-export default class CrearContainer extends React.Component {
+class CrearContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,16 +31,11 @@ export default class CrearContainer extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    db.collection("cursos")
-      .add({
-        titulo: this.state.titulo,
-        duracion: this.state.duracion,
-        precio: this.state.precio,
-        descripcion: this.state.descripcion,
-        contenido: this.state.contenido,
-        anexos: this.state.anexos,
-        instructorid: auth.currentUser.uid
-      })
+    this.props.newCourse({ 
+      name: this.state.titulo,
+      price: this.state.precio,
+      description: this.state.descripcion,
+      ownerId: auth.currentUser.uid})
       .then(data => {
         this.props.history.push(`/instructor/cursos/${data.id}`);
       });
@@ -71,3 +67,10 @@ export default class CrearContainer extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) =>({
+  newCourse: (obj)=>dispatch(createCourse(obj))
+})
+
+
+export default connect (null, mapDispatchToProps)(CrearContainer)
