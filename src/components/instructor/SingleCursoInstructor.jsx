@@ -4,7 +4,7 @@ import SectionTopicContainer from "../../containers/instructor/Section&TopicCont
 
 const styles = {
   nav: {
-    width:"80vw"
+    width:"60vw"
   },
   button: {
     display: "inline",
@@ -15,16 +15,16 @@ const styles = {
 
 export default props => (
   <div style={{  
-    marginLeft:"10%",
-    marginTop:"3%"}}>
-    {props.curso && (
+    marginLeft:"15%",
+    marginTop:"-2%"}}>
+    {props.curso.name && (
       <div >
         <div className="media">
           <div className="media-body">
             <h5 className="mt-0">Curso: {props.curso.name}</h5>
           </div>
         </div>
-        <SectionTopicContainer curso={props.curso}/>
+        <SectionTopicContainer cursoId={props.curso.id}/>
       </div>
     )}
   </div>

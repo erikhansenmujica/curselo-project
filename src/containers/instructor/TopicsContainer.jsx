@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {fetchSeccionesDeUnCurso} from "../../action-creators/cursosInstructor"
-import SectionTopic from "../../components/instructor/Section&Topic";
+import { fetchTopicsDeUnaSeccion} from "../../action-creators/cursosInstructor"
+import Topics from "../../components/instructor/Topics";
 
 class SingleCursoInstructorContainer extends Component {
   constructor(props) {
@@ -10,24 +10,24 @@ class SingleCursoInstructorContainer extends Component {
   }
 
   componentDidMount(){
-      this.props.getSecciones(this.props.cursoId)
+      this.props.getTopics(this.props.secId)
   }
 
   render() {
     return (
-      <SectionTopic
-      secciones={this.props.secciones}
+      <Topics
+      topics={this.props.topics}
       />
     );
   }
 }
 
 const mapDispatchToProps = (dispatch) =>({
-  getSecciones:(id)=>dispatch(fetchSeccionesDeUnCurso(id)),
+  getTopics:(id)=>dispatch(fetchTopicsDeUnaSeccion(id))
 })
 
 const mapStateToProps = (state)=>({
-  secciones: state.instructorCursos.secciones
+    topics: state.instructorCursos.topics
 })
 
 export default 

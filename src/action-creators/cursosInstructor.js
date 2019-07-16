@@ -1,4 +1,4 @@
-import {GET_CURSOS_INSTRUCTOR, GET_CURSO_INSTRUCTOR} from "./constants"
+import {GET_CURSOS_INSTRUCTOR, GET_CURSO_INSTRUCTOR,GET_SECCIONES,GET_TOPICS, FORGET_COURSE} from "./constants"
 import axios from "axios"
 
 const ADD_CURSOS = (cursos)=>({
@@ -10,6 +10,22 @@ const ADD_CURSO = (curso)=>({
     curso
 })
 
+const ADD_SECCIONES = (secciones)=>({
+    type:GET_SECCIONES,
+    secciones
+})
+
+const ADD_TOPICS = (topics)=>({
+    type:GET_TOPICS,
+    topics
+})
+const FORGETCOURSE = ()=>({
+    type:FORGET_COURSE
+    
+})
+
+export const forgetCourse = ()=> 
+(dispatch)=>dispatch(FORGETCOURSE())
 
 export const fetchCursosInstructor=(id)=>
 (dispatch)=>
@@ -22,6 +38,20 @@ export const fetchCursoInstructor=(id)=>
     axios.get(`https://curselo-dev.appspot.com/_ah/api/lms/v2/getCourse?courseId=${id}`)
     .then((res)=>res.data)
     .then(curso=>dispatch(ADD_CURSO(curso)))
+
+
+export const fetchSeccionesDeUnCurso=(id)=>
+(dispatch)=>
+    axios.get(`https://curselo-dev.appspot.com/_ah/api/lms/v2/getCourseSections?courseId=${id}`)
+    .then((res)=>res.data)
+    .then(secciones=>dispatch(ADD_SECCIONES(secciones.items)))
+
+export const fetchTopicsDeUnaSeccion=(id)=>
+(dispatch)=>
+    axios.get(`https://curselo-dev.appspot.com/_ah/api/lms/v2/getSectionTopics?sectionId=${id}`)
+    .then((res)=>res.data)
+    .then(topics=>dispatch(ADD_TOPICS(topics.items)))
+
 
 
 export const createCourse = (curso)=>dispatch=>axios.post("https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourse", curso)

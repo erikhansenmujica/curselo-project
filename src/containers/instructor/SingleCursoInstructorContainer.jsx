@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SingleCursoInstructor from "../../components/instructor/SingleCursoInstructor";
 import { connect } from "react-redux";
-import {fetchCursoInstructor} from "../../action-creators/cursosInstructor"
+import {fetchCursoInstructor, forgetCourse} from "../../action-creators/cursosInstructor"
 
 class SingleCursoInstructorContainer extends Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class SingleCursoInstructorContainer extends Component {
   }
 
   componentDidMount(){
+    this.props.forgetCourse()
     this.props.getCurso(this.props.match.params.cursoId)
   }
 
@@ -23,7 +24,8 @@ class SingleCursoInstructorContainer extends Component {
 }
 
 const mapDispatchToProps = (dispatch) =>({
-  getCurso:(id)=>dispatch(fetchCursoInstructor(id))
+  getCurso:(id)=>dispatch(fetchCursoInstructor(id)),
+  forgetCourse:()=>dispatch(forgetCourse())
 })
 
 const mapStateToProps = (state)=>({

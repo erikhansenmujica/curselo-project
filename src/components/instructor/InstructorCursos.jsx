@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 
 const style = {
   container: {
+    marginLeft: "15%",
     display: "flex",
     flexFlow: "row wrap",
     justifyContent: "space-evenly"
@@ -15,7 +16,7 @@ const style = {
 };
 export default ({ cursos }) => (
   
-  <div>
+  <div >
     <div style={style.container}>
       {cursos? (
         cursos.map(curso => (
