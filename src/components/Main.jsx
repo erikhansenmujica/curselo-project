@@ -10,6 +10,7 @@ import SingleCursoAlumnoContainer from "../containers/alumnos/SingleCursoAlumnoC
 import SideBar from "../components/instructor/SideBar";
 import InstructorCursosContainer from "../containers/instructor/InstructorCursosContainer";
 import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
+import SignUpContainer from "../containers/SignUpContainer"
 
 export default () => (
   <div>
@@ -25,6 +26,7 @@ export default () => (
 const alumnos = () => (
   <div>
     <NavBar />
+    <Route exact path="/alumnos/signUp" component={SignUpContainer}/>
     <Route exact path="/alumnos/cursos" component={Cursos} />
     <Route
       exact

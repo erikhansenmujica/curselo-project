@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SignUpContainer from "../containers/SignUpContainer";
 const styles = {
   colors: {
     backgroundColor: "#90CAF9 "
   },
   img: {
-    width: "65px",
+    width: "65px"
   },
   search: {
     display: "block",
@@ -16,7 +17,9 @@ const styles = {
   }
 };
 
-export default () => (
+export default (props) => {
+console.log(props)
+  return (
   <div className="navbar navbar-expand-lg navbar-light" style={styles.colors}>
     <button
       className="navbar-toggler"
@@ -52,16 +55,35 @@ export default () => (
       </form>
       <ul className="navbar-nav mr-auto mt-2 mt-lg-0" style={styles.child}>
         <li className="nav-item">
-          <a className="nav-link" href="#">
+          <button
+            className="btn btn-default btn-rounded"
+            data-toggle="modal"
+            data-target="#darkModalForm"
+          
+          >
             LogIn
-          </a>
+          </button>
+        </li>
+
+        <li className="nav-item">
+          <button
+            className="btn btn-default btn-rounded mb-4"
+            data-toggle="modal"
+            data-target="#modalRegisterForm"
+          >
+            SignIn
+          </button>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">
-            SignIn
-          </a>
+          <button
+            className="btn btn-default btn-rounded mb-4"
+
+          >
+            LogOut
+          </button>
         </li>
       </ul>
     </div>
-  </div>
-);
+    <SignUpContainer />
+  </div>)
+};
