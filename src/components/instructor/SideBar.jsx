@@ -1,60 +1,95 @@
 import React from "react";
-import SideNav, {
-  Toggle,
-  Nav,
-  NavItem,
-  NavIcon,
-  NavText
-} from "@trendmicro/react-sidenav";
-
-// Be sure to include styles at some point, probably during your bootstraping
-import "@trendmicro/react-sidenav/dist/react-sidenav.css";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 const styles = {
-  colors: {
-    backgroundColor: "#90CAF9 "
+  wrapper: {
+    display: "flex",
+    width: "100%"
+  },
+  sidebar: {
+    width: " 200px",
+    position: " fixed",
+    top: "0",
+    left: "0",
+    height: "100vh",
+    zIndex: "999",
+    background: "#90CAF9",
+    color: "#fff",
+    transition: "all 0.3s"
+  },
+  text: {
+    color:'ligth-blue',
+    margin: "10px"
+  },
+  img: {
+    width: "95px"
+  },
+  btn: {
+    width: "100%"
   }
 };
 
 export default () => (
-  <div style={styles.colors}>
-    <SideNav>
-      <SideNav.Toggle />
-      <SideNav.Nav defaultSelected="home">
-        <NavItem eventKey="home">
-          <NavIcon>
-            <i className="fa fa-fw fa-home" style={{ fontSize: "1.75em" }} />
-          </NavIcon>
-          <NavText>Home</NavText>
-        </NavItem>
-        <NavItem eventKey="cursos">
-          <NavIcon>
-            <i
-              className="fa fa-fw fa-line-chart"
-              style={{ fontSize: "1.75em" }}
+  <div className="wrapper" style={styles.wrapper}>
+    <nav id="sidebar" style={styles.sidebar}>
+      <div style={styles.text}>
+        <div>
+          <center>
+            <img
+              src="https://lh3.googleusercontent.com/ZmqnvDIzqxMj4NBjqevd7G-yyIixYtBnNSpEiThXoUjVnjKUORQgfuML-kW_SMQ5hWaMRHazEtRHalAvy23DvQ=s0"
+              alt=""
+              style={styles.img}
             />
-          </NavIcon>
-          <NavText>Cursos</NavText>
-        </NavItem>
-        <NavItem eventKey="alumnos">
-          <NavIcon>
-            <i
-              className="fa fa-fw fa-line-chart"
-              style={{ fontSize: "1.75em" }}
-            />
-          </NavIcon>
-          <NavText>Alumnos</NavText>
-        </NavItem>
-        <NavItem eventKey="pagos">
-          <NavIcon>
-            <i
-              className="fa fa-fw fa-line-chart"
-              style={{ fontSize: "1.75em" }}
-            />
-          </NavIcon>
-          <NavText>Pagos</NavText>
-        </NavItem>
-      </SideNav.Nav>
-    </SideNav>
+          </center>
+        </div>
+        <br />
+        <ul className="list-unstyled components">
+          <Link to="/instructor">
+            <button
+              type="button"
+              className='btn btn-outline-light'
+              style={styles.btn}
+            >
+              <li className="active">Home</li>
+            </button>
+          </Link>
+          <li>
+            <br />
+            <Link to="/instructor/cursos">
+              <button
+                type="button"
+                className='btn btn-outline-light'
+                style={styles.btn}
+              >
+                Cursos
+              </button>
+            </Link>
+          </li>
+          <br />
+          <li>
+            <Link to="/instructor/crear">
+              <button
+                type="button"
+                className='btn btn-outline-light'
+                style={styles.btn}
+              >
+                Crear Cursos
+              </button>
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="content">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <button type="button" id="sidebarCollapse" className="btn btn-info">
+            <i className="fas fa-align-left" />
+            <span>Toggle Sidebar</span>
+          </button>
+        </div>
+      </nav>
+    </div>
   </div>
 );
