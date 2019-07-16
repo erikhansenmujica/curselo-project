@@ -15,7 +15,6 @@ export default () => (
   <div>
     <Switch>
       <Route exact path="/" component={HomeContainer} />
-
       <Route extact path="/instructor" component={instructor} />
       <Route path="/alumnos" component={alumnos} />
     </Switch>
@@ -37,17 +36,24 @@ const alumnos = () => (
 const instructor = () => (
   <div>
     <SideBar />
-  
     <Switch>
-    <Route exact path="/instructor/" component={InstructorContainer} />
-    <Route exact path="/instructor/cursos" component={InstructorCursosContainer}/>
-    <Route path="/instructor/crear" component={CrearContainer} />
-    <Route exact path="/instructor/cursos/tema" component={CrearTemaContainer} />
-    <Route
-      exact
-      path="/instructor/cursos/:cursoId"
-      component={SingleCursoInstructorContainer}
-    />
+      <Route exact path="/instructor/" component={InstructorContainer} />
+      <Route
+        exact
+        path="/instructor/cursos"
+        component={InstructorCursosContainer}
+      />
+      <Route path="/instructor/crear" component={CrearContainer} />
+      <Route
+        exact
+        path="/instructor/cursos/tema"
+        component={CrearTemaContainer}
+      />
+      <Route
+        exact
+        path="/instructor/cursos/:cursoId"
+        component={SingleCursoInstructorContainer}
+      />
     </Switch>
   </div>
 );
