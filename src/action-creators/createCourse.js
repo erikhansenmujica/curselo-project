@@ -7,11 +7,3 @@ export default createCourse = (course)=>{
     }
 }
 
-// export default createCourse = (state)=>{
-//     db.collection('cursos').add({
-//         titulo:state.titulo,
-//         descripcion:state.descripcion,
-
-
-//     })
-// }

@@ -9,8 +9,8 @@ export default props => (
         </li>
       ))
     ) : (
-      <div class="spinner-border text-info" role="status">
-        <span class="sr-only">Loading...</span>
+      <div className="spinner-border spinner-border-sm text-info" role="status">
+        <span className="sr-only">Loading...</span>
       </div>
     )}
   </div>
