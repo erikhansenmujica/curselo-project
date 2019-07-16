@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
 export default () => (
   <div>
@@ -10,19 +11,25 @@ export default () => (
     <div className="container">
       <div className="card-deck mb-3 text-center">
         <div className="card mb-4 shadow-sm">
+          <Link to='/instructor/cursos/tema/subirtexto'>
           <button type="button" className="btn btn-lg btn-block btn-primary">
             Upload text!
           </button>
+          </Link>
         </div>
         <div className="card mb-4 shadow-sm">
+          <Link to='/instructor/cursos/tema/subirarchivos'>
           <button type="button" className="btn btn-lg btn-block btn-primary">
             Upload PDF!
           </button>
+          </Link>
         </div>
         <div className="card mb-4 shadow-sm">
+          <Link to='/instructor/cursos/tema/subirvideo'>
           <button type="button" className="btn btn-lg btn-block btn-primary">
             Upload a video!
           </button>
+          </Link>
         </div>
       </div>
     </div>
