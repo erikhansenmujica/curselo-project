@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import SingleCursoInstructor from "../../components/instructor/SingleCursoInstructor";
 import { connect } from "react-redux";
-import { compose } from "redux";
-import { firestoreConnect } from "react-redux-firebase";
+import {fetchCursoInstructor, forgetCourse} from "../../action-creators/cursosInstructor"
 
 class SingleCursoInstructorContainer extends Component {
   constructor(props) {
@@ -10,23 +9,29 @@ class SingleCursoInstructorContainer extends Component {
 
   }
 
+  componentDidMount(){
+    this.props.forgetCourse()
+    this.props.getCurso(this.props.match.params.cursoId)
+  }
+
   render() {
-    console.log("SOY EL CURSO EN EL CONT", this.props);
     return (
       <SingleCursoInstructor
-        curso={this.props.cursos && this.props.cursos[0]}
+        curso={this.props.curso}
       />
     );
   }
 }
 
-export default compose(
-  firestoreConnect(props => [
-    { collection: "cursos", doc: props.match.params.cursoId }
-  ]),
-  connect(({ firestore: { ordered } }) => {
-    return {
-      cursos: ordered.cursos
-    };
-  })
-)(SingleCursoInstructorContainer);
+const mapDispatchToProps = (dispatch) =>({
+  getCurso:(id)=>dispatch(fetchCursoInstructor(id)),
+  forgetCourse:()=>dispatch(forgetCourse())
+})
+
+const mapStateToProps = (state)=>({
+  curso: state.instructorCursos.course
+})
+
+export default 
+  connect(mapStateToProps
+, mapDispatchToProps)(SingleCursoInstructorContainer);
