@@ -1,7 +1,7 @@
 import React from "react";
+import { userInfo } from "os";
 
-export default ({ handleChange, handleSignUp, handleLogOut}) => {
-
+export default ({ handleChange, handleSignUp }) => {
   return (
     <div>
       <div
@@ -21,7 +21,6 @@ export default ({ handleChange, handleSignUp, handleLogOut}) => {
                 className="close"
                 data-dismiss="modal"
                 aria-label="Close"
-                onClick={handleLogOut}
               >
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -53,6 +52,7 @@ export default ({ handleChange, handleSignUp, handleLogOut}) => {
                     id="orangeForm-pass"
                     className="form-control validate"
                     onChange={handleChange}
+                    placeholder="more than 6 characters"
                   />
                 </div>
               </div>
@@ -63,7 +63,7 @@ export default ({ handleChange, handleSignUp, handleLogOut}) => {
                   data-toggle="modal"
                   data-target="#modalRegisterForm"
                 >
-                  Sign up
+                  Sign Up
                 </button>
               </div>
             </form>

@@ -57,7 +57,6 @@ export const fetchTopicsDeUnaSeccion=(id)=>
 export const createCourse = (curso)=>dispatch=>axios.post("https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourse", curso)
 .then((res)=> res.data)
     .then(curso=>{
-        console.log(curso)
        dispatch(ADD_CURSO(curso))
         return curso
     })
