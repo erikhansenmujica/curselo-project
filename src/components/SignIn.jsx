@@ -1,11 +1,11 @@
 import React from "react";
 
-const styles={
-    text:{
-        color:"black"
-    }
-}
-export default ({ handleSignIn }) => (
+const styles = {
+  text: {
+    color: "black"
+  }
+};
+export default ({ handleSignIn, handleChange }) => (
   <div>
     <div
       className="modal fade"
@@ -23,9 +23,9 @@ export default ({ handleSignIn }) => (
                 className="modal-title w-100 white-text font-weight-bold"
                 id="myModalLabel"
               >
-                <strong  style={styles.text} >SIGN</strong>{" "}
+                <strong style={styles.text}>SIGN</strong>{" "}
                 <a className="green-text font-weight-bold">
-                  <strong  style={styles.text}> UP</strong>
+                  <strong style={styles.text}> UP</strong>
                 </a>
               </h3>
               <button
@@ -39,25 +39,37 @@ export default ({ handleSignIn }) => (
             </div>
             <form action="" onSubmit={handleSignIn}>
               <div className="modal-body">
-                <label data-error="wrong" data-success="right" style={styles.text}>
-                 Email
+                <label
+                  data-error="wrong"
+                  data-success="right"
+                  style={styles.text}
+                >
+                  Email
                 </label>
                 <div className="md-form mb-5">
                   <input
+                    name="email"
                     type="email"
                     id="Form-email5"
                     className="form-control validate white-text"
+                    onChange={handleChange}
                   />
                 </div>
 
                 <div className="md-form pb-3">
-                  <label data-error="wrong" data-success="right" style={styles.text}>
+                  <label
+                    data-error="wrong"
+                    data-success="right"
+                    style={styles.text}
+                  >
                     Password
                   </label>
                   <input
+                    name="password"
                     type="password"
                     id="Form-pass5"
                     className="form-control validate white-text"
+                    onChange={handleChange}
                   />
                   <div className="form-group mt-4">
                     <input

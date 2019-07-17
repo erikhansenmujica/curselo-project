@@ -1,4 +1,4 @@
-import CREATE_COURSE from './constants'
+import {CREATE_COURSE} from './constants'
 
 export default createCourse = (course)=>{
     return{
@@ -6,4 +6,3 @@ export default createCourse = (course)=>{
         course,
     }
 }
-

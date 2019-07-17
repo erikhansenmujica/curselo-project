@@ -42,21 +42,21 @@ export default ({
       }}
     >
       <div className="card bg mb-3" style={styles.cards}>
-        <div className="card-header">Titulo</div>
+        <div className="card-header">Name: </div>
         <div className="card-body">
           <input
             type="text"
-            name="titulo"
+            name="name"
             className="form-control"
             onChange={handleChange}
           />
         </div>
       </div>
       <div className="card bg mb-3" style={styles.cards}>
-        <div className="card-header">Precio</div>
+        <div className="card-header">Price: </div>
         <div className="card-body">
           <input
-            name="precio"
+            name="price"
             type="number"
             className="form-control"
             onChange={handleChange}
@@ -64,46 +64,11 @@ export default ({
         </div>
       </div>
       <div className="card bg mb-3" style={styles.cards}>
-        <div className="card-header">Anexos</div>
+        <div className="card-header">Description: </div>
         <div className="card-body">
           <input
             type="text"
-            name="anexos"
-            className="form-control"
-            onChange={handleChange}
-          />
-        </div>
-      </div>
-      <div className="card bg mb-3" style={styles.cards}>
-        <div className="card-header">Duracion</div>
-        <div className="card-body">
-          <input
-            name="duracion"
-            type="text"
-            className="form-control"
-            onChange={handleChange}
-          />
-        </div>
-      </div>
-      <div className="card bg-light mb-3" style={styles.cards}>
-        <div className="card-header">Descripcion</div>
-        <div className="card-body">
-          <textarea
-            style={styles.inputDescription}
-            name="descripcion"
-            type="text"
-            className="form-control"
-            onChange={handleChange}
-          />
-        </div>
-      </div>
-      <div className="card bg-light mb-3" style={styles.cards}>
-        <div className="card-header">Contenido</div>
-        <div className="card-body">
-          <textarea
-            style={styles.inputDescription}
-            name="contenido"
-            type="text"
+            name="description"
             className="form-control"
             onChange={handleChange}
           />
