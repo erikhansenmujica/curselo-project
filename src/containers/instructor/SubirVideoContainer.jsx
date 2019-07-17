@@ -9,6 +9,10 @@ export default class SubirVideoContainer extends React.Component {
   }
 
   render() {
-    return <SubirVideo />
+    return <SubirVideo
+    
+    courseId={this.props.match.params.cursoId}
+    sectionId={this.props.match.params.sectionId}
+    />
   }
 };

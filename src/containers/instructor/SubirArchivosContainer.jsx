@@ -23,15 +23,15 @@ export default class SubirArchivosContainer extends React.Component {
   handleUpload(e) {
     e.preventDefault();
     const file = this.state.file;
-    const storageRef = firebase.storage().ref(`/files/${file.name}`);
+    const storageRef = firebase.storage().ref(`/files/${this.props.match.params.sectionId}/${file.name}`);
     storageRef.put(file).then(file => {
       storageRef.getDownloadURL().then(data => {
         Axios.post(
           "https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourseTopic",
-          { sectionId: "4862263592747008", contentURL: data }
+          { sectionId: this.props.match.params.sectionId, contentURL: data }
         ).then(data2 => {
           console.log("YO SOY DATA", data2);
-          this.props.history.push("/instructor");
+          this.props.history.push(`/instructor/cursos/${this.props.match.params.cursoId}`);
         });
       });
     });
@@ -44,6 +44,8 @@ export default class SubirArchivosContainer extends React.Component {
       <SubirArchivos
         handleUpload={this.handleUpload}
         handleSetFile={this.handleSetFile}
+        courseId={this.props.match.params.cursoId}
+        sectionId={this.props.match.params.sectionId}
       />
     );
   }

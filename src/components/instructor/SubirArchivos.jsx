@@ -5,7 +5,7 @@ const style = {
   marginLeft: "50%"
 };
 
-export default ({ handleUpload, handleSetFile }) => (
+export default ({ handleUpload, handleSetFile, courseId, sectionId }) => (
   <div style={style}>
     <h1>Upload a File!</h1>
 
@@ -15,7 +15,7 @@ export default ({ handleUpload, handleSetFile }) => (
       <button type="submit">Upload PDF!</button>
     </form>
 
-    <Link to="/instructor/cursos/tema">
+    <Link to={`/instructor/cursos/${courseId}/section/${sectionId}`}>
       <h5>Volver</h5>
     </Link>
   </div>

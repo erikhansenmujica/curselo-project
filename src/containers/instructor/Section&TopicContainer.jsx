@@ -17,6 +17,7 @@ class SingleCursoInstructorContainer extends Component {
     return (
       <SectionTopic
       secciones={this.props.secciones}
+      courseId={this.props.cursoId}
       />
     );
   }
