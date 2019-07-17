@@ -5,7 +5,7 @@ const style ={
     marginLeft: "50%"
 }
 
-export default ({handleSubmit, handleChange}) => (
+export default ({handleSubmit, handleChange, courseId, sectionId}) => (
     <div style={style}>
 
     <h1>Upload Text</h1>
@@ -15,7 +15,7 @@ export default ({handleSubmit, handleChange}) => (
     </form>
     
     
-    <Link to="/instructor/cursos/tema">
+    <Link to={`/instructor/cursos/${courseId}/section/${sectionId}`}>
     <h5>Volver</h5>
     </Link>
     </div>

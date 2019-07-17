@@ -47,10 +47,10 @@ const instructor = () => (
     <Route exact path="/instructor/" component={InstructorContainer} />
     <Route exact path="/instructor/cursos" component={InstructorCursosContainer}/>
     <Route path="/instructor/crear" component={CrearContainer} />
-    <Route exact path="/instructor/cursos/tema" component={CrearTemaContainer} />
-    <Route exact path="/instructor/cursos/tema/subirarchivos" component={SubirArchivosContainer} />
-    <Route exact path="/instructor/cursos/tema/subirvideo" component={SubirVideoContainer} />
-    <Route exact path="/instructor/cursos/tema/subirtexto" component={SubirTextoContainer} />
+    <Route exact path="/instructor/cursos/:cursoId/section/:sectionId" component={CrearTemaContainer} />
+    <Route exact path="/instructor/cursos/:cursoId/section/:sectionId/subirarchivos" component={SubirArchivosContainer} />
+    <Route exact path="/instructor/cursos/:cursoId/section/:sectionId/subirvideo" component={SubirVideoContainer} />
+    <Route exact path="/instructor/cursos/:cursoId/section/:sectionId/subirtexto" component={SubirTextoContainer} />
     <Route
       exact
       path="/instructor/cursos/:cursoId"
