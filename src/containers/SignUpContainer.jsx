@@ -3,6 +3,7 @@ import SignUp from "../components/SignUp";
 import SignIn from "../components/SignIn";
 import { auth, firebase } from "../config/app";
 import { connect } from "react-redux";
+import { createUser } from "../action-creators/createUser";
 
 class SignUpContainer extends React.Component {
   constructor(props) {
@@ -13,19 +14,8 @@ class SignUpContainer extends React.Component {
     };
     this.handleSignUp = this.handleSignUp.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleLogOut = this.handleLogOut.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
   }
-  // componentDidMount(){
-  //   const email = this.state.email;
-  //   const password = this.state.password;
-  //   auth.signInWithEmailAndPassword(email, password).catch(error => {
-  //     let errorCode = error.code;
-  //     let errorMessage = error.message;
-  //     console.log("logueado el usuario");
-  //   });
-      
-  // }
   handleChange(e) {
     e.preventDefault();
     this.setState({
@@ -36,24 +26,30 @@ class SignUpContainer extends React.Component {
     e.preventDefault();
     const email = this.state.email;
     const password = this.state.password;
+    console.log(createUser(email, password), "creatteeeeeeeeee");
 
-    auth.createUserWithEmailAndPassword(email, password).then(result => {
-      console.log('usuario creado')
+    auth.createUserWithEmailAndPassword(email, password).then(cred => {
+      this.props.createUser(cred);
+      alert("Hello  " + cred.user.email);
     });
   }
   handleSignIn(e) {
     e.preventDefault();
     const email = this.state.email;
     const password = this.state.password;
-    auth.signInWithEmailAndPassword(email, password).catch(error => {
-      let errorCode = error.code;
-      let errorMessage = error.message;
-      console.log("logueado el usuario");
-    });
-  }
-  handleLogOut(e) {
-    e.preventDefault();
-    auth.signOut().then(() => console.log("user signout"));
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(cred => this.props.createUser(cred.user))
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode === "auth/wrong-password") {
+          alert("Wrong password.");
+        } else {
+          alert("Bienvenido");
+        }
+      });
   }
 
   render() {
@@ -62,10 +58,10 @@ class SignUpContainer extends React.Component {
         <SignUp
           handleChange={this.handleChange}
           handleSignUp={this.handleSignUp}
-          handleLogOut={this.handleLogOut}
         />
-        <SignIn 
-        handleSignIn={this.handleSignIn} 
+        <SignIn
+          handleSignIn={this.handleSignIn}
+          handleChange={this.handleChange}
         />
       </div>
     );
@@ -73,10 +69,14 @@ class SignUpContainer extends React.Component {
 }
 
 const mapStateToProps = () => {
-  
   return {
     user: firebase.auth().currentUser
   };
 };
-
-export default connect(mapStateToProps)(SignUpContainer);
+const mapDispatchToProps = dispatch => ({
+  createUser: user => dispatch(createUser(user))
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignUpContainer);
