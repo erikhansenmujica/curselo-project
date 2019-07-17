@@ -9,6 +9,11 @@ export default class CrearTemaContainer extends React.Component {
   }
 
   render() {
-    return <CrearTema />
+    console.log("SOY PROPS EN EL CREAR TEMA CONTAINER", this.props)
+    return <CrearTema 
+    sectionId={this.props.match.params.sectionId}
+    courseId={this.props.match.params.cursoId}
+    />
   }
+
 };
