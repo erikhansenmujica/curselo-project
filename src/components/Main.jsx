@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import CrearContainer from "../containers/instructor/CrearContainer";
 import Cursos from "../containers/alumnos/Cursos";
 import InstructorContainer from "../containers/instructor/InstructorContainer";
-import NavBar from "./NavBar";
+import NavbarContainer from "../containers/NavbarContainer";
 import SingleCursoInstructorContainer from "../containers/instructor/SingleCursoInstructorContainer";
 import SingleCursoAlumnoContainer from "../containers/alumnos/SingleCursoAlumnoContainer";
 import SideBar from "../components/instructor/SideBar";
@@ -28,7 +28,7 @@ export default () => (
 
 const alumnos = () => (
   <div>
-    <NavBar />
+    <NavbarContainer />
     <Route exact path="/alumnos/signUp" component={SignUpContainer}/>
     <Route exact path="/alumnos/cursos" component={Cursos} />
     <Route

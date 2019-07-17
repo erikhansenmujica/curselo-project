@@ -9,15 +9,10 @@ class CrearContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      titulo: "",
-      duracion: 0,
-      precio: 0,
-      descripcion: "",
-      contenido: "",
-      anexos: "",
-      file: "",
-      secciones: {},
-      instructorid: ""
+      name: "",
+      description: "",
+      price: 0,
+      
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,9 +27,9 @@ class CrearContainer extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.newCourse({ 
-      name: this.state.titulo,
-      price: this.state.precio,
-      description: this.state.descripcion,
+      name: this.state.name,
+      price: this.state.price,
+      description: this.state.description,
       ownerId: auth.currentUser.uid})
       .then(data => {
         this.props.history.push(`/instructor/cursos/${data.id}`);
