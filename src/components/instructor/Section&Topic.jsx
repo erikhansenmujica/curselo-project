@@ -16,7 +16,7 @@ export default props => (
     {props.secciones && props.secciones[0] ? (
       props.secciones.map(sec => (
         <div className="card" key={sec.id} style={styles.nav}>
-          <div className="card-header">Seccion: {sec.name}
+          <div className="card-header">Section: {sec.name}
           <button type="button" className="btn btn-light" style={styles.button}>Add Topic</button>
           </div>
           <ul className="list-group list-group-flush">

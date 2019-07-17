@@ -15,7 +15,7 @@ const styles = {
 export default props => (
   <div
     style={{
-      marginLeft: "15%",
+      marginLeft: "17%",
       marginTop: "-2%"
     }}
   >
@@ -23,7 +23,7 @@ export default props => (
       <div>
         <div className="media">
           <div className="media-body">
-            <h5 className="mt-0">Curso: {props.curso.name}</h5>
+            <h5 className="mt-0">Course: {props.curso.name}</h5>
           </div>
         </div>
         <div>
