@@ -7,9 +7,7 @@ const styles = {
     width: "80vw"
   },
   button: {
-    display: "inline",
-    marginLeft: "90%"
-    // marginTop:"auto"
+   float:"right"
   }
 };
 
@@ -18,15 +16,17 @@ export default props => (
     {props.secciones && props.secciones[0] ? (
       props.secciones.map(sec => (
         <div className="card" key={sec.id} style={styles.nav}>
-          <div className="card-header">Seccion: {sec.name}</div>
+          <div className="card-header">Seccion: {sec.name}
+          <button type="button" className="btn btn-light" style={styles.button}>Add Topic</button>
+          </div>
           <ul className="list-group list-group-flush">
             <TopicsContainer secId={sec.id} />
           </ul>
         </div>
       ))
     ) : (
-      <div class="spinner-border text-info" role="status">
-        <span class="sr-only">Loading...</span>
+      <div className="spinner-border text-info" role="status">
+        <span className="sr-only">Loading...</span>
       </div>
     )}
   </div>
