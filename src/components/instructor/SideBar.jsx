@@ -1,3 +1,4 @@
+
 import React from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
@@ -7,7 +8,7 @@ const styles = {
     width: "100%"
   },
   sidebar: {
-    width: " 200px",
+    width: "200px",
     position: " fixed",
     top: "0",
     left: "0",
@@ -81,15 +82,6 @@ export default () => (
       </div>
     </nav>
 
-    <div id="content">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
-          <button type="button" id="sidebarCollapse" className="btn btn-info">
-            <i className="fas fa-align-left" />
-            <span>Toggle Sidebar</span>
-          </button>
-        </div>
-      </nav>
-    </div>
+
   </div>
 );
