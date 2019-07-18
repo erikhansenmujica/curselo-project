@@ -19,7 +19,7 @@ import Log from "./Log";
 export default (props) => (
   <div>
     <Switch>
-      {console.log(window.location.href.includes("instructor"))}
+      
       {window.location.href.includes("instructor") && (props.loading ? (
         <Route path="/instructor" component={instructor} />
       ) : (
