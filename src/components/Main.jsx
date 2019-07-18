@@ -43,7 +43,7 @@ const instructor = () => (
     <SideBar />
   <div  
     style={{
-      marginLeft: "200px",
+      marginLeft: "250px",
       marginRight: "2%",
       marginTop: "-2%"
     }}
