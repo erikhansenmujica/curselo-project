@@ -12,14 +12,15 @@ import InstructorCursosContainer from "../containers/instructor/InstructorCursos
 import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
 import SignUpContainer from "../containers/SignUpContainer";
 import SubirArchivosContainer from "../containers/instructor/SubirArchivosContainer";
+import SubirTextoContainer from "../containers/instructor/SubirTextoContainer";
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
 
-export default () => (
+export default ({loading}) => (
   <div>
     <Switch>
-      <Route exact path="/" component={HomeContainer} />
-      <Route extact path="/instructor" component={instructor} />
+      {loading&&<Route exact path="/instructor" component={instructor} />}
       <Route path="/alumnos" component={alumnos} />
+      <Route exact path="/" component={HomeContainer} />
     </Switch>
   </div>
 );
@@ -27,13 +28,15 @@ export default () => (
 const alumnos = () => (
   <div>
     <NavbarContainer />
-    <Route exact path="/alumnos/signUp" component={SignUpContainer} />
-    <Route exact path="/alumnos/cursos" component={Cursos} />
-    <Route
-      exact
-      path="/alumnos/cursos/:cursoId"
-      component={SingleCursoAlumnoContainer}
-    />
+    <Switch>
+      <Route exact path="/alumnos/signUp" component={SignUpContainer} />
+      <Route exact path="/alumnos/cursos" component={Cursos} />
+      <Route
+        exact
+        path="/alumnos/cursos/:cursoId"
+        component={SingleCursoAlumnoContainer}
+      />
+    </Switch>
   </div>
 );
 
@@ -74,6 +77,5 @@ const instructor = () => (
         component={SingleCursoInstructorContainer}
       />
     </Switch>
-    </div>
-  
+  </div>
 );
