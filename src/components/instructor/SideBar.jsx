@@ -7,7 +7,7 @@ const styles = {
     width: "100%"
   },
   sidebar: {
-    width: " 200px",
+    width: "auto",
     position: " fixed",
     top: "0",
     left: "0",
