@@ -49,6 +49,7 @@ const alumnos = () => (
 const instructor = () => (
   <div>
     <SideBar />
+
     <div
       style={{
         marginLeft: "200px",
@@ -58,7 +59,6 @@ const instructor = () => (
     >
       <Switch>
         <Route exact path="/instructor" component={InstructorContainer} />
-        {console.log("ENTRE XDDDDDDDD 2")}
         <Route
           exact
           path="/instructor/cursos"
@@ -85,13 +85,13 @@ const instructor = () => (
           path="/instructor/cursos/:cursoId/section/:sectionId/subirtexto"
           component={SubirTextoContainer}
         />
-          {console.log("ENTRE XDDDDDDDD 3")}
         <Route
           exact
           path="/instructor/cursos/:cursoId"
           component={SingleCursoInstructorContainer}
         />
       </Switch>
+
     </div>
   </div>
 );

@@ -15,7 +15,7 @@ class InstructorCursosContainer extends Component {
   }
 
   render() {
-    {console.log("ENTRE XDDDDDDDD")}
+    
     return <InstructorCursos cursos={this.props.cursos} />;
   }
 }
