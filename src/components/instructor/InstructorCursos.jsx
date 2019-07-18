@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 
 const style = {
   container: {
-    marginLeft: "15%",
     display: "flex",
     flexFlow: "row wrap",
     justifyContent: "space-evenly"
