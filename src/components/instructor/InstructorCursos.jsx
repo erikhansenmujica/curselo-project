@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const style = {
   container: {
@@ -12,13 +12,17 @@ const style = {
     width: "18rem",
     marginTop: "1%",
     marginBottom: "1%"
+  },
+  center: {
+    textAlign: "center", 
+    marginTop:"35px",
+    fontSize:"46px"
   }
 };
 export default ({ cursos }) => (
-  
-  <div >
+  <div>
     <div style={style.container}>
-      {cursos? (
+      {cursos ? (
         cursos.map(curso => (
           <div key={curso.id} className="card" style={style.childs}>
             <img
@@ -34,14 +38,21 @@ export default ({ cursos }) => (
                   : curso.description}
               </p>
 
-              <Link to={`/instructor/cursos/${curso.id}`} >
-              <div className="btn btn-primary">Go somewhere</div>
+              <Link to={`/instructor/cursos/${curso.id}`}>
+                <div className="btn btn-primary">Go somewhere</div>
               </Link>
             </div>
           </div>
         ))
       ) : (
-        <p>Buscando...</p>
+        <div className="container" style={style.center}>
+          <p>Ups!...Todavia no tiene ningun curso creado</p>
+          <Link to="/instructor/crear">
+            <button className="btn btn-primary" type="button">
+              Crear Curso
+            </button>
+          </Link>
+        </div>
       )}
     </div>
   </div>
