@@ -47,10 +47,10 @@ export const fetchSeccionesDeUnCurso=(id)=>
     .then(secciones=>dispatch(ADD_SECCIONES(secciones.items)))
 
 export const fetchTopicsDeUnaSeccion=(id)=>
-(dispatch)=>
+
     axios.get(`https://curselo-dev.appspot.com/_ah/api/lms/v2/getSectionTopics?sectionId=${id}`)
     .then((res)=>res.data)
-    .then(topics=>dispatch(ADD_TOPICS(topics.items)))
+    .then(topics=>topics.items)
 
 
 

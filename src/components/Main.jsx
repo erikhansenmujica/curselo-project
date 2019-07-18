@@ -13,7 +13,6 @@ import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
 import SignUpContainer from "../containers/SignUpContainer"
 import SubirArchivosContainer from "../containers/instructor/SubirArchivosContainer";
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
-import SubirTextoContainer from "../containers/instructor/SubirTextoContainer";
 
 export default () => (
   <div>
@@ -42,7 +41,13 @@ const alumnos = () => (
 const instructor = () => (
   <div>
     <SideBar />
-  
+  <div  
+    style={{
+      marginLeft: "17%",
+      marginRight: "2%",
+      marginTop: "-2%"
+    }}
+  >
     <Switch>
     <Route exact path="/instructor/" component={InstructorContainer} />
     <Route exact path="/instructor/cursos" component={InstructorCursosContainer}/>
@@ -50,12 +55,12 @@ const instructor = () => (
     <Route exact path="/instructor/cursos/:cursoId/section/:sectionId" component={CrearTemaContainer} />
     <Route exact path="/instructor/cursos/:cursoId/section/:sectionId/subirarchivos" component={SubirArchivosContainer} />
     <Route exact path="/instructor/cursos/:cursoId/section/:sectionId/subirvideo" component={SubirVideoContainer} />
-    <Route exact path="/instructor/cursos/:cursoId/section/:sectionId/subirtexto" component={SubirTextoContainer} />
     <Route
       exact
       path="/instructor/cursos/:cursoId"
       component={SingleCursoInstructorContainer}
     />
     </Switch>
+    </div>
   </div>
 );
