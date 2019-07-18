@@ -7,11 +7,21 @@ import Axios from "axios";
 export default class SubirArchivosContainer extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state={
+      name:"",
+      file:"",
+      load:true
+    }
     this.handleUpload = this.handleUpload.bind(this);
     this.handleSetFile = this.handleSetFile.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
   handleSetFile(e) {
     e.preventDefault();
     let f = e.target.files[0];
@@ -23,15 +33,22 @@ export default class SubirArchivosContainer extends React.Component {
   handleUpload(e) {
     e.preventDefault();
     const file = this.state.file;
-    const storageRef = firebase.storage().ref(`/files/${this.props.match.params.sectionId}/${file.name}`);
+    const storageRef = firebase.storage().ref(`/files/${this.props.sectionId}/${file.name}`);
+    this.setState({
+      load:false
+    })
     storageRef.put(file).then(file => {
       storageRef.getDownloadURL().then(data => {
         Axios.post(
           "https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourseTopic",
-          { sectionId: this.props.match.params.sectionId, contentURL: data }
+          { sectionId: this.props.sectionId, contentURL: data, name:this.state.name }
         ).then(data2 => {
           console.log("YO SOY DATA", data2);
-          this.props.history.push(`/instructor/cursos/${this.props.match.params.cursoId}`);
+          this.setState({
+            load:true
+          })
+          if(document.getElementById("modalContactForm1").classList.contains("show"))document.getElementById("buttonToggler").click()
+          this.props.history.push(`/instructor/cursos/${this.props.courseId}`);
         });
       });
     });
@@ -42,10 +59,12 @@ export default class SubirArchivosContainer extends React.Component {
   render() {
     return (
       <SubirArchivos
+      load={this.state.load}
         handleUpload={this.handleUpload}
+        handleChange={this.handleChange}
         handleSetFile={this.handleSetFile}
-        courseId={this.props.match.params.cursoId}
-        sectionId={this.props.match.params.sectionId}
+        courseId={this.props.cursoId}
+        sectionId={this.props.sectionId}
       />
     );
   }
@@ -53,7 +72,7 @@ export default class SubirArchivosContainer extends React.Component {
 
 // const mapStateToProps = (state, ownProps) => {
 //     return {
-//         courseId : ownProps.match.params.
+//         courseId : ownProps.
 //     }
 
 //};
