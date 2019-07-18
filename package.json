@@ -28,7 +28,7 @@
     "babel": "^6.23.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.0.0",
-    "firebase": "^6.2.4",
+    "firebase": "^6.3.0",
     "firebase-tools": "^7.1.0",
     "fs": "0.0.1-security",
     "react": "^16.8.6",
