@@ -35,6 +35,7 @@ export default () => (
     <nav id="sidebar" style={styles.sidebar}>
       <div style={styles.text}>
         <div>
+          <Link to="/instructor">
           <center>
             <img
               src="https://lh3.googleusercontent.com/ZmqnvDIzqxMj4NBjqevd7G-yyIixYtBnNSpEiThXoUjVnjKUORQgfuML-kW_SMQ5hWaMRHazEtRHalAvy23DvQ=s0"
@@ -42,6 +43,7 @@ export default () => (
               style={styles.img}
             />
           </center>
+          </Link>
         </div>
         <br />
         <ul className="list-unstyled components">

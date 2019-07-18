@@ -18,7 +18,6 @@ const styles = {
 };
 
 export default ({ user, handleLogOut }) => {
-  console.log(user, "USERR");
   return (
     <div className="navbar navbar-expand-lg navbar-light" style={styles.colors}>
       <button
@@ -32,7 +31,7 @@ export default ({ user, handleLogOut }) => {
       >
         <span className="navbar-toggler-icon" />
       </button>
-      <Link to="/instructor">
+      <Link to="/alumnos">
         <div>
           <img
             src="https://lh3.googleusercontent.com/ZmqnvDIzqxMj4NBjqevd7G-yyIixYtBnNSpEiThXoUjVnjKUORQgfuML-kW_SMQ5hWaMRHazEtRHalAvy23DvQ=s0"

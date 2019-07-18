@@ -1,12 +1,36 @@
 import React, { Component } from "react";
 import Main from "../components/Main";
+import {firebase} from "../config/app"
 
 export default class MainConTainer extends Component {
   constructor(props) {
     super(props);
+    this.state={
+      loading:false
   }
+  this.logear=this.logear.bind(this)
+}
 
+componentDidMount(){
+  console.log(window.location.href.includes("instructor"))
+ 
+}
+logear (){
+ 
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((user) => {
+          this.setState({
+              loading:true
+          })
+          return user
+      })
+     
+ 
+}
   render() {
-    return <Main />;
+    return <Main loading={this.state.loading} logear={this.logear} history={this.props.history}/>;
   }
 }
