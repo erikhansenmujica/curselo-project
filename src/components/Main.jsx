@@ -10,17 +10,23 @@ import SingleCursoAlumnoContainer from "../containers/alumnos/SingleCursoAlumnoC
 import SideBar from "../components/instructor/SideBar";
 import InstructorCursosContainer from "../containers/instructor/InstructorCursosContainer";
 import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
-import SignUpContainer from "../containers/SignUpContainer"
+import SignUpContainer from "../containers/SignUpContainer";
 import SubirArchivosContainer from "../containers/instructor/SubirArchivosContainer";
+import SubirTextoContainer from "../containers/instructor/SubirTextoContainer";
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
+import Log from "./Log";
 
-export default () => (
+export default (props) => (
   <div>
     <Switch>
-      <Route exact path="/" component={HomeContainer} />
-
-      <Route extact path="/instructor" component={instructor} />
+      
+      {window.location.href.includes("instructor") && (props.loading ? (
+        <Route path="/instructor" component={instructor} />
+      ) : (
+        <Route render={()=><Log logear={props.logear} history={props.history}/>} />
+      ))}
       <Route path="/alumnos" component={alumnos} />
+      <Route exact path="/" component={HomeContainer} />
     </Switch>
   </div>
 );
@@ -28,39 +34,64 @@ export default () => (
 const alumnos = () => (
   <div>
     <NavbarContainer />
-    <Route exact path="/alumnos/signUp" component={SignUpContainer}/>
-    <Route exact path="/alumnos/cursos" component={Cursos} />
-    <Route
-      exact
-      path="/alumnos/cursos/:cursoId"
-      component={SingleCursoAlumnoContainer}
-    />
+    <Switch>
+      <Route exact path="/alumnos/signUp" component={SignUpContainer} />
+      <Route exact path="/alumnos/cursos" component={Cursos} />
+      <Route
+        exact
+        path="/alumnos/cursos/:cursoId"
+        component={SingleCursoAlumnoContainer}
+      />
+    </Switch>
   </div>
 );
 
 const instructor = () => (
   <div>
     <SideBar />
-  <div  
-    style={{
-      marginLeft: "250px",
-      marginRight: "2%",
-      marginTop: "-2%"
-    }}
-  >
-    <Switch>
-    <Route exact path="/instructor/" component={InstructorContainer} />
-    <Route exact path="/instructor/cursos" component={InstructorCursosContainer}/>
-    <Route path="/instructor/crear" component={CrearContainer} />
-    <Route exact path="/instructor/cursos/:cursoId/section/:sectionId" component={CrearTemaContainer} />
-    <Route exact path="/instructor/cursos/:cursoId/section/:sectionId/subirarchivos" component={SubirArchivosContainer} />
-    <Route exact path="/instructor/cursos/:cursoId/section/:sectionId/subirvideo" component={SubirVideoContainer} />
-    <Route
-      exact
-      path="/instructor/cursos/:cursoId"
-      component={SingleCursoInstructorContainer}
-    />
-    </Switch>
+
+    <div
+      style={{
+        marginLeft: "200px",
+        marginRight: "2%",
+        marginTop: "-2%"
+      }}
+    >
+      <Switch>
+        <Route exact path="/instructor" component={InstructorContainer} />
+        <Route
+          exact
+          path="/instructor/cursos"
+          component={InstructorCursosContainer}
+        />
+        <Route path="/instructor/crear" component={CrearContainer} />
+        <Route
+          exact
+          path="/instructor/cursos/:cursoId/section/:sectionId"
+          component={CrearTemaContainer}
+        />
+        <Route
+          exact
+          path="/instructor/cursos/:cursoId/section/:sectionId/subirarchivos"
+          component={SubirArchivosContainer}
+        />
+        <Route
+          exact
+          path="/instructor/cursos/:cursoId/section/:sectionId/subirvideo"
+          component={SubirVideoContainer}
+        />
+        <Route
+          exact
+          path="/instructor/cursos/:cursoId/section/:sectionId/subirtexto"
+          component={SubirTextoContainer}
+        />
+        <Route
+          exact
+          path="/instructor/cursos/:cursoId"
+          component={SingleCursoInstructorContainer}
+        />
+      </Switch>
+
     </div>
   </div>
 );

@@ -15,6 +15,7 @@ class InstructorCursosContainer extends Component {
   }
 
   render() {
+    
     return <InstructorCursos cursos={this.props.cursos} />;
   }
 }

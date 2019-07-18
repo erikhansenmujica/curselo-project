@@ -21,17 +21,10 @@ export default class HomeContainer extends Component {
   }
 
   googleLogin() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then(result => {
-        const user = result.user;
-        this.state.alumno
-          ? this.props.history.push("/alumnos/cursos")
-          : this.props.history.push("/instructor");
-      })
-      .catch(console.log);
+    
+          this.props.history.push("/instructor");
+      
+      
   }
   render() {
     return <Home googleLogin={this.googleLogin} setAlumno={this.setAlumno} />;

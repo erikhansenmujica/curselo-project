@@ -8,8 +8,7 @@ const image = {
     ")"
 };
 const button = {
-  display: "block",
-  margin: "auto"
+  marginLeft:"25%"
 };
 
 export default () => (
@@ -24,13 +23,9 @@ export default () => (
           Una plataforma donde podras cargar tus conocimientos a traves de
           videos, quizes, descripciones, experiencia y mucho mas!
         </p>
-        <button className="btn btn-outline-secondary" href="#">
-          Coming soon
-        </button>
       </div>
       <div className="product-device shadow-sm d-none d-md-block" />
       <div className="product-device product-device-2 shadow-sm d-none d-md-block" />
     </div>
-   
   </div>
 );
