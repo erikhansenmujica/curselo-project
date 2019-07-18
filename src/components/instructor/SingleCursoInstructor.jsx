@@ -14,10 +14,6 @@ const styles = {
 
 export default props => (
   <div
-    style={{
-      marginLeft: "17%",
-      marginTop: "-2%"
-    }}
   >
     {props.curso.name && (
       <div>

@@ -6,7 +6,7 @@ export default props => (
       props.topics.map(topic => (
         <li key={topic.id} className="list-group-item">
           Topic: {topic.name}
-        <button type="button" class="btn btn-light" style={{float:"right", marginBottom:"1%"}}><i class="fas fa-pencil-alt"></i></button>
+        <button type="button" className="btn btn-light" style={{float:"right", marginBottom:"1%"}}><i className="fas fa-pencil-alt"></i></button>
         </li>
       ))
     ) : (

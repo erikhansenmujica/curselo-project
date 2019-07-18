@@ -8,7 +8,8 @@ export default class SubirTextoContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: ""
+      text: "",
+      name:""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -16,7 +17,8 @@ export default class SubirTextoContainer extends React.Component {
 
   handleChange(e) {
     this.setState({
-      text: e.target.value
+    
+      [e.target.name]: e.target.value
     });
   }
 
@@ -24,11 +26,11 @@ export default class SubirTextoContainer extends React.Component {
     e.preventDefault();
     Axios.post(
       "https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourseTopic",
-      { sectionId: this.props.match.params.sectionId, content: this.state.text }
+      { sectionId: this.props.sectionId, content: this.state.text, name:this.state.name }
     ).then(data2 => {
       console.log("YO SOY DATA", data2);
       this.props.history.push(
-        `/instructor/cursos/${this.props.match.params.cursoId}`
+        `/instructor/cursos/${this.props.courseId}`
       );
     });
   }
@@ -39,8 +41,8 @@ export default class SubirTextoContainer extends React.Component {
       <SubirTexto
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
-        courseId={this.props.match.params.cursoId}
-        sectionId={this.props.match.params.sectionId}
+        courseId={this.props.cursoId}
+        sectionId={this.props.sectionId}
       />
     );
   }

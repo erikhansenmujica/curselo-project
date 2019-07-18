@@ -31,24 +31,6 @@ export default () => (
       <div className="product-device shadow-sm d-none d-md-block" />
       <div className="product-device product-device-2 shadow-sm d-none d-md-block" />
     </div>
-    <br />
-    <br />
-    <Link to="/instructor/crear">
-      <div>
-        <button style={button} className="btn btn-primary">
-          Crear tu curso
-        </button>
-      </div>
-    </Link>
-    <Link to="/instructor/cursos">
-      <div>
-        <button style={button} className="btn btn-primary">Ir a mis cursos</button>
-      </div>
-    </Link>
-    <Link to="/instructor/cursos/tema">
-      <div>
-        <button style={button} className="btn btn-primary">Ir a Crear Tema</button>
-      </div>
-    </Link>
+   
   </div>
 );
