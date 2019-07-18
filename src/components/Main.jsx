@@ -10,9 +10,7 @@ import SingleCursoAlumnoContainer from "../containers/alumnos/SingleCursoAlumnoC
 import SideBar from "../components/instructor/SideBar";
 import InstructorCursosContainer from "../containers/instructor/InstructorCursosContainer";
 import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
-import SignUpContainer from "../containers/SignUpContainer";
-import SubirArchivosContainer from "../containers/instructor/SubirArchivosContainer";
-import SubirTextoContainer from "../containers/instructor/SubirTextoContainer";
+import SignUpContainer from "../containers/SignUpContainer"
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
 import Log from "./Log";
 
@@ -70,21 +68,13 @@ const instructor = () => (
           path="/instructor/cursos/:cursoId/section/:sectionId"
           component={CrearTemaContainer}
         />
-        <Route
-          exact
-          path="/instructor/cursos/:cursoId/section/:sectionId/subirarchivos"
-          component={SubirArchivosContainer}
-        />
+      
         <Route
           exact
           path="/instructor/cursos/:cursoId/section/:sectionId/subirvideo"
           component={SubirVideoContainer}
         />
-        <Route
-          exact
-          path="/instructor/cursos/:cursoId/section/:sectionId/subirtexto"
-          component={SubirTextoContainer}
-        />
+        
         <Route
           exact
           path="/instructor/cursos/:cursoId"
