@@ -20,7 +20,7 @@ export default class SubirVideoContainer extends React.Component {
 
   handleSetFile(e) {
     e.preventDefault();
-    console.log("SETTING FILE TO STATE");
+
     let f = e.target.files[0];
     this.setState({
       file: f
@@ -29,7 +29,7 @@ export default class SubirVideoContainer extends React.Component {
 
   handleUpload(e) {
     e.preventDefault();
-    console.log("SEND REQUEST");
+    
     const file = this.state.file;
     let cursoId = this.props.match.params.cursoId;
     let sectionId = this.props.match.params.sectionId;
@@ -37,20 +37,20 @@ export default class SubirVideoContainer extends React.Component {
       .upload(
         file,
         (uri)=> {
-          console.log("File upload completed. Your Vimeo URI is:", uri);
+         
           let videoId = uri.slice(7)
           Axios.post(
             "https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourseTopic",
             { sectionId: sectionId, contentURL: `www.vimeo.com/${videoId}` }
           ).then(data2 => {
-            //console.log("YO SOY DATA", data2);
+            
             this.props.history.push(`/instructor/cursos/${cursoId}`);
           });
         },
 
         function(bytesUploaded, bytesTotal) {
           var percentage = ((bytesUploaded / bytesTotal) * 100).toFixed(2);
-          console.log(bytesUploaded, bytesTotal, percentage + "%");
+          
         },
         function(error) {
           console.log("Failed because: " + error);

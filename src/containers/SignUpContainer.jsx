@@ -41,7 +41,6 @@ class SignUpContainer extends React.Component {
       .signInWithEmailAndPassword(email, password)
       .then(cred => this.props.createUser(cred.user))
       .catch(function(error) {
-        // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         if (errorCode === "auth/wrong-password") {

@@ -14,11 +14,17 @@ import SignUpContainer from "../containers/SignUpContainer";
 import SubirArchivosContainer from "../containers/instructor/SubirArchivosContainer";
 import SubirTextoContainer from "../containers/instructor/SubirTextoContainer";
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
+import Log from "./Log";
 
-export default ({loading}) => (
+export default (props) => (
   <div>
     <Switch>
-      {loading&&<Route exact path="/instructor" component={instructor} />}
+      {console.log(window.location.href.includes("instructor"))}
+      {window.location.href.includes("instructor") && (props.loading ? (
+        <Route path="/instructor" component={instructor} />
+      ) : (
+        <Route render={()=><Log logear={props.logear} history={props.history}/>} />
+      ))}
       <Route path="/alumnos" component={alumnos} />
       <Route exact path="/" component={HomeContainer} />
     </Switch>
@@ -43,47 +49,49 @@ const alumnos = () => (
 const instructor = () => (
   <div>
     <SideBar />
-  <div  
-    style={{
-      marginLeft: "200px",
-      marginRight: "2%",
-      marginTop: "-2%"
-    }}
-  >
-    <Switch>
-      <Route exact path="/instructor/" component={InstructorContainer} />
-      <Route
-        exact
-        path="/instructor/cursos"
-        component={InstructorCursosContainer}
-      />
-      <Route path="/instructor/crear" component={CrearContainer} />
-      <Route
-        exact
-        path="/instructor/cursos/:cursoId/section/:sectionId"
-        component={CrearTemaContainer}
-      />
-      <Route
-        exact
-        path="/instructor/cursos/:cursoId/section/:sectionId/subirarchivos"
-        component={SubirArchivosContainer}
-      />
-      <Route
-        exact
-        path="/instructor/cursos/:cursoId/section/:sectionId/subirvideo"
-        component={SubirVideoContainer}
-      />
-      <Route
-        exact
-        path="/instructor/cursos/:cursoId/section/:sectionId/subirtexto"
-        component={SubirTextoContainer}
-      />
-      <Route
-        exact
-        path="/instructor/cursos/:cursoId"
-        component={SingleCursoInstructorContainer}
-      />
-    </Switch>
+    <div
+      style={{
+        marginLeft: "200px",
+        marginRight: "2%",
+        marginTop: "-2%"
+      }}
+    >
+      <Switch>
+        <Route exact path="/instructor" component={InstructorContainer} />
+        {console.log("ENTRE XDDDDDDDD 2")}
+        <Route
+          exact
+          path="/instructor/cursos"
+          component={InstructorCursosContainer}
+        />
+        <Route path="/instructor/crear" component={CrearContainer} />
+        <Route
+          exact
+          path="/instructor/cursos/:cursoId/section/:sectionId"
+          component={CrearTemaContainer}
+        />
+        <Route
+          exact
+          path="/instructor/cursos/:cursoId/section/:sectionId/subirarchivos"
+          component={SubirArchivosContainer}
+        />
+        <Route
+          exact
+          path="/instructor/cursos/:cursoId/section/:sectionId/subirvideo"
+          component={SubirVideoContainer}
+        />
+        <Route
+          exact
+          path="/instructor/cursos/:cursoId/section/:sectionId/subirtexto"
+          component={SubirTextoContainer}
+        />
+          {console.log("ENTRE XDDDDDDDD 3")}
+        <Route
+          exact
+          path="/instructor/cursos/:cursoId"
+          component={SingleCursoInstructorContainer}
+        />
+      </Switch>
     </div>
   </div>
 );

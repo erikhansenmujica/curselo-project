@@ -8,24 +8,29 @@ export default class MainConTainer extends Component {
     this.state={
       loading:false
   }
+  this.logear=this.logear.bind(this)
 }
 
 componentDidMount(){
-  if(window.location.href.includes("instructor"))
-  (()=> {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase
-        .auth()
-        .signInWithPopup(provider)
-        .then(() => {
-            this.setState({
-                loading:true
-            })
-        })
-        .catch(console.log);
-    })()
+  console.log(window.location.href.includes("instructor"))
+ 
+}
+logear (){
+ 
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((user) => {
+          this.setState({
+              loading:true
+          })
+          return user
+      })
+     
+ 
 }
   render() {
-    return <Main loading={this.state.loading}/>;
+    return <Main loading={this.state.loading} logear={this.logear} history={this.props.history}/>;
   }
 }
