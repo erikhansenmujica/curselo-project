@@ -11,7 +11,7 @@ export default ({ handleUpload, handleSetFile, courseId, sectionId }) => (
 
     <form action="" onSubmit={handleUpload}>
       <label htmlFor="icon">PDF File</label>
-      <input type="file" name="pdf" accept=".pdf" onChange={handleSetFile} />
+      <input type="file" name=".pdf" onChange={handleSetFile} />
       <button type="submit">Upload PDF!</button>
     </form>
 
