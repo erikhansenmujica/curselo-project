@@ -23,15 +23,9 @@ export default () => (
           Una plataforma donde podras cargar tus conocimientos a traves de
           videos, quizes, descripciones, experiencia y mucho mas!
         </p>
-        
       </div>
       <div className="product-device shadow-sm d-none d-md-block" />
       <div className="product-device product-device-2 shadow-sm d-none d-md-block" />
-    </div>
-    <br />
-    <br />
-    <div className="container">
-
     </div>
   </div>
 );

@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom"
+import SubirTextoContainer from "../../containers/instructor/SubirTextoContainer"
 
-export default ( {courseId, sectionId}) => (
+export default ( {courseId, sectionId, history}) => (
 
 <div>
     <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -12,11 +13,10 @@ export default ( {courseId, sectionId}) => (
     <div className="container">
       <div className="card-deck mb-3 text-center">
         <div className="card mb-4 shadow-sm">
-          <Link to={`/instructor/cursos/${courseId}/section/${sectionId}/subirtexto`}>
-          <button type="button" className="btn btn-lg btn-block btn-primary">
+          <button type="button" className="btn btn-lg btn-block btn-primary" data-toggle="modal"
+            data-target="#modalContactForm">
             Upload text!
           </button>
-          </Link>
         </div>
         <div className="card mb-4 shadow-sm">
         <Link to={`/instructor/cursos/${courseId}/section/${sectionId}/subirarchivos`}>
@@ -34,5 +34,7 @@ export default ( {courseId, sectionId}) => (
         </div>
       </div>
     </div>
+    <SubirTextoContainer courseId={courseId} sectionId={sectionId} history={history}/> 
+
   </div>
 );

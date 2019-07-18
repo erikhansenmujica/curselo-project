@@ -13,7 +13,6 @@ import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
 import SignUpContainer from "../containers/SignUpContainer";
 import SubirArchivosContainer from "../containers/instructor/SubirArchivosContainer";
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
-import SubirTextoContainer from "../containers/instructor/SubirTextoContainer";
 
 export default () => (
   <div>
@@ -75,5 +74,6 @@ const instructor = () => (
         component={SingleCursoInstructorContainer}
       />
     </Switch>
-  </div>
+    </div>
+  
 );

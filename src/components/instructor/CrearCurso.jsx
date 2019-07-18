@@ -19,7 +19,6 @@ const styles = {
     backgroundColor: "#8BE3EF"
   },
   position: {
-    marginLeft: "25%",
     marginTop:"2%",
     width:"70%"
   }
