@@ -21,6 +21,7 @@ export default class SubirVideoContainer extends React.Component {
 
     this.handleSetFile = this.handleSetFile.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
   handleChange(e) {
     this.setState({
