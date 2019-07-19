@@ -52,7 +52,7 @@ const instructor = () => (
       style={{
         marginLeft: "200px",
         marginRight: "2%",
-        marginTop: "-2%"
+        marginTop: "2%"
       }}
     >
       <Switch>
