@@ -31,6 +31,7 @@
     "firebase": "^6.3.0",
     "firebase-tools": "^7.1.0",
     "fs": "0.0.1-security",
+    "mdbootstrap": "^4.8.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^5.1.1",

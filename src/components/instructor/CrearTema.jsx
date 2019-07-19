@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom"
 import SubirTextoContainer from "../../containers/instructor/SubirTextoContainer"
 import SubirArchivosContainer from "../../containers/instructor/SubirArchivosContainer"
+import SubirVideoContainer from "../../containers/instructor/SubirVideoContainer";
 
 export default ( {courseId, sectionId, history}) => (
 
@@ -31,16 +32,16 @@ export default ( {courseId, sectionId, history}) => (
 
 
         <div className="card mb-4 shadow-sm">
-        <Link to={`/instructor/cursos/${courseId}/section/${sectionId}/subirvideo`}>
-          <button type="button" className="btn btn-lg btn-block btn-primary">
+          <button type="button" className="btn btn-lg btn-block btn-primary"  data-toggle="modal"
+            data-target="#modalContactForm2">
             Upload a video!
           </button>
-          </Link>
+
         </div>
       </div>
     </div>
     <SubirTextoContainer courseId={courseId} sectionId={sectionId} history={history}/> 
     <SubirArchivosContainer courseId={courseId} sectionId={sectionId} history={history}/> 
-
+  <SubirVideoContainer courseId={courseId} sectionId={sectionId} history={history}/>
   </div>
 );

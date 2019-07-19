@@ -40,7 +40,7 @@ export default ({
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header text-center">
-            <h4 className="modal-title w-100 font-weight-bold">Upload Text</h4>
+            <h4 className="modal-title w-100 font-weight-bold">Upload PDF</h4>
             <button
               type="button"
               className="close"
