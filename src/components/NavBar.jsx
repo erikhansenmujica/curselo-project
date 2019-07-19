@@ -31,7 +31,7 @@ export default ({ user, handleLogOut }) => {
       >
         <span className="navbar-toggler-icon" />
       </button>
-      <Link to="/alumnos">
+      <Link to="/alumnos/cursos">
         <div>
           <img
             src="https://lh3.googleusercontent.com/ZmqnvDIzqxMj4NBjqevd7G-yyIixYtBnNSpEiThXoUjVnjKUORQgfuML-kW_SMQ5hWaMRHazEtRHalAvy23DvQ=s0"

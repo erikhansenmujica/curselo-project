@@ -7,12 +7,13 @@ const image = {
     "https://lh3.googleusercontent.com/JMLnCpPYwogPZqo3DZXs3b-n4KAQTJjCLIxs6emmrAd5oSiYBilYvvTOxfS4t4xKAEbVWgmHWwUT3GnDzKG533Y=w1351" +
     ")"
 };
-const button = {
-  marginLeft:"25%"
-};
+const margin = {
+  marginTop: "-2%"
+}
+
 
 export default () => (
-  <div>
+  <div style={margin}>
     <div
       className="position-relative overflow-hidden text-center bg-light"
       style={image}

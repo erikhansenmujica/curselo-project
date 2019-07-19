@@ -10,11 +10,6 @@ export default class MainConTainer extends Component {
   }
   this.logear=this.logear.bind(this)
 }
-
-componentDidMount(){
-  console.log(window.location.href.includes("instructor"))
- 
-}
 logear (){
  
     const provider = new firebase.auth.GoogleAuthProvider();

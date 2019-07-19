@@ -8,14 +8,16 @@ const styles = {
   },
   button: {
     float: "right"
-  }
+  },
+  
 };
 
 export default props => (
   <div>
+   
     {props.secciones && props.secciones[0] ? (
       props.secciones.map((sec, i) => (
-        <div className="card" key={sec.id} style={styles.nav}>
+        <div  className="card" key={sec.id} style={styles.nav}>
           <div className="card-header">
             Seccion: {sec.name}
             <Link
@@ -38,9 +40,7 @@ export default props => (
         </div>
       ))
     ) : (
-      <div className="spinner-border text-info" role="status">
-        <span className="sr-only">Loading...</span>
-      </div>
+      <div></div>
     )}
   </div>
 );
