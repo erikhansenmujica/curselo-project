@@ -12,12 +12,21 @@ let client = new Vimeo(
 
 export default class SubirVideoContainer extends React.Component {
   constructor(props) {
-    super(props);
+    super(props); 
+    this.state={
+      name:"",
+      file:"",
+      load:true
+    }
 
     this.handleSetFile = this.handleSetFile.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
   }
-
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
   handleSetFile(e) {
     e.preventDefault();
 
@@ -31,19 +40,22 @@ export default class SubirVideoContainer extends React.Component {
     e.preventDefault();
     
     const file = this.state.file;
-    let cursoId = this.props.match.params.cursoId;
-    let sectionId = this.props.match.params.sectionId;
+    let cursoId = this.props.cursoId;
+    let sectionId = this.props.sectionId;
     client
       .upload(
         file,
         (uri)=> {
-         
+          
           let videoId = uri.slice(7)
           Axios.post(
             "https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourseTopic",
             { sectionId: sectionId, contentURL: `www.vimeo.com/${videoId}` }
           ).then(data2 => {
-            
+            this.setState({
+              load:false
+            })
+            if(document.getElementById("modalContactForm2").classList.contains("show"))document.getElementById("buttonToggler").click()
             this.props.history.push(`/instructor/cursos/${cursoId}`);
           });
         },
@@ -63,8 +75,10 @@ export default class SubirVideoContainer extends React.Component {
   render() {
     return (
       <SubirVideo
-        courseId={this.props.match.params.cursoId}
-        sectionId={this.props.match.params.sectionId}
+      load={this.state.load}
+      handleChange={this.handleChange}
+        courseId={this.props.cursoId}
+        sectionId={this.props.sectionId}
         handleSetFile={this.handleSetFile}
         handleUpload={this.handleUpload}
       />
