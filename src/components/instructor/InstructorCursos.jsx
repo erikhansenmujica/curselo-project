@@ -18,7 +18,7 @@ const style = {
     fontSize:"46px"
   }
 };
-export default ({ cursos }) => (
+export default ({ cursos,deleteButton }) => (
   <div>
     <div style={style.container}>
       {cursos ? (
@@ -40,6 +40,13 @@ export default ({ cursos }) => (
               <Link to={`/instructor/cursos/${curso.id}`}>
                 <div className="btn btn-primary">Go somewhere</div>
               </Link>
+              <button onClick={()=>deleteButton(curso.id)}
+              type="button"
+              className="btn btn-danger"
+              style={{ float: "right" }}
+            >
+              <i className="fas fa-trash-alt" />
+            </button>
             </div>
           </div>
         ))
