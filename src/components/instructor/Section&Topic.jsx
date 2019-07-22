@@ -19,7 +19,7 @@ export default props => (
       props.secciones.map((sec, i) => (
         <div  className="card" key={sec.id} style={styles.nav}>
           <div className="card-header">
-            Seccion: {sec.name}
+            Section: {sec.name}
             <Link
               to={`/instructor/cursos/${props.courseId}/section/${
                 props.secciones[i].id
@@ -35,7 +35,7 @@ export default props => (
             </Link>
           </div>
           <ul className="list-group list-group-flush">
-            <TopicsContainer secId={sec.id} />
+            <TopicsContainer secId={sec.id} courseId={props.courseId}/>
           </ul>
         </div>
       ))

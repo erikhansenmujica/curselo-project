@@ -24,9 +24,19 @@ export default class SubirTextoContainer extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    var obj={}
+    if(this.props.topicId){
+
+      obj={sectionId: this.props.sectionId,id:this.props.topicId}
+      if(this.state.text.length) obj.content=this.state.text
+      else obj.content=this.props.topic.content
+      if(this.state.name.length) obj.name=this.state.name
+      else obj.name=this.props.topic.name
+    }
+   else obj= { sectionId: this.props.sectionId, content: this.state.text, name:this.state.name }
     Axios.post(
       "https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourseTopic",
-      { sectionId: this.props.sectionId, content: this.state.text, name:this.state.name }
+      obj
     ).then(data2 => {
       console.log("YO SOY DATA", data2);
       this.props.history.push(
@@ -36,7 +46,7 @@ export default class SubirTextoContainer extends React.Component {
   }
 
   render() {
-    console.log(this.state.text);
+    console.log(this.props);
     return (
       <SubirTexto
         handleSubmit={this.handleSubmit}

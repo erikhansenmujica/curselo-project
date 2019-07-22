@@ -49,9 +49,19 @@ export default class SubirVideoContainer extends React.Component {
         (uri)=> {
           
           let videoId = uri.slice(7)
+          var obj={}
+          if(this.props.topicId){
+      
+            obj={sectionId: this.props.sectionId,id:this.props.topicId}
+            if(videoId) obj.contentURL=`www.vimeo.com/${videoId}`
+            else obj.contentURL=this.props.topic.contentURL
+            if(this.state.name.length) obj.name=this.state.name
+            else obj.name=this.props.topic.name
+          }
+         else obj= { sectionId: this.props.sectionId, contentURL:`www.vimeo.com/${videoId}`, name:this.state.name }
           Axios.post(
             "https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourseTopic",
-            { sectionId: sectionId, contentURL: `www.vimeo.com/${videoId}` }
+             obj
           ).then(data2 => {
             this.setState({
               load:false
