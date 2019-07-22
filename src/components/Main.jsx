@@ -13,6 +13,7 @@ import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
 import SignUpContainer from "../containers/SignUpContainer"
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
 import Log from "./Log";
+import EditarTemaContainer from "../containers/instructor/EditarTemaContainer";
 
 export default (props) => (
   <div>
@@ -67,6 +68,11 @@ const instructor = () => (
           exact
           path="/instructor/cursos/:cursoId/section/:sectionId"
           component={CrearTemaContainer}
+        />
+        <Route
+          exact
+          path="/instructor/cursos/:courseId/section/:secId/topic/:topicId"
+          component={EditarTemaContainer}
         />
       
         <Route
