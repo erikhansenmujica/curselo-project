@@ -33,6 +33,14 @@ export const fetchCursosInstructor=(id)=>
     .then((res)=> res.data)
     .then(cursos=>dispatch(ADD_CURSOS(cursos)))
 
+export const deleteCourse=(id)=>
+    axios.post(`https://curselo-dev.appspot.com/_ah/api/lms/v2/archiveCourse?courseId=${id}`)
+    .then(res=>res.data)
+
+export const deleteSection=(id)=>
+    axios.post(`https://curselo-dev.appspot.com/_ah/api/lms/v2/archiveCourseSection?sectionId=${id}`)
+    .then(res=>res.data)
+
 export const fetchCursoInstructor=(id)=>
 (dispatch)=>
     axios.get(`https://curselo-dev.appspot.com/_ah/api/lms/v2/getCourse?courseId=${id}`)
