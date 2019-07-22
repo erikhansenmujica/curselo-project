@@ -26,7 +26,7 @@ class NavbarContainer extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = () => {
   return {
     user: firebase.auth().currentUser
   };

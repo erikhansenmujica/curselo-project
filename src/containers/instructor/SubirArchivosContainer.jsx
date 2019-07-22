@@ -1,7 +1,6 @@
 import React from "react";
 import SubirArchivos from "../../components/instructor/SubirArchivos";
 import { firebase, db } from "../../config/app";
-import { auth } from "../../config/app";
 import Axios from "axios";
 
 export default class SubirArchivosContainer extends React.Component {
