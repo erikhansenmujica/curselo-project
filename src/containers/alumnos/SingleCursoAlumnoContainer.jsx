@@ -22,7 +22,9 @@ class SingleCursoAlumnoContainer extends Component {
     if(this.props.isLoggedIn.uid&&!this.state.studentCourse[0]) this.props
     .getMyPurchaseCourse(this.props.isLoggedIn.uid)
     .then(courses => {
-     let cursos= courses.data.items.filter(course => 
+      let cursos;
+      if (!courses.data.items)return this.setState({studentCourse:[1]})
+    else cursos= courses.data.items.filter(course => 
         course.id === this.props.courseId
         )
       cursos[0]?this.setState({
@@ -68,8 +70,8 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = (state, ownProps) => {
   return {
     curso: state.alumnoCursos.course,
-    purchaseCourse: state.createUser.purchasedCourse,
-    isLoggedIn: state.createUser.user,
+    purchaseCourse: state.creteUser.purchasedCourse,
+    isLoggedIn: state.creteUser.user,
     courseId: ownProps.match.params.cursoId
   };
 };
