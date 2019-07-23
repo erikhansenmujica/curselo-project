@@ -13,11 +13,12 @@ const style = {
     marginBottom: "1%"
   },
   center: {
-    textAlign: "center", 
-    marginTop:"35px",
-    fontSize:"46px"
+    textAlign: "center",
+    marginTop: "35px",
+    fontSize: "46px"
   }
 };
+
 export default ({ cursos }) => (
   <div>
     <div style={style.container}>

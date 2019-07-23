@@ -80,6 +80,18 @@ export default () => (
               </button>
             </Link>
           </li>
+          <li>
+            <br />
+            <Link to="/instructor/listaalumnos">
+              <button
+                type="button"
+                className='btn btn-outline-light'
+                style={styles.btn}
+              >
+                Alumnos
+              </button>
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
