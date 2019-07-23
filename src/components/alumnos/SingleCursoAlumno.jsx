@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-export default ({ curso, purchaseCourse, handleClick, isLoggedIn, handlePurchase }) => (
+        
+        export default ({ curso, purchaseCourse, handleClick, isLoggedIn, handlePurchase,studentCourse }) => (
   <div
     style={{
       height: "100vh",
@@ -50,7 +50,7 @@ export default ({ curso, purchaseCourse, handleClick, isLoggedIn, handlePurchase
       </div>
     </div>
 
-    {purchaseCourse.course.data && isLoggedIn ? (
+    { isLoggedIn.uid && (purchaseCourse.data||studentCourse[0]&&studentCourse[0].id)? (
       <div className="container">
         <h3>Comprado!</h3>
       </div>

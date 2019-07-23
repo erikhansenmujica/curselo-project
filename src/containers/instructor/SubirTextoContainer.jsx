@@ -1,7 +1,5 @@
 import React from "react";
 import SubirTexto from "../../components/instructor/SubirTexto";
-//import { firebase, db } from "../../config/app";
-//import { auth } from "../../config/app";
 import Axios from "axios";
 
 export default class SubirTextoContainer extends React.Component {
@@ -38,7 +36,6 @@ export default class SubirTextoContainer extends React.Component {
       "https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourseTopic",
       obj
     ).then(data2 => {
-      console.log("YO SOY DATA", data2);
       this.props.history.push(
         `/instructor/cursos/${this.props.courseId}`
       );
@@ -46,7 +43,6 @@ export default class SubirTextoContainer extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <SubirTexto
         handleSubmit={this.handleSubmit}

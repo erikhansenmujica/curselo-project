@@ -7,19 +7,35 @@ import { connect } from "react-redux";
 class SingleCursoAlumnoContainer extends Component {
   constructor(props) {
     super(props);
+    this.state={
+      studentCourse:[]
+    }
 
     this.handleClick = this.handleClick.bind(this);
-    //this.handlePurchase = this.handlePurchase.bind(this);
   }
   componentDidMount() {
     this.props.getCurso(this.props.match.params.cursoId);
-    let myCourses = this.props
-      .getMyPurchaseCourse(this.props.isLoggedIn.uid)
-      .then(id => id && id.data.items.forEach(course => {
-        if(course.id === this.props.courseId){
-          console.log('kajbsckjanscnaksnclkansclkansclkanslcknal')
-        }
-      }));
+
+   
+  }
+  componentDidUpdate(){
+    if(this.props.isLoggedIn.uid&&!this.state.studentCourse[0]) this.props
+    .getMyPurchaseCourse(this.props.isLoggedIn.uid)
+    .then(courses => {
+     let cursos= courses.data.items.filter(course => 
+        course.id === this.props.courseId
+        )
+      cursos[0]?this.setState({
+      studentCourse:cursos
+      }) : this.setState({
+        studentCourse:[1]
+      })
+  });
+   else if (!this.props.isLoggedIn.uid&&this.state.studentCourse[0]) {
+     this.setState({
+       studentCourse:[]
+     })
+   }
   }
   handleClick(e) {
     e.preventDefault();
@@ -34,11 +50,11 @@ class SingleCursoAlumnoContainer extends Component {
   render() {
     return (
       <SingleCursoAlumno
+        studentCourse={this.state.studentCourse}
         curso={this.props.curso}
         purchaseCourse={this.props.purchaseCourse}
         handleClick={this.handleClick}
         isLoggedIn={this.props.isLoggedIn}
-        //handlePurchase={this.handlePurchase}
       />
     );
   }
@@ -52,8 +68,8 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = (state, ownProps) => {
   return {
     curso: state.alumnoCursos.course,
-    purchaseCourse: state.purchaseCourse,
-    isLoggedIn: state.creteUser.user,
+    purchaseCourse: state.createUser.purchasedCourse,
+    isLoggedIn: state.createUser.user,
     courseId: ownProps.match.params.cursoId
   };
 };

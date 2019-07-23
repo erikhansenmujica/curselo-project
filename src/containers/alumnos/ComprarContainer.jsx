@@ -22,7 +22,7 @@ class ComprarContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     courseId: ownProps.match.params.cursoId,
-    userId: state.creteUser.user.uid,
+    userId: state.createUser.user.uid,
     curso: state.alumnoCursos.course
   };
 };

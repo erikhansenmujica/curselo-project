@@ -10,7 +10,7 @@ import purchaseReducer from "../reducers/purchaseReducer";
 export const rootReducer = combineReducers({
   alumnoCursos: cursosAlumnoReducer,
   instructorCursos: cursosInstructorReducer,
-  creteUser: createUserReducer,
+  createUser: createUserReducer,
   purchaseCourse: purchaseReducer,
   firestore: firestoreReducer,
   firebase: firebaseReducer

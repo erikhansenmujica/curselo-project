@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/NavBar";
 import { connect } from "react-redux";
 import { firebase, auth } from "../config/app";
-import { createUser } from "../action-creators/createUser";
+import { createUser,deLogUser } from "../action-creators/createUser";
 
 class NavbarContainer extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class NavbarContainer extends React.Component {
       .auth()
       .signOut()
       .then(() => {
-        this.props.createUser({});
+        this.props.deLogUser({});
       })
       .catch(function(error) {
         alert(error);
@@ -32,7 +32,8 @@ const mapStateToProps = () => {
   };
 };
 const mapDispatchToProps = dispatch => ({
-  createUser: user => dispatch(createUser(user))
+  createUser: user => dispatch(createUser(user)),
+  deLogUser:()=>dispatch(deLogUser())
 });
 
 export default connect(

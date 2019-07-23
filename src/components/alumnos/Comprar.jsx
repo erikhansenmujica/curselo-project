@@ -13,24 +13,20 @@ const style = {
 const ListGroupPage = props => {
   return (
     <div>
-      <h1 style={style.position2}>Tu Compra</h1>
-      <MDBContainer style={style.position2}>
-        <MDBListGroup style={style.position}>
-          <MDBListGroupItem hover>
-            <div className="d-flex w-100 justify-content-between">
-              <h5 className="mb-1">{props.curso.name}</h5>
-              
-            </div>
-            <p className="mb-1">
-            {props.curso.price}
-            </p>
-           
-            <button className="btn-outline-primary"type="submit" onClick={props.handlePurchase}>
-              Compra Curso
-            </button>
-          </MDBListGroupItem>
-        </MDBListGroup>
-      </MDBContainer>
+      <div className="card" >
+        <div className="card-body">
+          <h5 className="card-title">{props.curso.name}</h5>
+
+          <p className="card-text">{props.curso.price}</p>
+        </div>
+      </div>
+      <button
+        className="btn btn-lg btn-primary"
+        type="submit"
+        onClick={props.handlePurchase}
+      >
+        Compra Curso
+      </button>
     </div>
   );
 };

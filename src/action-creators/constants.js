@@ -9,3 +9,4 @@ export const GET_TOPICS = "GET_TOPICS";
 export const FORGET_COURSE = "FORGET_COURSE";
 export const CREATE_SECTION = "CREATE_SECTION";
 export const BUY_COURSE = "BUY_COURSE";
+export const DELOG_USER = "DELOG_USER";
