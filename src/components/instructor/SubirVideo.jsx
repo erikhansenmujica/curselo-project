@@ -63,7 +63,6 @@ export default ({ handleUpload, handleSetFile,handleChange, load,courseId, secti
                 className="form-control validate"
                 type="file"
                 name="pdf"
-                accept=".pdf"
                 style={button}
                 onChange={handleSetFile}
               />

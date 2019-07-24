@@ -15,7 +15,9 @@ import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
 import ComprarContainer from "../containers/alumnos/ComprarContainer";
 import SearchContainer from "../containers/alumnos/SearchContainer";
 import Log from "./Log";
-import EditarTemaContainer from "../containers/instructor/EditarTemaContainer";
+import PerfilAlumno from "./instructor/PerfilAlumno";
+import EditarTemaContainer from "../containers/instructor/EditarTemaContainer"
+import Alumnos from "./instructor/VistaAlumnos";
 
 export default props => (
   <div>
@@ -28,10 +30,12 @@ export default props => (
             render={() => <Log logear={props.logear} history={props.history} />}
           />
         ))}
+        
       <Route
         path="/alumnos"
         render={() => <Alumnos history={props.history} />}
       />
+
       <Route exact path="/" component={HomeContainer} />
     </Switch>
   </div>
@@ -82,6 +86,7 @@ const instructor = () => (
           path="/instructor/cursos/:cursoId/section/:sectionId"
           component={CrearTemaContainer}
         />
+
         <Route
           exact
           path="/instructor/cursos/:courseId/section/:secId/topic/:topicId"
@@ -99,6 +104,11 @@ const instructor = () => (
           path="/instructor/cursos/:cursoId"
           component={SingleCursoInstructorContainer}
         />
+
+        <Route path="/instructor/listaalumnos" component={Alumnos} />
+        <Route exact path="/instructor/listaalumnos" component={Alumnos} />
+        <Route path="/instructor/alumno" component={PerfilAlumno} />
+        <Route exact path="/instructor/alumno" component={PerfilAlumno} />
       </Switch>
     </div>
   </div>
