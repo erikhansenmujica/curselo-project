@@ -12,12 +12,12 @@ let client = new Vimeo(
 
 export default class SubirVideoContainer extends React.Component {
   constructor(props) {
-    super(props); 
-    this.state={
-      name:"",
-      file:"",
-      load:true
-    }
+    super(props);
+    this.state = {
+      name: "",
+      file: "",
+      load: true
+    };
 
     this.handleSetFile = this.handleSetFile.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
@@ -39,7 +39,7 @@ export default class SubirVideoContainer extends React.Component {
 
   handleUpload(e) {
     e.preventDefault();
-    
+
     const file = this.state.file;
     let cursoId = this.props.courseId;
     let sectionId = this.props.sectionId;
@@ -68,8 +68,17 @@ export default class SubirVideoContainer extends React.Component {
             if(document.getElementById("modalContactForm2").classList.contains("show"))document.getElementById("buttonToggler").click()
             this.props.history.push(`/instructor/cursos/${cursoId}`);
           });
-        },
+          if (
+            document
+              .getElementById("modalContactForm2")
+              .classList.contains("show")
+          )
+            document.getElementById("buttonToggler").click();
+          this.props.history.push(`/instructor/cursos/${cursoId}`);
+        });
+      },
 
+<<<<<<< HEAD
         (bytesUploaded, bytesTotal)=> {
           var percentage = ((bytesUploaded / bytesTotal) * 100).toFixed(2);
           this.setState({
@@ -83,13 +92,22 @@ export default class SubirVideoContainer extends React.Component {
       )
       
       
+=======
+      function(bytesUploaded, bytesTotal) {
+        var percentage = ((bytesUploaded / bytesTotal) * 100).toFixed(2);
+      },
+      function(error) {
+        console.log("Failed because: " + error);
+      }
+    );
+>>>>>>> 6670771471171e5f93f730269fa45c2bc4e30e5f
   }
 
   render() {
     return (
       <SubirVideo
-      load={this.state.load}
-      handleChange={this.handleChange}
+        load={this.state.load}
+        handleChange={this.handleChange}
         courseId={this.props.cursoId}
         sectionId={this.props.sectionId}
         handleSetFile={this.handleSetFile}
