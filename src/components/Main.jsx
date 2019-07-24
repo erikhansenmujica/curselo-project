@@ -17,7 +17,6 @@ import SearchContainer from "../containers/alumnos/SearchContainer";
 import Log from "./Log";
 import PerfilAlumno from "./instructor/PerfilAlumno";
 import EditarTemaContainer from "../containers/instructor/EditarTemaContainer"
-import Alumnos from "./instructor/VistaAlumnos";
 
 export default props => (
   <div>
