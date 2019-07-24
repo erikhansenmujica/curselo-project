@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import Cursos from "../../components/alumnos/VerCursos";
-import {fetchCursosAlumno} from "../../action-creators/cursosAlumnos"
+import { fetchCursosAlumno } from "../../action-creators/cursosAlumnos";
 import { connect } from "react-redux";
 
 class instructor extends Component {
-    
   constructor(props) {
     super(props);
   }
 
-  componentDidMount(){
-    this.props.getCursos()
+  componentDidMount() {
+    this.props.getCursos();
   }
 
   render() {
@@ -18,14 +17,15 @@ class instructor extends Component {
   }
 }
 
-const mapDispatchToProps =(dispatch)=> ({
-  getCursos:()=>dispatch(fetchCursosAlumno())
-})
+const mapDispatchToProps = dispatch => ({
+  getCursos: () => dispatch(fetchCursosAlumno())
+});
 
-const mapStateToProps = state =>({
-  cursos:state.alumnoCursos.all.items
-})
-export default
-  
-  connect(mapStateToProps, mapDispatchToProps)
-(instructor)
+const mapStateToProps = state => ({
+  cursos: state.alumnoCursos.all.items
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(instructor);
