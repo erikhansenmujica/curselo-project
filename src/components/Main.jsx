@@ -12,6 +12,7 @@ import InstructorCursosContainer from "../containers/instructor/InstructorCursos
 import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
 import SignUpContainer from "../containers/SignUpContainer";
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
+import ComprarContainer from "../containers/alumnos/ComprarContainer"
 import Log from "./Log";
 import PerfilAlumno from "./instructor/PerfilAlumno";
 import Alumnos from "./instructor/VistaAlumnos";
@@ -37,6 +38,7 @@ const alumnos = () => (
   <div>
     <NavbarContainer />
     <Switch>
+      <Route exact path="/alumnos/cursos/:cursoId/comprar" component={ComprarContainer}/>
       <Route exact path="/alumnos/signUp" component={SignUpContainer} />
       <Route exact path="/alumnos/cursos" component={Cursos} />
       <Route
@@ -73,6 +75,12 @@ const instructor = () => (
           component={CrearTemaContainer}
         />
 
+        <Route
+          exact
+          path="/instructor/cursos/:courseId/section/:secId/topic/:topicId"
+          component={EditarTemaContainer}
+        />
+      
         <Route
           exact
           path="/instructor/cursos/:cursoId/section/:sectionId/subirvideo"
