@@ -12,10 +12,11 @@ import InstructorCursosContainer from "../containers/instructor/InstructorCursos
 import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
 import SignUpContainer from "../containers/SignUpContainer";
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
-import ComprarContainer from "../containers/alumnos/ComprarContainer"
+import ComprarContainer from "../containers/alumnos/ComprarContainer";
+import SearchContainer from "../containers/alumnos/SearchContainer";
 import Log from "./Log";
 import PerfilAlumno from "./instructor/PerfilAlumno";
-import Alumnos from "./instructor/VistaAlumnos";
+import EditarTemaContainer from "../containers/instructor/EditarTemaContainer"
 
 export default props => (
   <div>
@@ -28,19 +29,29 @@ export default props => (
             render={() => <Log logear={props.logear} history={props.history} />}
           />
         ))}
-      <Route path="/alumnos" component={alumnos} />
+        
+      <Route
+        path="/alumnos"
+        render={() => <Alumnos history={props.history} />}
+      />
+
       <Route exact path="/" component={HomeContainer} />
     </Switch>
   </div>
 );
 
-const alumnos = () => (
+const Alumnos = props => (
   <div>
-    <NavbarContainer />
+    <NavbarContainer history={props.history} />
     <Switch>
-      <Route exact path="/alumnos/cursos/:cursoId/comprar" component={ComprarContainer}/>
+      <Route
+        exact
+        path="/alumnos/cursos/:cursoId/comprar"
+        component={ComprarContainer}
+      />
       <Route exact path="/alumnos/signUp" component={SignUpContainer} />
       <Route exact path="/alumnos/cursos" component={Cursos} />
+      <Route exact path="/alumnos/cursos/search" component={SearchContainer} />
       <Route
         exact
         path="/alumnos/cursos/:cursoId"
@@ -80,7 +91,7 @@ const instructor = () => (
           path="/instructor/cursos/:courseId/section/:secId/topic/:topicId"
           component={EditarTemaContainer}
         />
-      
+
         <Route
           exact
           path="/instructor/cursos/:cursoId/section/:sectionId/subirvideo"
@@ -95,7 +106,6 @@ const instructor = () => (
 
         <Route path="/instructor/listaalumnos" component={Alumnos} />
         <Route exact path="/instructor/listaalumnos" component={Alumnos} />
-
         <Route path="/instructor/alumno" component={PerfilAlumno} />
         <Route exact path="/instructor/alumno" component={PerfilAlumno} />
       </Switch>

@@ -17,7 +17,7 @@ const styles = {
   }
 };
 
-export default ({ user, handleLogOut }) => {
+export default ({ user, handleLogOut, handleSearch, handleSubmit, search }) => {
   return (
     <div className="navbar navbar-expand-lg navbar-light" style={styles.colors}>
       <button
@@ -41,12 +41,18 @@ export default ({ user, handleLogOut }) => {
         </div>
       </Link>
       <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <form className="form-inline my-2 my-lg-0" style={styles.search}>
+        <form
+          className="form-inline my-2 my-lg-0"
+          style={styles.search}
+          onSubmit={handleSubmit}
+        >
           <input
             className="form-control mr-sm-2"
             type="search"
             placeholder="Search"
+            value={search}
             aria-label="Search"
+            onChange={handleSearch}
           />
           <button className="btn btn-primary" type="submit">
             Search
