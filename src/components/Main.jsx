@@ -16,6 +16,7 @@ import ComprarContainer from "../containers/alumnos/ComprarContainer"
 import Log from "./Log";
 import PerfilAlumno from "./instructor/PerfilAlumno";
 import Alumnos from "./instructor/VistaAlumnos";
+import EditarTemaContainer from "../containers/instructor/EditarTemaContainer"
 
 export default props => (
   <div>

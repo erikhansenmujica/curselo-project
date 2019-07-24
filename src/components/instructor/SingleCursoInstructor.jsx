@@ -1,5 +1,7 @@
 import React from "react";
 import SectionTopicContainer from "../../containers/instructor/Section&TopicContainer";
+import { Link } from "react-router-dom";
+
 
 const styles = {
   button2: {
@@ -95,6 +97,16 @@ export default props => (
           </form>
         </div>
       </div>
+    </div>
+    <div className='container'>
+
+    <Link to={`/instructor/cursos`}>
+        <div>
+          <button type="button" className="btn btn-primary">
+            Back to My Courses
+          </button>
+        </div>
+      </Link>
     </div>
   </div>
 );
