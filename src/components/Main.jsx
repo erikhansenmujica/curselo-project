@@ -10,19 +10,24 @@ import SingleCursoAlumnoContainer from "../containers/alumnos/SingleCursoAlumnoC
 import SideBar from "../components/instructor/SideBar";
 import InstructorCursosContainer from "../containers/instructor/InstructorCursosContainer";
 import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
-import SignUpContainer from "../containers/SignUpContainer"
+import SignUpContainer from "../containers/SignUpContainer";
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
+import ComprarContainer from "../containers/alumnos/ComprarContainer"
 import Log from "./Log";
+import PerfilAlumno from "./instructor/PerfilAlumno";
+import Alumnos from "./instructor/VistaAlumnos";
 
-export default (props) => (
+export default props => (
   <div>
     <Switch>
-      
-      {window.location.href.includes("instructor") && (props.loading ? (
-        <Route path="/instructor" component={instructor} />
-      ) : (
-        <Route render={()=><Log logear={props.logear} history={props.history}/>} />
-      ))}
+      {window.location.href.includes("instructor") &&
+        (props.loading ? (
+          <Route path="/instructor" component={instructor} />
+        ) : (
+          <Route
+            render={() => <Log logear={props.logear} history={props.history} />}
+          />
+        ))}
       <Route path="/alumnos" component={alumnos} />
       <Route exact path="/" component={HomeContainer} />
     </Switch>
@@ -33,6 +38,7 @@ const alumnos = () => (
   <div>
     <NavbarContainer />
     <Switch>
+      <Route exact path="/alumnos/cursos/:cursoId/comprar" component={ComprarContainer}/>
       <Route exact path="/alumnos/signUp" component={SignUpContainer} />
       <Route exact path="/alumnos/cursos" component={Cursos} />
       <Route
@@ -68,20 +74,31 @@ const instructor = () => (
           path="/instructor/cursos/:cursoId/section/:sectionId"
           component={CrearTemaContainer}
         />
+
+        <Route
+          exact
+          path="/instructor/cursos/:courseId/section/:secId/topic/:topicId"
+          component={EditarTemaContainer}
+        />
       
         <Route
           exact
           path="/instructor/cursos/:cursoId/section/:sectionId/subirvideo"
           component={SubirVideoContainer}
         />
-        
+
         <Route
           exact
           path="/instructor/cursos/:cursoId"
           component={SingleCursoInstructorContainer}
         />
-      </Switch>
 
+        <Route path="/instructor/listaalumnos" component={Alumnos} />
+        <Route exact path="/instructor/listaalumnos" component={Alumnos} />
+
+        <Route path="/instructor/alumno" component={PerfilAlumno} />
+        <Route exact path="/instructor/alumno" component={PerfilAlumno} />
+      </Switch>
     </div>
   </div>
 );

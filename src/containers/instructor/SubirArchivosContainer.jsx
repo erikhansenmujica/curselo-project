@@ -1,7 +1,6 @@
 import React from "react";
 import SubirArchivos from "../../components/instructor/SubirArchivos";
 import { firebase, db } from "../../config/app";
-import { auth } from "../../config/app";
 import Axios from "axios";
 
 export default class SubirArchivosContainer extends React.Component {
@@ -39,9 +38,19 @@ export default class SubirArchivosContainer extends React.Component {
     })
     storageRef.put(file).then(file => {
       storageRef.getDownloadURL().then(data => {
-        Axios.post(
-          "https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourseTopic",
-          { sectionId: this.props.sectionId, contentURL: data, name:this.state.name }
+        var obj={}
+        if(this.props.topicId){
+    
+          obj={sectionId: this.props.sectionId,id:this.props.topicId}
+          if(data) obj.contentURL=data
+          else obj.contentURL=this.props.topic.contentURL
+          if(this.state.name.length) obj.name=this.state.name
+          else obj.name=this.props.topic.name
+        }
+       else obj= { sectionId: this.props.sectionId, contentURL:data, name:this.state.name }
+       console.log(obj) 
+       Axios.post(
+          "https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourseTopic",obj
         ).then(data2 => {
           console.log("YO SOY DATA", data2);
           this.setState({

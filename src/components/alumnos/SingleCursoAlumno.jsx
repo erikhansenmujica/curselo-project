@@ -1,6 +1,7 @@
 import React from "react";
-
-export default ({ curso }) => (
+import { Link } from "react-router-dom";
+        
+        export default ({ curso, purchaseCourse, handleClick, isLoggedIn, handlePurchase,studentCourse }) => (
   <div
     style={{
       height: "100vh",
@@ -17,38 +18,50 @@ export default ({ curso }) => (
         marginLeft: "10%",
         borderStyle: "solid",
         borderWidth: "2px",
-        borderColor: "#E4E9F4",      
+        borderColor: "#E4E9F4"
       }}
     >
-    <div style={{
-        display: "flex",
-        flexDirection: "row"
-    }}>
       <div
         style={{
-          float: "left"
+          display: "flex",
+          flexDirection: "row"
         }}
       >
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSFiS3k5Xqg9CFuoghOVJPtpO8Wgz4QpaVbx0Ei5dOJoBWKoMY"
-          alt=""
-          height="300vh"
-        />
-      </div>
-      <div
-        style={{
-          marginTop: "5%",
-          float: "left"
-        }}
-      >
-        {curso && <h3>{curso.name}</h3>}
-        {curso && <p>{curso.description}</p>}
-      </div>
-
+        <div
+          style={{
+            float: "left"
+          }}
+        >
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSFiS3k5Xqg9CFuoghOVJPtpO8Wgz4QpaVbx0Ei5dOJoBWKoMY"
+            alt=""
+            height="300vh"
+          />
         </div>
+        <div
+          style={{
+            marginTop: "5%",
+            float: "left"
+          }}
+        >
+          {curso && <h3>{curso.name}</h3>}
+          {curso && <p>{curso.description}</p>}
+        </div>
+      </div>
     </div>
-   <div style={{marginLeft: "10%"}}>
-      <button type="button" className="btn btn-outline-secondary btn-lg">Comprar: U$D{curso.price}</button>
-   </div>
+
+    { isLoggedIn.uid && (purchaseCourse.data||studentCourse[0]&&studentCourse[0].id)? (
+      <div className="container">
+        <h3>Comprado!</h3>
+      </div>
+    ) : (
+      <Link to={`/alumnos/cursos/${curso.id}/comprar`}>
+        <div style={{ marginLeft: "40%", marginTop: "3%" }}>
+          <button type="button" className="btn btn-outline-primary btn-lg" onClick={handleClick}>
+            Comprar: USD {curso.price}
+          </button>
+        </div>
+      </Link>
+    )}
   </div>
 );
