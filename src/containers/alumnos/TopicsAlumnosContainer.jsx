@@ -20,7 +20,7 @@ class TopicsAlumnosContainer extends React.Component{
     }
 
     render(){
-        return <Topics topics={this.state.topics} id={this.props.sectionId}/>
+        return <Topics topics={this.state.topics} id={this.props.sectionId} cursoId={this.props.cursoId} history={this.props.history}/>
     }
 }
 

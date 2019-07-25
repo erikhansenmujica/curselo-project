@@ -1,5 +1,5 @@
 import React from "react"
 import SideBar from "./SideBar"
 export default (props)=>
-<SideBar cursoId={props.cursoId}/>
+<SideBar cursoId={props.cursoId} history={props.history}/>
 
