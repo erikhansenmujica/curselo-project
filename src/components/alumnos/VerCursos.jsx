@@ -25,6 +25,7 @@ export default ({ cursos }) => (
           <Link to={`/alumnos/cursos/${curso.id}`}>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTUyfcgnFWzf2GBPS8kpRhpa01uVuyuN40ZxOWNz-WcMXvUBgtkg"
+              //la imagen posta entra por {curso.images.imagen1.url}
               className="card-img-top"
               alt=""
             />

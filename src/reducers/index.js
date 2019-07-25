@@ -4,7 +4,7 @@ import { firebaseReducer } from "react-redux-firebase";
 import cursosAlumnoReducer from "../reducers/cursosAlumnoReducer";
 import cursosInstructorReducer from "../reducers/cursosInstructorReducer";
 import createUserReducer from "../reducers/createUserReducer";
-import purchaseReducer from "../reducers/purchaseReducer";
+import searchReducer from "../reducers/searchReducer"
 
 // Add firebase to reducers
 export const rootReducer = combineReducers({
@@ -12,6 +12,7 @@ export const rootReducer = combineReducers({
   instructorCursos: cursosInstructorReducer,
   creteUser: createUserReducer,
   purchasedCourses: purchaseReducer,
+  searchCourses: searchReducer,
   firestore: firestoreReducer,
   firebase: firebaseReducer
 });

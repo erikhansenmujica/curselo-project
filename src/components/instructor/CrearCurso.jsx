@@ -19,19 +19,24 @@ const styles = {
     backgroundColor: "#8BE3EF"
   },
   position: {
-    marginTop:"2%",
-    width:"70%"
+    marginTop: "2%",
+    width: "70%"
+  },
+  loader: {
+    marginLeft: "45%"
   }
 };
 
 export default ({
   handleChange,
   handleSubmit,
-  handleUpload,
-  handleSetFile
+  handleUploadImg,
+  handleSetImg,
+  imageUrl1,
+  imageUrl2,
+  loading
 }) => (
   <div className="container" style={styles.position}>
-  
     <form
       onSubmit={e => {
         handleSubmit(e);
@@ -73,6 +78,90 @@ export default ({
           />
         </div>
       </div>
+
+      <div className="card mb-4 shadow-sm">
+        <button
+          type="button"
+          className="btn btn-lg btn-block btn-primary"
+          data-toggle="modal"
+          data-target="#modalContactForm1"
+        >
+          Upload image
+        </button>
+      </div>
+
+      <div
+        className="modal fade"
+        id="modalContactForm1"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header text-center">
+              <h4 className="modal-title w-100 font-weight-bold">Upload PDF</h4>
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div className="card bg mb-3" style={styles.cards}>
+              <div className="card-header">
+                Upload Images:
+                <div className="card-body">
+                  <input
+                    style={styles.title}
+                    className="btn"
+                    name="myImage"
+                    type="file"
+                    accept="image/x-png,image/gif,image/jpeg"
+                    onChange={handleSetImg}
+                  />
+                  
+                </div>
+              </div>
+            </div>
+
+            {!loading && (
+              <div
+                style={styles.loader}
+                className="spinner-border text-info"
+                role="status"
+              >
+                <span className="sr-only">Loading...</span>
+              </div>
+            )}
+            <div className="modal-footer d-flex justify-content-center">
+              <button
+              onClick={handleUploadImg}
+                type="button"
+                id="buttonToggler"
+                className="btn btn-info"
+                data-toggle="modal"
+                data-target="#modalContactForm1"
+              >
+                Upload Image <i className="fas fa-paper-plane-o ml-1" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div className="col-sm-3  main">
+          Imagen Principal:
+          {console.log("CONSOLAAAAAAAA", imageUrl1)}
+          <img src={imageUrl1} width="100%" alt="" />
+        </div>
+      </div>
+
       <div style={styles.button}>
         <button type="submit" className="btn btn-primary">
           Cancelar
