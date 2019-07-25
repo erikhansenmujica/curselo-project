@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Pagination from "react-js-pagination";
 
 const style = {
   container: {
@@ -17,7 +18,7 @@ const style = {
     textDecoration: "none"
   }
 };
-export default ({ cursos }) => (
+export default ({ cursos, handleChangePage }) => (
   <div style={style.container}>
     {cursos ? (
       cursos.map(curso => (
@@ -53,5 +54,6 @@ export default ({ cursos }) => (
     ) : (
       <p>Buscando...</p>
     )}
+        
   </div>
 );
