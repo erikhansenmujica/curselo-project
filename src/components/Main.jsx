@@ -1,6 +1,7 @@
 import React from "react";
 import HomeContainer from "../containers/HomeContainer";
 import { Route, Switch } from "react-router-dom";
+import Log from './Log'
 import CrearContainer from "../containers/instructor/CrearContainer";
 import Cursos from "../containers/alumnos/Cursos";
 import InstructorContainer from "../containers/instructor/InstructorContainer";
