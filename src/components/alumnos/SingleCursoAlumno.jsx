@@ -50,7 +50,7 @@ import { Link } from "react-router-dom";
       </div>
     </div>
 
-    { isLoggedIn.uid && (purchaseCourse.data||studentCourse[0]&&studentCourse[0].id)? (
+    { isLoggedIn.uid && (studentCourse[0]&&studentCourse[0].id)? (
       <div className="container">
         <h3>Comprado!</h3>
       </div>

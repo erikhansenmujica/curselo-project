@@ -62,7 +62,6 @@ export default ({ handleUpload, handleSetFile,handleChange, load,courseId, secti
                 id="form32"
                 className="form-control validate"
                 type="file"
-                name="pdf"
                 style={button}
                 onChange={handleSetFile}
               />
@@ -77,7 +76,7 @@ export default ({ handleUpload, handleSetFile,handleChange, load,courseId, secti
             <div className="modal-footer d-flex justify-content-center">
               <button type="submit" id="buttonToggler"className="btn btn-unique"data-toggle="modal"
             data-target="#modalContactForm2">
-                Upload PDF <i className="fas fa-paper-plane-o ml-1" />
+                Upload Video <i className="fas fa-paper-plane-o ml-1" />
               </button>
             </div>
           </form>

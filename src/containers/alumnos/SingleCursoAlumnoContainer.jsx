@@ -50,6 +50,7 @@ class SingleCursoAlumnoContainer extends Component {
 
 
   render() {
+    console.log(this.state)
     return (
       <SingleCursoAlumno
         studentCourse={this.state.studentCourse}
