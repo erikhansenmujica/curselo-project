@@ -13,7 +13,6 @@ import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
 import SignUpContainer from "../containers/SignUpContainer";
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
 import CursosCompradosContainer from "../containers/alumnos/CursosCompradosContainer";
-import ComprarContainer from "../containers/alumnos/ComprarContainer"
 import SingleCursoCompradoContainer from "../containers/alumnos/SingleCursoCompradoContainer";
 import ComprarContainer from "../containers/alumnos/ComprarContainer";
 import SearchContainer from "../containers/alumnos/SearchContainer";
