@@ -1,5 +1,7 @@
 import React from "react";
 import SectionTopicContainer from "../../containers/instructor/Section&TopicContainer";
+import { Link } from "react-router-dom";
+
 
 const styles = {
   button2: {
@@ -18,6 +20,7 @@ const styles = {
 
 export default props => (
   <div>
+    {/* {console.log("props en singleeeeeeeeee", props)} */}
     <div className="jumbotron mt-3">
       <h1 style={styles.title}>Create your course</h1>
       <p style={{ textAlign: "center" }} className="lead">
@@ -31,6 +34,16 @@ export default props => (
           <div className="media-body">
             <p className="mt-0" style={styles.text}>
               Course: {props.curso.name}
+              <Link to={`/instructor/cursos/${props.curso.id}/edit`}>
+            <button
+              type="button"
+              className="btn btn-light"
+              style={{ float: "right", marginBottom: "5px",marginRight:"10px" }}
+              onClick={() => {}}
+            > Edit this Course
+              <i className="fas fa-pencil-alt" />
+            </button>
+          </Link>
             </p>
           </div>
         </div>
@@ -95,6 +108,16 @@ export default props => (
           </form>
         </div>
       </div>
+    </div>
+    <div className='container'>
+
+    <Link to={`/instructor/cursos`}>
+        <div>
+          <button type="button" className="btn btn-primary">
+            Back to My Courses
+          </button>
+        </div>
+      </Link>
     </div>
   </div>
 );
