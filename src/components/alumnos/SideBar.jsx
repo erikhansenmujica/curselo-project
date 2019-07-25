@@ -35,7 +35,7 @@ export default (props) => (
           </center>
         </div>
         <br />
-        <SeccionesAlumnoContainer cursoId={props.cursoId}/>
+        <SeccionesAlumnoContainer cursoId={props.cursoId} history={props.history}/>
       </div>
     </nav>
   </div>

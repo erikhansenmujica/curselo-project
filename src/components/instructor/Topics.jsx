@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default props => (
   <div>
     {props.topics && props.topics[0] ? (
-      props.topics.map(topic => (
+      props.topics.map(topic => 
         <li key={topic.id} className="list-group-item" style={{
           height:"60px"
         }}>
@@ -29,7 +29,7 @@ export default props => (
 
             
         </li>
-      ))
+      )
     ) : (
       <div />
     )}

@@ -17,7 +17,7 @@ const styles={
       }
 }
 
-export default ({sections}) =>
+export default ({sections, cursoId, history}) =>
 <div>   
         {sections&&sections.length&&sections.map(sec=>
     <div key={sec.id}>  
@@ -35,7 +35,7 @@ export default ({sections}) =>
       ↓
     </button>
   </p>  
-  <TopicsAlumnosContainer sectionId={sec.id}/>
+  <TopicsAlumnosContainer sectionId={sec.id} cursoId={cursoId} history={history}/>
   </div>
         )}
 </div>

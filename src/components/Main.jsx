@@ -18,7 +18,8 @@ import SingleCursoCompradoContainer from "../containers/alumnos/SingleCursoCompr
 import ComprarContainer from "../containers/alumnos/ComprarContainer";
 import SearchContainer from "../containers/alumnos/SearchContainer";
 import PerfilAlumno from "./instructor/PerfilAlumno";
-import EditarTemaContainer from "../containers/instructor/EditarTemaContainer";
+import EditarTemaContainer from "../containers/instructor/EditarTemaContainer"
+import SingleTopicContainer from "../containers/alumnos/SingleTopicContainer";
 import EditarCursoContainer from "../containers/instructor/EditarCursoContainer"
 
 export default props => (
@@ -56,6 +57,7 @@ const Alumnos = props => (
       <Route exact path="/alumnos/cursos" component={Cursos} />
       <Route exact path="/alumnos/cursos/comprados" component={CursosCompradosContainer} />
       <Route exact path="/alumnos/cursos/comprados/:cursoId" component={SingleCursoCompradoContainer} />
+      <Route exact path="/alumnos/cursos/comprados/:cursoId/section/:sectionId/topic/:topicId" component={SingleTopicContainer} />
       <Route exact path="/alumnos/cursos/search" component={SearchContainer} />
       <Route
         exact
