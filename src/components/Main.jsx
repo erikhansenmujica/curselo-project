@@ -17,11 +17,8 @@ import SingleCursoCompradoContainer from "../containers/alumnos/SingleCursoCompr
 import ComprarContainer from "../containers/alumnos/ComprarContainer";
 import SearchContainer from "../containers/alumnos/SearchContainer";
 import PerfilAlumno from "./instructor/PerfilAlumno";
-<<<<<<< HEAD
 import EditarTemaContainer from "../containers/instructor/EditarTemaContainer";
 import EditarCursoContainer from "../containers/instructor/EditarCursoContainer"
-=======
->>>>>>> 1e8dfbf79ca990dbfc115c20fca630c44fd7a5f1
 
 export default props => (
   <div>
