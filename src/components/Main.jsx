@@ -17,6 +17,8 @@ import SingleCursoCompradoContainer from "../containers/alumnos/SingleCursoCompr
 import ComprarContainer from "../containers/alumnos/ComprarContainer";
 import SearchContainer from "../containers/alumnos/SearchContainer";
 import PerfilAlumno from "./instructor/PerfilAlumno";
+import EditarTemaContainer from "../containers/instructor/EditarTemaContainer";
+import EditarCursoContainer from "../containers/instructor/EditarCursoContainer"
 
 export default props => (
   <div>
@@ -29,7 +31,7 @@ export default props => (
             render={() => <Log logear={props.logear} history={props.history} />}
           />
         ))}
-        
+
       <Route
         path="/alumnos"
         render={() => <Alumnos history={props.history} />}
@@ -86,6 +88,12 @@ const instructor = () => (
           exact
           path="/instructor/cursos/:cursoId/section/:sectionId"
           component={CrearTemaContainer}
+        />
+
+        <Route
+          exact
+          path="/instructor/cursos/:courseId/edit"
+          component={EditarCursoContainer}
         />
 
         <Route

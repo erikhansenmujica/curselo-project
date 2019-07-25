@@ -4,6 +4,7 @@ import { firebaseReducer } from "react-redux-firebase";
 import cursosAlumnoReducer from "../reducers/cursosAlumnoReducer";
 import cursosInstructorReducer from "../reducers/cursosInstructorReducer";
 import createUserReducer from "../reducers/createUserReducer";
+import searchReducer from "../reducers/searchReducer"
 import searchReducer from "../reducers/searchReducer";
 import purchaseReducer from "../reducers/purchaseReducer"
 

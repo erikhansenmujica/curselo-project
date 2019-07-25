@@ -32,11 +32,7 @@ import { Link } from "react-router-dom";
             float: "left"
           }}
         >
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSFiS3k5Xqg9CFuoghOVJPtpO8Wgz4QpaVbx0Ei5dOJoBWKoMY"
-            alt=""
-            height="300vh"
-          />
+          {curso.images ? <img width="40%" alt="" className="card-img-top" src={curso.images.imagen1&&curso.images.imagen1.url}/> : <img alt="" className="card-img-top" src='https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg' />}
         </div>
         <div
           style={{

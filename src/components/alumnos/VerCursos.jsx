@@ -23,12 +23,8 @@ export default ({ cursos }) => (
       cursos.map(curso => (
         <div key={curso.id} className="card" style={style.childs}>
           <Link to={`/alumnos/cursos/${curso.id}`}>
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTUyfcgnFWzf2GBPS8kpRhpa01uVuyuN40ZxOWNz-WcMXvUBgtkg"
-              //la imagen posta entra por {curso.images.imagen1.url}
-              className="card-img-top"
-              alt=""
-            />
+            {curso.images ? <img alt="" className="card-img-top" src={curso.images.imagen1&&curso.images.imagen1.url}/> : <img alt="" className="card-img-top" src='https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg' />}
+              {/* //la imagen posta entra por {curso.images.imagen1.url} */}
           </Link>
           <div className="card-body">
             <Link to={`/alumnos/cursos/${curso.id}`}>
