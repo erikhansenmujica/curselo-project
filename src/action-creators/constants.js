@@ -10,5 +10,6 @@ export const FORGET_COURSE = "FORGET_COURSE";
 export const CREATE_SECTION = "CREATE_SECTION";
 export const BUY_COURSE = "BUY_COURSE";
 export const DELOG_USER = "DELOG_USER";
+export const ADD_PURCHASED = "ADD_PURCHASED"
 export const SEARCH_COURSES = "SEARCH_COURSES";
 export const UPDATE_COURSE = "UPDATE_COURSE";

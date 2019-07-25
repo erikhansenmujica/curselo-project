@@ -12,12 +12,16 @@ import InstructorCursosContainer from "../containers/instructor/InstructorCursos
 import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
 import SignUpContainer from "../containers/SignUpContainer";
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
+import CursosCompradosContainer from "../containers/alumnos/CursosCompradosContainer";
+import SingleCursoCompradoContainer from "../containers/alumnos/SingleCursoCompradoContainer";
 import ComprarContainer from "../containers/alumnos/ComprarContainer";
 import SearchContainer from "../containers/alumnos/SearchContainer";
-import Log from "./Log";
 import PerfilAlumno from "./instructor/PerfilAlumno";
+<<<<<<< HEAD
 import EditarTemaContainer from "../containers/instructor/EditarTemaContainer";
 import EditarCursoContainer from "../containers/instructor/EditarCursoContainer"
+=======
+>>>>>>> 1e8dfbf79ca990dbfc115c20fca630c44fd7a5f1
 
 export default props => (
   <div>
@@ -52,6 +56,8 @@ const Alumnos = props => (
       />
       <Route exact path="/alumnos/signUp" component={SignUpContainer} />
       <Route exact path="/alumnos/cursos" component={Cursos} />
+      <Route exact path="/alumnos/cursos/comprados" component={CursosCompradosContainer} />
+      <Route exact path="/alumnos/cursos/comprados/:cursoId" component={SingleCursoCompradoContainer} />
       <Route exact path="/alumnos/cursos/search" component={SearchContainer} />
       <Route
         exact
