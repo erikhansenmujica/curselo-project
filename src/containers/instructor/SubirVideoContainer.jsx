@@ -67,7 +67,6 @@ export default class SubirVideoContainer extends React.Component {
            
             if(document.getElementById("modalContactForm2").classList.contains("show"))document.getElementById("buttonToggler").click()
             this.props.history.push(`/instructor/cursos/${cursoId}`);
-          });
           if (
             document
               .getElementById("modalContactForm2")
@@ -76,9 +75,10 @@ export default class SubirVideoContainer extends React.Component {
             document.getElementById("buttonToggler").click();
           this.props.history.push(`/instructor/cursos/${cursoId}`);
         });
-      },
 
-<<<<<<< HEAD
+        }
+      ,
+
         (bytesUploaded, bytesTotal)=> {
           var percentage = ((bytesUploaded / bytesTotal) * 100).toFixed(2);
           this.setState({
@@ -92,15 +92,6 @@ export default class SubirVideoContainer extends React.Component {
       )
       
       
-=======
-      function(bytesUploaded, bytesTotal) {
-        var percentage = ((bytesUploaded / bytesTotal) * 100).toFixed(2);
-      },
-      function(error) {
-        console.log("Failed because: " + error);
-      }
-    );
->>>>>>> 6670771471171e5f93f730269fa45c2bc4e30e5f
   }
 
   render() {

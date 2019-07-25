@@ -1,15 +1,15 @@
-// import { BUY_COURSE } from "../action-creators/constants";
+import {ADD_PURCHASED } from "../action-creators/constants";
 
-// const initialState = {
-//   course: []
-// };
+const initialState = {
+  courses: []
+};
 
-// export default (state = initialState, action) => {
-//   switch (action.type) {
-//     case BUY_COURSE:
-//       return Object.assign({}, state, { course: action.course });
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_PURCHASED:
+      return Object.assign({}, state, { courses: action.cursos });
 
-//     default:
-//       return state;
-//   }
-// };
+    default:
+      return state;
+  }
+};

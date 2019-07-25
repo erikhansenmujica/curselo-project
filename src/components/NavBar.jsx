@@ -9,11 +9,12 @@ const styles = {
     width: "65px"
   },
   search: {
-    display: "block",
+    display: "inline",
     margin: "auto"
   },
   child: {
-    paddingLeft: "20%"
+    float:"right",
+    display:"flex"
   }
 };
 
@@ -52,17 +53,9 @@ export default ({ user, handleLogOut }) => {
             Search
           </button>
         </form>
-        <ul className="navbar-nav mr-auto mt-2 mt-lg-0" style={styles.child}>
-          <li className="nav-item">
-            <button
-              className="btn btn-default btn-rounded"
-              data-toggle="modal"
-              data-target="#darkModalForm"
-            >
-              LogIn
-            </button>
-          </li>
+     
           {user ? (
+           <ul className="navbar-nav" style={styles.child}>
             <li className="nav-item">
               <button
                 className="btn btn-default btn-rounded mb-4"
@@ -71,7 +64,28 @@ export default ({ user, handleLogOut }) => {
                 LogOut
               </button>
             </li>
+             <li className="nav-item">
+            <Link to="/alumnos/cursos/comprados"> <button
+               className="btn btn-default btn-rounded mb-4"
+               style={{float:"right"}}
+            
+             >
+               My courses
+             </button>
+             </Link>
+           </li>
+           </ul>
           ) : (
+            <ul className="navbar-nav" style={styles.child}>
+            <li className="nav-item">
+              <button
+                className="btn btn-default btn-rounded"
+                data-toggle="modal"
+                data-target="#darkModalForm"
+              >
+                LogIn
+              </button>
+            </li>
             <li className="nav-item">
               <button
                 className="btn btn-default btn-rounded mb-4"
@@ -81,8 +95,8 @@ export default ({ user, handleLogOut }) => {
                 SignIn
               </button>
             </li>
-          )}
         </ul>
+          )}
       </div>
       <SignUpContainer />
     </div>

@@ -11,7 +11,7 @@ export const rootReducer = combineReducers({
   alumnoCursos: cursosAlumnoReducer,
   instructorCursos: cursosInstructorReducer,
   creteUser: createUserReducer,
-  purchaseCourse: purchaseReducer,
+  purchasedCourses: purchaseReducer,
   firestore: firestoreReducer,
   firebase: firebaseReducer
 });
