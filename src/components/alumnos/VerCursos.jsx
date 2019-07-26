@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Pagination from "react-js-pagination";
 
 const style = {
   container: {
@@ -13,12 +12,26 @@ const style = {
     marginTop: "1%",
     marginBottom: "1%"
   },
-  linksColor: {
-    color: "black",
-    textDecoration: "none"
+  button: {
+    marginTop: "30%"
+  },
+  img: {
+    width: "100%",
+    height: "200px",
+    display: "block",
+    margin: "auto"
+  },
+  text: {
+    fontSize: "26px",
+    textAlign: "center",
+    color: "black"
+  },
+  text2: {
+    fontSize: "18px",
+    color: "black"
   }
 };
-export default ({ cursos, handleChangePage }) => (
+export default ({ cursos }) => (
   <div style={style.container}>
     {cursos ? (
       cursos.map(curso => (
@@ -28,33 +41,35 @@ export default ({ cursos, handleChangePage }) => (
               <img
                 alt=""
                 className="card-img-top"
+                style={style.img}
                 src={curso.images.imagen1 && curso.images.imagen1.url}
               />
             ) : (
               <img
                 alt=""
                 className="card-img-top"
+                style={style.img}
                 src="https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg"
               />
             )}
-            {/* //la imagen posta entra por {curso.images.imagen1.url} */}
           </Link>
           <div className="card-body">
             <Link to={`/alumnos/cursos/${curso.id}`}>
-              <h5 style={style.linksColor} className="card-title">
+              <h5 style={style.text} className="card-title">
                 {curso.name}
               </h5>
             </Link>
             <Link to={`/alumnos/cursos/${curso.id}`}>
-              <p style={style.linksColor} className="card-text">
+              <p style={style.text2} className="card-text">
                 {curso.description.length > 120
                   ? curso.description.slice(0, 120) + "..."
                   : curso.description}
               </p>
             </Link>
-
             <Link to={`/alumnos/cursos/${curso.id}`}>
-              <div className="btn btn-primary">View Details</div>
+              <div style={style.button}>
+                <button className="btn btn-outline-dark">View Details</button>
+              </div>
             </Link>
           </div>
         </div>

@@ -3,93 +3,82 @@ import { Link } from "react-router-dom";
 
 const styles = {
   img: {
-    size: "100px",
-    marginTop: "5%"
-    // width:"45%"
+    marginTop: "15%"
+  },
+  img2:{
+    marginTop:"15%",
+    width:"80%"
+  },
+  budget: {
+    fontSize: "28px",
+    textAlign: "center"
+  },
+  button:{
+    display:"block",
+    margin:"auto"
+  },
+  button2: {
+    marginLeft:"2%"
+  },
+  title:{
+    fontSize:"28px",
+    textAlign:"center",
+    fontWeight: "bold"
   }
 };
-export default ({
-  curso,
-  purchaseCourse,
-  handleClick,
-  isLoggedIn,
-  handlePurchase,
-  studentCourse
-}) => (
-  <div
-    style={{
-      height: "100vh",
-      width: "100vw",
-      backgroundColor: "#F3F6FC"
-    }}
-  >
-    <div
-      style={{
-        borderRadius: "4px",
-        backgroundColor: "white",
-        height: "60vh",
-        width: "80vw",
-        marginLeft: "10%",
-        borderStyle: "solid",
-        borderWidth: "2px",
-        borderColor: "#E4E9F4"
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row"
-        }}
-      >
-        <div
-          style={{
-            float: "left"
-          }}
-        >
+export default ({ curso, handleClick, isLoggedIn, studentCourse }) => (
+  <div>
+    <div className="card mb-3 container">
+      <div className="row no-gutters">
+        <div className="col-md-4">
           {curso.images ? (
             <img
-              alt=""
               style={styles.img}
-              className="rounded float-left"
               src={curso.images.imagen1 && curso.images.imagen1.url}
+              className="card-img"
+              alt="..."
             />
           ) : (
             <img
-              alt=""
-              style={styles.img}
-              className="rounded float-left"
+              style={styles.img2}
               src="https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg"
+              className="card-img"
+              alt="..."
             />
           )}
         </div>
-        <div
-          style={{
-            marginTop: "5%",
-            float: "left"
-          }}
-        >
-          {curso && <h3>{curso.name}</h3>}
-          {curso && <p>{curso.description}</p>}
+        <div className="col-md-8">
+          <div className="card-body">
+            <h5 className="card-title" style={styles.title}>{curso.name}</h5>
+            <p className="card-text">{curso.description}</p>
+          </div>
         </div>
       </div>
+      {isLoggedIn.uid && (studentCourse[0] && studentCourse[0].id) ? (
+        <div className="alert alert-success" role="alert" style={styles.budget}>
+          Comprado!
+        </div>
+      ) : (
+        <Link to={`/alumnos/cursos/${curso.id}/comprar`}>
+          <div>
+            <button
+              type="button"
+              className="btn btn-outline-primary btn-lg"
+              onClick={handleClick}
+              style={styles.button}
+            >
+              Comprar: USD {curso.price}
+            </button>
+          </div>
+        </Link>
+      )}
     </div>
-
-    {isLoggedIn.uid && (studentCourse[0] && studentCourse[0].id) ? (
-      <div className="container">
-        <h3>Comprado!</h3>
+    <Link to="/alumnos/cursos">
+      <div style={styles.button2}>
+        <button type="button" class="btn btn-outline-dark">
+          Volver Atras
+        </button>
       </div>
-    ) : (
-      <Link to={`/alumnos/cursos/${curso.id}/comprar`}>
-        <div style={{ marginLeft: "40%", marginTop: "3%" }}>
-          <button
-            type="button"
-            className="btn btn-outline-primary btn-lg"
-            onClick={handleClick}
-          >
-            Comprar: USD {curso.price}
-          </button>
-        </div>
-      </Link>
-    )}
+    </Link>
   </div>
 );
