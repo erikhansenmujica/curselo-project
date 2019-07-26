@@ -50,12 +50,14 @@ class EditarCursoContainer extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    
     Axios.post(
       `https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourse`,
       {
       id: this.props.course.id,
       name: this.state.name ? this.state.name : this.props.course.name,
       price: this.state.price ? this.state.price : this.props.course.price,
+      ownerId: this.props.course.ownerId,
       description: this.state.description ? this.state.description : this.props.course.description,
       images: {
         imagen1: {
@@ -77,6 +79,9 @@ class EditarCursoContainer extends React.Component {
 
   handleUploadImg(e) {
     e.preventDefault();
+    this.setState({
+      loading: false
+    })  
     const file = this.state.image;
     const storageRef = firebase
       .storage()
@@ -85,7 +90,7 @@ class EditarCursoContainer extends React.Component {
     storageRef.getDownloadURL().then(data => {
       this.setState({
         imageUrl1: data,
-        loading: false
+        loading:true
       });
     });
   }
@@ -100,6 +105,8 @@ class EditarCursoContainer extends React.Component {
         handleSubmit={this.handleSubmit}
         handleSetImg={this.handleSetImg}
         handleUploadImg={this.handleUploadImg}
+        imageUrl1={this.state.imageUrl1}
+        loading={this.state.loading}
       />
     );
   }
