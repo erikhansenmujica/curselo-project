@@ -8,7 +8,7 @@ class SingleCursoCompradoContainer extends React.Component{
     }
 
     render(){
-        return <SingleCursoComprado cursoId={this.props.match.params.cursoId}/>
+        return <SingleCursoComprado cursoId={this.props.match.params.cursoId} history={this.props.history}/>
     }
 }
 

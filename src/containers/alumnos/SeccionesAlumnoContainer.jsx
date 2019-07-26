@@ -13,7 +13,7 @@ class SeccionesAlumnoContainer extends React.Component{
     }
 
     render(){
-        return <Secciones sections={this.props.sections}/>
+        return <Secciones sections={this.props.sections} cursoId={this.props.cursoId} history={this.props.history}/>
     }
 }
 
