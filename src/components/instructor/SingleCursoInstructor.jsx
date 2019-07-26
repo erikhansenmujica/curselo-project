@@ -2,7 +2,6 @@ import React from "react";
 import SectionTopicContainer from "../../containers/instructor/Section&TopicContainer";
 import { Link } from "react-router-dom";
 
-
 const styles = {
   button2: {
     display: "block",
@@ -10,17 +9,24 @@ const styles = {
   },
   text: {
     fontSize: "24px",
-    textAlign: "center"
+    textAlign: "left"
   },
   title: {
     fontSize: "40px",
     textAlign: "center"
+  },
+  imagen: {
+    margin: "auto",
+    display: "block",
+    textAlign: "center"
+  },
+  flex: {
+    display: "flex"
   }
 };
 
 export default props => (
   <div>
-    {/* {console.log("props en singleeeeeeeeee", props)} */}
     <div className="jumbotron mt-3">
       <h1 style={styles.title}>Create your course</h1>
       <p style={{ textAlign: "center" }} className="lead">
@@ -28,22 +34,35 @@ export default props => (
         their hobbies by sharing your knowledge.
       </p>
     </div>
+
+    {props.curso.images && (
+      <div className="col-sm-3  main" style={styles.imagen}>
+        <img src={props.curso.images.imagen1.url} width="100%" alt="" />
+      </div>
+    )}
+
     {props.curso.name && (
       <div>
-        <div className="media">
+        <div className="media" style={styles.flex}>
           <div className="media-body">
             <p className="mt-0" style={styles.text}>
               Course: {props.curso.name}
               <Link to={`/instructor/cursos/${props.curso.id}/edit`}>
-            <button
-              type="button"
-              className="btn btn-light"
-              style={{ float: "right", marginBottom: "5px",marginRight:"10px" }}
-              onClick={() => {}}
-            > Edit this Course
-              <i className="fas fa-pencil-alt" />
-            </button>
-          </Link>
+                <button
+                  type="button"
+                  className="btn btn-light"
+                  style={{
+                    float: "right",
+                    marginBottom: "5px",
+                    marginRight: "10px"
+                  }}
+                  onClick={() => {}}
+                >
+                  {" "}
+                  Edit this Course
+                  <i className="fas fa-pencil-alt" />
+                </button>
+              </Link>
             </p>
           </div>
         </div>
@@ -56,7 +75,7 @@ export default props => (
           >
             Add Section
           </button>
-          <br/>
+          <br />
         </div>
         <SectionTopicContainer cursoId={props.curso.id} />
       </div>
@@ -109,9 +128,8 @@ export default props => (
         </div>
       </div>
     </div>
-    <div className='container'>
-
-    <Link to={`/instructor/cursos`}>
+    <div className="container">
+      <Link to={`/instructor/cursos`}>
         <div>
           <button type="button" className="btn btn-primary">
             Back to My Courses

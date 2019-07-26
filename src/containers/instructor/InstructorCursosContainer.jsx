@@ -20,6 +20,7 @@ class InstructorCursosContainer extends Component {
   }
 
   render() {
+    console.log("Props en instructorcursoscontainer", this.props)
     
     return <InstructorCursos cursos={this.props.cursos} deleteButton={this.deleteButton}/>;
   }
