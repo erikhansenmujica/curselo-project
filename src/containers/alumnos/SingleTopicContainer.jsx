@@ -2,6 +2,7 @@ import React from "react"
 import {connect} from "react-redux"
 import SingleTopic from "../../components/alumnos/SingleTopic";
 import Axios from "axios"
+import {auth} from "../../config/app"
 
 class SingleTopicContainer extends React.Component{
     constructor(props){
@@ -11,6 +12,7 @@ class SingleTopicContainer extends React.Component{
         }
       }
       componentDidMount(){
+        if(!this.props.user) this.props.history.push("/alumnos/cursos")
         if(this.state.topic.id!==this.props.match.params.topicId) 
               
           
@@ -21,6 +23,7 @@ class SingleTopicContainer extends React.Component{
         
       }
       componentDidUpdate(){
+          if(!this.props.user) this.props.history.push("/alumnos/cursos")
           if(this.state.topic.id!==this.props.match.params.topicId) 
           Axios.get(`https://curselo-dev.appspot.com/_ah/api/lms/v2/getSectionTopics?sectionId=${this.props.match.params.sectionId}`)
           .then(res=>this.setState({
@@ -30,9 +33,11 @@ class SingleTopicContainer extends React.Component{
       }
 
     render(){
-        console.log("LA RE CONCHA DE TU MADREEEEEEEEEEEEEEEEEEEEEEEEEEEEE", this.state.topic)
         return <SingleTopic cursoId={this.props.match.params.cursoId} topic={this.state.topic} history={this.props.history}/>
     }
 }
+const mapStateToProps = (state) => ({
+    user:state.creteUser.user.uid
+})
 
-export default connect()(SingleTopicContainer)
+export default connect(mapStateToProps)(SingleTopicContainer)
