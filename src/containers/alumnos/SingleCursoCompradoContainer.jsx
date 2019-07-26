@@ -6,10 +6,19 @@ class SingleCursoCompradoContainer extends React.Component{
     constructor(props){
         super(props)
     }
+    componentDidMount(){
+        if(!this.props.user) this.props.history.push("/alumnos/cursos")
+      }
+      componentDidUpdate(){
+          if(!this.props.user) this.props.history.push("/alumnos/cursos")
+          
+      }
 
     render(){
         return <SingleCursoComprado cursoId={this.props.match.params.cursoId} history={this.props.history}/>
     }
 }
-
-export default connect()(SingleCursoCompradoContainer)
+const mapStateToProps = (state) => ({
+    user:state.creteUser.user.uid
+})
+export default connect(mapStateToProps)(SingleCursoCompradoContainer)
