@@ -26,12 +26,9 @@ const styles = {
     marginLeft: "45%"
   },
   imagen: {
-    float: "right" 
-  },
-  display: {
-    float: "right"
+    display: "flex",
+    justifyContent: "space-around"
   }
-  
 };
 
 export default ({
@@ -131,23 +128,13 @@ export default ({
                     accept="image/x-png,image/gif,image/jpeg"
                     onChange={handleSetImg}
                   />
-                  
                 </div>
               </div>
             </div>
 
-            {!loading && (
-              <div
-                style={styles.loader}
-                className="spinner-border text-info"
-                role="status"
-              >
-                <span className="sr-only">Loading...</span>
-              </div>
-            )}
             <div className="modal-footer d-flex justify-content-center">
               <button
-              onClick={handleUploadImg}
+                onClick={handleUploadImg}
                 type="button"
                 id="buttonToggler"
                 className="btn btn-info"
@@ -161,20 +148,32 @@ export default ({
         </div>
       </div>
 
-      <div> 
-      Imagen Principal:
+      <div style={styles.imagen}>
+        Main Image:
         <div className="col-sm-3  main">
-          <img src={imageUrl1} style={{marginLeft:"200%"}}width="100%" alt="" />
+          {!loading ? (
+            <div
+              style={styles.loader}
+              className="spinner-border text-info"
+              role="status"
+            >
+              <span className="sr-only">Loading...</span>
+            </div>
+          ) : (
+            <img src={imageUrl1} width="100%" alt="" />
+          )}
         </div>
       </div>
 
-      <div style={styles.button}>
-        <button type="submit" className="btn btn-primary">
-          Cancelar
-        </button>
-        <button type="submit" className="btn btn-primary">
-          Crear Curso
-        </button>
+      <div style={{ marginTop: "10px" }}>
+        <div style={styles.button}>
+          <button type="submit" className="btn btn-primary">
+            Cancel
+          </button>
+          <button type="submit" className="btn btn-primary">
+            Create Course
+          </button>
+        </div>
       </div>
       <br />
       <br />

@@ -59,6 +59,9 @@ class CrearContainer extends React.Component {
   }
 
   handleUploadImg(e) {
+    this.setState({
+      loading: false
+    })
     e.preventDefault();
     const file = this.state.image;
     const storageRef = firebase.storage().ref(`/images/${auth.currentUser.uid}/${file.name}`);
@@ -66,7 +69,7 @@ class CrearContainer extends React.Component {
     storageRef.getDownloadURL()
     .then(data => { this.setState({
       imageUrl1: data,
-      loading: false
+      loading: true
     })
   })
   }

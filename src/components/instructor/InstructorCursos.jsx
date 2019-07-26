@@ -38,7 +38,7 @@ export default ({ cursos,deleteButton }) => (
 
                   </Link>
               <Link to={`/instructor/cursos/${curso.id}`}>
-                <div className="btn btn-primary">Go somewhere</div>
+                <div className="btn btn-primary">Course Details</div>
               </Link>
               <button onClick={()=>deleteButton(curso.id)}
               type="button"
