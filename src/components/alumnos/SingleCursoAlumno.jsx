@@ -1,7 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-        
-        export default ({ curso, purchaseCourse, handleClick, isLoggedIn, handlePurchase,studentCourse }) => (
+
+const styles = {
+  img: {
+    size: "100px",
+    marginTop: "5%"
+    // width:"45%"
+  }
+};
+export default ({
+  curso,
+  purchaseCourse,
+  handleClick,
+  isLoggedIn,
+  handlePurchase,
+  studentCourse
+}) => (
   <div
     style={{
       height: "100vh",
@@ -32,7 +46,21 @@ import { Link } from "react-router-dom";
             float: "left"
           }}
         >
-          {curso.images ? <img width="40%" alt="" className="card-img-top" src={curso.images.imagen1&&curso.images.imagen1.url}/> : <img alt="" className="card-img-top" src='https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg' />}
+          {curso.images ? (
+            <img
+              alt=""
+              style={styles.img}
+              className="rounded float-left"
+              src={curso.images.imagen1 && curso.images.imagen1.url}
+            />
+          ) : (
+            <img
+              alt=""
+              style={styles.img}
+              className="rounded float-left"
+              src="https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg"
+            />
+          )}
         </div>
         <div
           style={{
@@ -46,14 +74,18 @@ import { Link } from "react-router-dom";
       </div>
     </div>
 
-    { isLoggedIn.uid && (studentCourse[0]&&studentCourse[0].id)? (
+    {isLoggedIn.uid && (studentCourse[0] && studentCourse[0].id) ? (
       <div className="container">
         <h3>Comprado!</h3>
       </div>
     ) : (
       <Link to={`/alumnos/cursos/${curso.id}/comprar`}>
         <div style={{ marginLeft: "40%", marginTop: "3%" }}>
-          <button type="button" className="btn btn-outline-primary btn-lg" onClick={handleClick}>
+          <button
+            type="button"
+            className="btn btn-outline-primary btn-lg"
+            onClick={handleClick}
+          >
             Comprar: USD {curso.price}
           </button>
         </div>
