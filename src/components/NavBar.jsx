@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SignUpContainer from "../containers/SignUpContainer";
 const styles = {
   colors: {
-    backgroundColor: "#90CAF9 "
+    backgroundColor: "#43505D "
   },
   img: {
     width: "65px"
@@ -15,6 +15,10 @@ const styles = {
   child: {
     float:"right",
     display:"flex"
+  },
+  text:{
+    color:"#C7D3DE",
+    border:"none"
   }
 };
 
@@ -55,7 +59,7 @@ export default ({ user, handleLogOut, handleSearch, handleSubmit, search }) => {
             aria-label="Search"
             onChange={handleSearch}
           />
-          <button className="btn btn-primary" type="submit">
+          <button className="btn btn-outline-dark" type="submit" style={styles.text}>
             Search
           </button>
         </form>
@@ -64,16 +68,20 @@ export default ({ user, handleLogOut, handleSearch, handleSubmit, search }) => {
            <ul className="navbar-nav" style={styles.child}>
             <li className="nav-item">
               <button
-                className="btn btn-default btn-rounded mb-4"
+                className="btn btn-outline-dark"
+                type="button"
                 onClick={handleLogOut}
+                style={styles.text}
               >
                 LogOut
               </button>
             </li>
              <li className="nav-item">
             <Link to="/alumnos/cursos/comprados"> <button
-               className="btn btn-default btn-rounded mb-4"
+               className="btn btn-outline-dark"
+               type="button"
                style={{float:"right"}}
+               style={styles.text}
             
              >
                My courses
@@ -85,18 +93,20 @@ export default ({ user, handleLogOut, handleSearch, handleSubmit, search }) => {
             <ul className="navbar-nav" style={styles.child}>
             <li className="nav-item">
               <button
-                className="btn btn-default btn-rounded"
+                className="btn btn-outline-dark"
                 data-toggle="modal"
                 data-target="#darkModalForm"
+                style={styles.text}
               >
                 LogIn
               </button>
             </li>
             <li className="nav-item">
               <button
-                className="btn btn-default btn-rounded mb-4"
+                className="btn btn-outline-dark"
                 data-toggle="modal"
                 data-target="#modalRegisterForm"
+                style={styles.text}
               >
                 SignIn
               </button>
