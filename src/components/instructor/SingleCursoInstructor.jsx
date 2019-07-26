@@ -20,7 +20,7 @@ const styles = {
 
 export default props => (
   <div>
-    {/* {console.log("props en singleeeeeeeeee", props)} */}
+    {console.log("props en singleeeeeeeeee", props)}
     <div className="jumbotron mt-3">
       <h1 style={styles.title}>Create your course</h1>
       <p style={{ textAlign: "center" }} className="lead">
@@ -28,6 +28,7 @@ export default props => (
         their hobbies by sharing your knowledge.
       </p>
     </div>
+    {props.curso.images && <img src={props.curso.images.imagen1.url}/>}
     {props.curso.name && (
       <div>
         <div className="media">

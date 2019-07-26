@@ -24,7 +24,14 @@ const styles = {
   },
   loader: {
     marginLeft: "45%"
+  },
+  imagen: {
+    float: "right" 
+  },
+  display: {
+    float: "right"
   }
+  
 };
 
 export default ({
@@ -154,11 +161,10 @@ export default ({
         </div>
       </div>
 
-      <div>
+      <div> 
+      Imagen Principal:
         <div className="col-sm-3  main">
-          Imagen Principal:
-          {console.log("CONSOLAAAAAAAA", imageUrl1)}
-          <img src={imageUrl1} width="100%" alt="" />
+          <img src={imageUrl1} style={{marginLeft:"200%"}}width="100%" alt="" />
         </div>
       </div>
 
