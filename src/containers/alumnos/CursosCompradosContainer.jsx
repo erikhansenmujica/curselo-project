@@ -9,10 +9,16 @@ class CursosCompradosContainer extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchCourses(auth.currentUser.uid)
+        if(!this.props.user) this.props.history.push("/alumnos/cursos")
+        if(this.props.user)this.props.fetchCourses(auth.currentUser.uid)
+    }
+
+    componentDidUpdate(){
+        if(!this.props.user) this.props.history.push("/alumnos/cursos")
     }
 
     render(){
+        console.log(this.props.user)
         return(
             <CursosComprados cursos={this.props.cursos}/>
         )
@@ -24,7 +30,8 @@ const mapDispatchToProps = (dispatch) =>({
 })
 
 const mapStateToProps = (state) => ({
-    cursos:state.purchasedCourses.courses
+    cursos:state.purchasedCourses.courses,
+    user:state.creteUser.user.uid
 })
 
 
