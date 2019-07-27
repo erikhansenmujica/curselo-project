@@ -6,11 +6,11 @@ import Axios from "axios";
 export default class SubirArchivosContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
-      name:"",
-      file:"",
-      load:true
-    }
+    this.state = {
+      name: "",
+      file: "",
+      load: true
+    };
     this.handleUpload = this.handleUpload.bind(this);
     this.handleSetFile = this.handleSetFile.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -32,43 +32,50 @@ export default class SubirArchivosContainer extends React.Component {
   handleUpload(e) {
     e.preventDefault();
     const file = this.state.file;
-    const storageRef = firebase.storage().ref(`/files/${this.props.sectionId}/${file.name}`);
+    const storageRef = firebase
+      .storage()
+      .ref(`/files/${this.props.sectionId}/${file.name}`);
     this.setState({
-      load:false
-    })
+      load: false
+    });
     storageRef.put(file).then(file => {
       storageRef.getDownloadURL().then(data => {
-        var obj={}
-        if(this.props.topicId){
-    
-          obj={sectionId: this.props.sectionId,id:this.props.topicId}
-          if(data) obj.contentURL=data
-          else obj.contentURL=this.props.topic.contentURL
-          if(this.state.name.length) obj.name=this.state.name
-          else obj.name=this.props.topic.name
-        }
-       else obj= { sectionId: this.props.sectionId, contentURL:data, name:this.state.name }
-       console.log(obj) 
-       Axios.post(
-          "https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourseTopic",obj
+        var obj = {};
+        if (this.props.topicId) {
+          obj = { sectionId: this.props.sectionId, id: this.props.topicId };
+          if (data) obj.contentURL = data;
+          else obj.contentURL = this.props.topic.contentURL;
+          if (this.state.name.length) obj.name = this.state.name;
+          else obj.name = this.props.topic.name;
+        } else
+          obj = {
+            sectionId: this.props.sectionId,
+            contentURL: data,
+            name: this.state.name
+          };
+        Axios.post(
+          "https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourseTopic",
+          obj
         ).then(data2 => {
-          console.log("YO SOY DATA", data2);
           this.setState({
-            load:true
-          })
-          if(document.getElementById("modalContactForm1").classList.contains("show"))document.getElementById("buttonToggler").click()
+            load: true
+          });
+          if (
+            document
+              .getElementById("modalContactForm1")
+              .classList.contains("show")
+          )
+            document.getElementById("buttonToggler").click();
           this.props.history.push(`/instructor/cursos/${this.props.courseId}`);
         });
       });
     });
   }
 
-  // ES NECESARIO QUE ESTEN TODAS LAS RUTAS (CURSO, SECCION) PARA PODER ALMACENAR CORRECTAMENTE EL ARCHIVO EN FB STORAGE
-
   render() {
     return (
       <SubirArchivos
-      load={this.state.load}
+        load={this.state.load}
         handleUpload={this.handleUpload}
         handleChange={this.handleChange}
         handleSetFile={this.handleSetFile}
@@ -78,4 +85,3 @@ export default class SubirArchivosContainer extends React.Component {
     );
   }
 }
-

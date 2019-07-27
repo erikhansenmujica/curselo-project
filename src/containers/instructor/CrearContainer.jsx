@@ -29,21 +29,27 @@ class CrearContainer extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.imageUrl1.length && this.state.name.length && this.state.price && this.state.description.length)this.props
-      .newCourse({
-        name: this.state.name,
-        price: this.state.price,
-        description: this.state.description,
-        ownerId: auth.currentUser.uid,
-        images: {
-          imagen1: {
-            url: this.state.imageUrl1
+    if (
+      this.state.imageUrl1.length &&
+      this.state.name.length &&
+      this.state.price &&
+      this.state.description.length
+    )
+      this.props
+        .newCourse({
+          name: this.state.name,
+          price: this.state.price,
+          description: this.state.description,
+          ownerId: auth.currentUser.uid,
+          images: {
+            imagen1: {
+              url: this.state.imageUrl1
+            }
           }
-        }
-      })
-      .then(data => {
-        this.props.history.push(`/instructor/cursos/${data.id}`);
-      });
+        })
+        .then(data => {
+          this.props.history.push(`/instructor/cursos/${data.id}`);
+        });
   }
 
   handleSetImg(e) {
@@ -57,38 +63,38 @@ class CrearContainer extends React.Component {
   handleUploadImg(e) {
     this.setState({
       loading: false
-    })
+    });
     e.preventDefault();
     const file = this.state.image;
-    const storageRef = firebase.storage().ref(`/images/${auth.currentUser.uid}/${file.name}`);
-    storageRef.put(file).then(file => console.log("FILE?", file))
-    storageRef.getDownloadURL()
-    .then(data => { this.setState({
-      imageUrl1: data,
-      loading: true
-    })
-  })
+    const storageRef = firebase
+      .storage()
+      .ref(`/images/${auth.currentUser.uid}/${file.name}`);
+    storageRef.put(file).then(file => console.log("FILE?", file));
+    storageRef.getDownloadURL().then(data => {
+      this.setState({
+        imageUrl1: data,
+        loading: true
+      });
+    });
   }
 
   render() {
     return (
       <div>
-
-      <CrearCurso
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-        handleUpload={this.handleUpload}
-        handleSetImg={this.handleSetImg}
-        handleUploadImg={this.handleUploadImg}
-        imageUrl1={this.state.imageUrl1}
-        imageUrl2={this.state.imageUrl2}
-        loading={this.state.loading}
-        name={this.state.name}
-        price={this.state.price}
-        description={this.state.description}
+        <CrearCurso
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          handleUpload={this.handleUpload}
+          handleSetImg={this.handleSetImg}
+          handleUploadImg={this.handleUploadImg}
+          imageUrl1={this.state.imageUrl1}
+          imageUrl2={this.state.imageUrl2}
+          loading={this.state.loading}
+          name={this.state.name}
+          price={this.state.price}
+          description={this.state.description}
         />
-        
-        </div>
+      </div>
     );
   }
 }

@@ -8,15 +8,15 @@ const image = {
     ")",
   marginRight: "-5%",
   marginTop: "-3%",
-  height:"411px"
+  height: "411px"
 };
 const margin = {
   marginRigth: "-5%"
 };
 const twoCards = {
-  height:"200px",
-  marginLeft:"1%"
-}
+  height: "200px",
+  marginLeft: "1%"
+};
 
 export default () => (
   <div style={margin}>
@@ -36,9 +36,9 @@ export default () => (
       <div className="product-device shadow-sm d-none d-md-block" />
       <div className="product-device product-device-2 shadow-sm d-none d-md-block" />
     </div>
-    <br/>
+    <br />
     <div className="row mb-2" style={twoCards}>
-      <div className="col-md-6" >
+      <div className="col-md-6">
         <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div className="col p-4 d-flex flex-column position-static">
             <strong className="d-inline-block mb-2 text-primary">

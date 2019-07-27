@@ -2,7 +2,7 @@ import React from "react";
 import EditarCurso from "../../components/instructor/EditarCurso";
 import Axios from "axios";
 import { connect } from "react-redux";
-import { fetchCursoAlumno } from "../../action-creators/cursosAlumnos"
+import { fetchCursoAlumno } from "../../action-creators/cursosAlumnos";
 import { firebase, auth } from "../../config/app";
 
 class EditarCursoContainer extends React.Component {
@@ -23,25 +23,10 @@ class EditarCursoContainer extends React.Component {
     this.handleUploadImg = this.handleUploadImg.bind(this);
     this.handleSetImg = this.handleSetImg.bind(this);
   }
-
   componentDidMount() {
     console.log("PROPS en editar curso", this.props);
-    this.props.getCourse(this.props.match.params.courseId)
+    this.props.getCourse(this.props.match.params.courseId);
   }
-  // componentDidMount() {
-  //   Axios.get(
-  //     `https://curselo-dev.appspot.com/_ah/api/lms/v2/getCourse?courseId=${
-  //       this.props.match.params.secId
-  //     }`
-  //   ).then(res =>
-  //     this.setState({
-  //       curso: res.data.items.filter(
-  //         curso => curso.id === this.props.match.params.topicId
-  //       )[0]
-  //     })
-  //   );
-  // }
-
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -50,22 +35,26 @@ class EditarCursoContainer extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    
-    Axios.post(
-      `https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourse`,
-      {
+
+    Axios.post(`https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourse`, {
       id: this.props.course.id,
       name: this.state.name ? this.state.name : this.props.course.name,
       price: this.state.price ? this.state.price : this.props.course.price,
       ownerId: this.props.course.ownerId,
-      description: this.state.description ? this.state.description : this.props.course.description,
+      description: this.state.description
+        ? this.state.description
+        : this.props.course.description,
       images: {
         imagen1: {
-          url: this.state.imageUrl1 ? this.state.imageUrl1 : this.props.course.images.imagen1.url
+          url: this.state.imageUrl1
+            ? this.state.imageUrl1
+            : this.props.course.images.imagen1.url
         }
       }
     }).then(data => {
-      this.props.history.push(`/instructor/cursos/${this.props.match.params.courseId}`);
+      this.props.history.push(
+        `/instructor/cursos/${this.props.match.params.courseId}`
+      );
     });
   }
 
@@ -81,7 +70,7 @@ class EditarCursoContainer extends React.Component {
     e.preventDefault();
     this.setState({
       loading: false
-    })  
+    });
     const file = this.state.image;
     const storageRef = firebase
       .storage()
@@ -90,7 +79,7 @@ class EditarCursoContainer extends React.Component {
     storageRef.getDownloadURL().then(data => {
       this.setState({
         imageUrl1: data,
-        loading:true
+        loading: true
       });
     });
   }
@@ -112,9 +101,9 @@ class EditarCursoContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    course: state.alumnoCursos.course,
+    course: state.alumnoCursos.course
   };
 };
 

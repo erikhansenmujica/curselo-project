@@ -18,7 +18,7 @@ const style = {
   }
 };
 
-export default ({cursos}) => {
+export default ({ cursos }) => {
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>My purchased courses!</h1>
@@ -27,7 +27,19 @@ export default ({cursos}) => {
           cursos.map(curso => (
             <div key={curso.id} className="card" style={style.childs}>
               <Link to={`/alumnos/cursos/comprados/${curso.id}`}>
-              {curso.images ? <img alt="" className="card-img-top" src={curso.images.imagen1&&curso.images.imagen1.url}/> : <img alt="" className="card-img-top" src='https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg' />}
+                {curso.images ? (
+                  <img
+                    alt=""
+                    className="card-img-top"
+                    src={curso.images.imagen1 && curso.images.imagen1.url}
+                  />
+                ) : (
+                  <img
+                    alt=""
+                    className="card-img-top"
+                    src="https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg"
+                  />
+                )}
               </Link>
               <div className="card-body">
                 <Link to={`/alumnos/cursos/comprados/${curso.id}`}>
@@ -44,7 +56,7 @@ export default ({cursos}) => {
                 </Link>
 
                 <Link to={`/alumnos/cursos/comprados/${curso.id}`}>
-                  <div className="btn btn-outline-dark" >View Content</div>
+                  <div className="btn btn-outline-dark">View Content</div>
                 </Link>
               </div>
             </div>

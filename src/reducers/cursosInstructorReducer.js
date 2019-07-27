@@ -20,16 +20,15 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, { all: action.cursos });
     case GET_CURSO_INSTRUCTOR:
       return Object.assign({}, state, { course: action.curso });
-    case GET_SECCIONES:{
-
-        if(action.secciones) return Object.assign({}, state, { secciones: action.secciones });
-        else return Object.assign({}, state, { secciones: [] });
+    case GET_SECCIONES: {
+      if (action.secciones)
+        return Object.assign({}, state, { secciones: action.secciones });
+      else return Object.assign({}, state, { secciones: [] });
     }
-    case GET_TOPICS:{
-
-        if(action.topics) return Object.assign({}, state, { topics: action.topics  });
-        else return Object.assign({}, state, { topics: [] }); 
-        
+    case GET_TOPICS: {
+      if (action.topics)
+        return Object.assign({}, state, { topics: action.topics });
+      else return Object.assign({}, state, { topics: [] });
     }
     case FORGET_COURSE:
       return Object.assign({}, state, {

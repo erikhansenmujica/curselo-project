@@ -5,7 +5,7 @@ import cursosAlumnoReducer from "../reducers/cursosAlumnoReducer";
 import cursosInstructorReducer from "../reducers/cursosInstructorReducer";
 import createUserReducer from "../reducers/createUserReducer";
 import searchReducer from "../reducers/searchReducer";
-import purchaseReducer from "../reducers/purchaseReducer"
+import purchaseReducer from "../reducers/purchaseReducer";
 
 // Add firebase to reducers
 export const rootReducer = combineReducers({

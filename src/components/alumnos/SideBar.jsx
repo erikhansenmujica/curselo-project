@@ -7,7 +7,7 @@ const styles = {
     width: "100%"
   },
   sidebar: {
-    overflowY:"scroll",
+    overflowY: "scroll",
     marginTop: "81px",
     width: "260px",
     position: " fixed",
@@ -22,21 +22,23 @@ const styles = {
   text: {
     color: "#94A4B3",
     margin: "10px"
-  },
- 
+  }
 };
 
-export default (props) => (
-  <div  style={styles.wrapper}>
+export default props => (
+  <div style={styles.wrapper}>
     <nav id="sidebar" style={styles.sidebar}>
-      <div >
+      <div>
         <div>
           <center>
             <h4 style={styles.text}>Secciones:</h4>
           </center>
         </div>
         <br />
-        <SeccionesAlumnoContainer cursoId={props.cursoId} history={props.history} />
+        <SeccionesAlumnoContainer
+          cursoId={props.cursoId}
+          history={props.history}
+        />
       </div>
     </nav>
   </div>
