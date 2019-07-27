@@ -21,10 +21,7 @@ export default class HomeContainer extends Component {
   }
 
   googleLogin() {
-    
-          this.props.history.push("/instructor");
-      
-      
+    this.props.history.push("/instructor");
   }
   render() {
     return <Home googleLogin={this.googleLogin} setAlumno={this.setAlumno} />;

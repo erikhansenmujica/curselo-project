@@ -74,16 +74,23 @@ export default ({
                 onChange={handleSetFile}
               />
             </div>
-            {
-              !load&&
-            <div style={loader} className="spinner-border text-info" role="status">
-              <span className="sr-only">Loading...</span>
-            </div>
-
-            }
+            {!load && (
+              <div
+                style={loader}
+                className="spinner-border text-info"
+                role="status"
+              >
+                <span className="sr-only">Loading...</span>
+              </div>
+            )}
             <div className="modal-footer d-flex justify-content-center">
-              <button type="submit" id="buttonToggler"className="btn btn-unique"data-toggle="modal"
-            data-target="#modalContactForm1">
+              <button
+                type="submit"
+                id="buttonToggler"
+                className="btn btn-unique"
+                data-toggle="modal"
+                data-target="#modalContactForm1"
+              >
                 Upload PDF <i className="fas fa-paper-plane-o ml-1" />
               </button>
             </div>

@@ -8,12 +8,13 @@ import {createUser} from "../action-creators/createUser"
 class MainConTainer extends Component {
   constructor(props) {
     super(props);
-    this.state={
-      loading:false
+    this.state = {
+      loading: false
+    };
+    this.logear=this.logear.bind(this)
+    this.logearAlumno=this.logearAlumno.bind(this)
   }
-  this.logear=this.logear.bind(this)
-  this.logearAlumno=this.logearAlumno.bind(this)
-}
+
 logear (){
   auth.onAuthStateChanged((user)=> {
     if (user) {

@@ -168,12 +168,11 @@ export default ({
       </div>
       <div style={{ marginTop: "10px" }}>
         <div style={styles.button}>
-<Link to={`/instructor/cursos/${courseId}`}>
-          <button type="button" className="btn btn-primary">
-            Cancel
-          </button>
-
-</Link>
+          <Link to={`/instructor/cursos/${courseId}`}>
+            <button type="button" className="btn btn-primary">
+              Cancel
+            </button>
+          </Link>
 
           <button type="submit" className="btn btn-primary">
             Update Data

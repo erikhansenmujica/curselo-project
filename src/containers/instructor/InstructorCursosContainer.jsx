@@ -1,28 +1,34 @@
 import React, { Component } from "react";
 import InstructorCursos from "../../components/instructor/InstructorCursos";
 import { connect } from "react-redux";
-import { fetchCursosInstructor, deleteCourse } from "../../action-creators/cursosInstructor";
+import {
+  fetchCursosInstructor,
+  deleteCourse
+} from "../../action-creators/cursosInstructor";
 
 import { auth } from "../../config/app";
 
 class InstructorCursosContainer extends Component {
   constructor(props) {
     super(props);
-    this.deleteButton=this.deleteButton.bind(this)
+    this.deleteButton = this.deleteButton.bind(this);
   }
 
   componentDidMount() {
     this.props.getCursos(auth.currentUser.uid);
   }
 
-  deleteButton(id){
-    deleteCourse(id).then(()=> this.props.getCursos(auth.currentUser.uid))
+  deleteButton(id) {
+    deleteCourse(id).then(() => this.props.getCursos(auth.currentUser.uid));
   }
 
   render() {
-    console.log("Props en instructorcursoscontainer", this.props)
-    
-    return <InstructorCursos cursos={this.props.cursos} deleteButton={this.deleteButton}/>;
+    return (
+      <InstructorCursos
+        cursos={this.props.cursos}
+        deleteButton={this.deleteButton}
+      />
+    );
   }
 }
 

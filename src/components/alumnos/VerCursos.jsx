@@ -13,7 +13,10 @@ const style = {
     marginBottom: "1%"
   },
   button: {
-    marginTop: "30%"
+    marginLeft: "30%",
+    marginRight: "25%",
+    display: "block",
+    marginTop: "20%"
   },
   img: {
     width: "100%",
@@ -66,12 +69,12 @@ export default ({ cursos }) => (
                   : curso.description}
               </p>
             </Link>
-            <Link to={`/alumnos/cursos/${curso.id}`}>
-              <div style={style.button}>
-                <button className="btn btn-outline-dark">View Details</button>
-              </div>
-            </Link>
           </div>
+          <Link to={`/alumnos/cursos/${curso.id}`}>
+            <div style={style.button}>
+              <button className="btn btn-outline-dark">View Details</button>
+            </div>
+          </Link>
         </div>
       ))
     ) : (

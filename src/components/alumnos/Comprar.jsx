@@ -13,7 +13,7 @@ const style = {
 const ListGroupPage = props => {
   return (
     <div>
-      <div className="card" >
+      <div className="card">
         <div className="card-body">
           <h5 className="card-title">{props.curso.name}</h5>
 
