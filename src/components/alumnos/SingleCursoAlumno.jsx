@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ curso }) => (
+export default ({ curso, createChat }) => (
   <div
     style={{
       height: "100vh",
@@ -50,5 +50,13 @@ export default ({ curso }) => (
    <div style={{marginLeft: "10%"}}>
       <button type="button" className="btn btn-outline-secondary btn-lg">Comprar: U$D{curso.price}</button>
    </div>
+
+   <div style={{
+     float: "right", 
+     marginRight: "10%"}}>
+      <button onClick={createChat} type="button" className="btn btn-outline-secondary btn-lg">Iniciar Chat con Instructor</button>
+   </div>
+
+
   </div>
 );

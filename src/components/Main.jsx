@@ -10,20 +10,25 @@ import SingleCursoAlumnoContainer from "../containers/alumnos/SingleCursoAlumnoC
 import SideBar from "../components/instructor/SideBar";
 import InstructorCursosContainer from "../containers/instructor/InstructorCursosContainer";
 import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
-import SignUpContainer from "../containers/SignUpContainer"
+import SignUpContainer from "../containers/SignUpContainer";
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
 import Log from "./Log";
+import ChatContainer from "../containers/ChatContainer";
+import ChatSidebarContainer from "../containers/ChatSidebarContainer"
 
-export default (props) => (
+export default props => (
   <div>
     <Switch>
-      
-      {window.location.href.includes("instructor") && (props.loading ? (
-        <Route path="/instructor" component={instructor} />
-      ) : (
-        <Route render={()=><Log logear={props.logear} history={props.history}/>} />
-      ))}
+      {window.location.href.includes("instructor") &&
+        (props.loading ? (
+          <Route path="/instructor" component={instructor} />
+        ) : (
+          <Route
+            render={() => <Log logear={props.logear} history={props.history} />}
+          />
+        ))}
       <Route path="/alumnos" component={alumnos} />
+      <Route path="/chat/" component={chat} />
       <Route exact path="/" component={HomeContainer} />
     </Switch>
   </div>
@@ -68,20 +73,34 @@ const instructor = () => (
           path="/instructor/cursos/:cursoId/section/:sectionId"
           component={CrearTemaContainer}
         />
-      
+
         <Route
           exact
           path="/instructor/cursos/:cursoId/section/:sectionId/subirvideo"
           component={SubirVideoContainer}
         />
-        
+
         <Route
           exact
           path="/instructor/cursos/:cursoId"
           component={SingleCursoInstructorContainer}
         />
       </Switch>
-
     </div>
   </div>
 );
+
+const chat = () => (
+  <div>
+
+    <div
+      style={{
+        marginLeft: "200px"
+      }}
+    />
+    <Route path="/chat/:userId/:courseId/:instructorId" component={ChatContainer} />
+  </div>
+);
+
+
+//<ChatSidebarContainer />
