@@ -28,7 +28,7 @@ export default ({cursos}) => {
             <div key={curso.id} className="card" style={style.childs}>
               <Link to={`/alumnos/cursos/comprados/${curso.id}`}>
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTUyfcgnFWzf2GBPS8kpRhpa01uVuyuN40ZxOWNz-WcMXvUBgtkg"
+                  src={curso.images.imagen1.url}
                   className="card-img-top"
                   alt=""
                 />
