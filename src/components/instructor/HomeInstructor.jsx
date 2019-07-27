@@ -1,28 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const image = {
-  backgroundImage:
-    "url(" +
-    "https://lh3.googleusercontent.com/JMLnCpPYwogPZqo3DZXs3b-n4KAQTJjCLIxs6emmrAd5oSiYBilYvvTOxfS4t4xKAEbVWgmHWwUT3GnDzKG533Y=w1351" +
-    ")"
+const styles = {
+  image: {
+    backgroundImage:
+      "url(" +
+      "https://www.learncube.com/images/blog_images/online-teaching-challenges.jpg" +
+      ")",
+    backgroundRepeat: "no-repeat",
+    objectFit:"contain",
+    height:"860px"
+  },
+  margin: {
+    marginLeft: "-2%",
+    marginTop: "-4%",
+    marginRight: "-3%"
+  }
 };
-const margin = {
-  marginTop: "-2%"
-}
-
 
 export default () => (
-  <div style={margin}>
+  <div style={styles.margin}>
     <div
-      className="position-relative overflow-hidden text-center bg-light"
-      style={image}
+      className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"
+      style={styles.image}
     >
       <div className="col-md-5 p-lg-5 mx-auto my-5">
-        <h1 className="display-4 font-weight-normal">Bienvenido</h1>
+        <h1 className="display-5 font-weight-normal">
+          Share your knowledge with your students
+        </h1>
         <p className="lead font-weight-normal">
-          Una plataforma donde podras cargar tus conocimientos a traves de
-          videos, quizes, descripciones, experiencia y mucho mas!
+          Create an online course with videos and earn money by teaching it to
+          students worldwide
         </p>
       </div>
       <div className="product-device shadow-sm d-none d-md-block" />
