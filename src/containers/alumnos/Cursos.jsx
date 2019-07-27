@@ -6,14 +6,15 @@ import { connect } from "react-redux";
 class instructor extends Component {
   constructor(props) {
     super(props);
+   
   }
 
   componentDidMount() {
     this.props.getCursos();
   }
-
+ 
   render() {
-    return <Cursos cursos={this.props.cursos} />;
+    return <Cursos cursos={this.props.cursos}  />;
   }
 }
 

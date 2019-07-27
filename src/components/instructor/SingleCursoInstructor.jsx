@@ -27,7 +27,6 @@ const styles = {
 
 export default props => (
   <div>
-    {console.log("props en singleeeeeeeeee", props)}
     <div className="jumbotron mt-3">
       <h1 style={styles.title}>Create your course</h1>
       <p style={{ textAlign: "center" }} className="lead">
