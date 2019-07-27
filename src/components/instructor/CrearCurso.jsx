@@ -40,9 +40,6 @@ export default ({
   imageUrl1,
   imageUrl2,
   loading,
-  name,
-  price,
-  description
 }) => (
   <div className="container" style={styles.position}>
     <form
