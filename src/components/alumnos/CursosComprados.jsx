@@ -27,11 +27,7 @@ export default ({cursos}) => {
           cursos.map(curso => (
             <div key={curso.id} className="card" style={style.childs}>
               <Link to={`/alumnos/cursos/comprados/${curso.id}`}>
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTUyfcgnFWzf2GBPS8kpRhpa01uVuyuN40ZxOWNz-WcMXvUBgtkg"
-                  className="card-img-top"
-                  alt=""
-                />
+              {curso.images ? <img alt="" className="card-img-top" src={curso.images.imagen1&&curso.images.imagen1.url}/> : <img alt="" className="card-img-top" src='https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg' />}
               </Link>
               <div className="card-body">
                 <Link to={`/alumnos/cursos/comprados/${curso.id}`}>
@@ -48,7 +44,7 @@ export default ({cursos}) => {
                 </Link>
 
                 <Link to={`/alumnos/cursos/comprados/${curso.id}`}>
-                  <div className="btn btn-primary">View Content</div>
+                  <div className="btn btn-outline-dark" >View Content</div>
                 </Link>
               </div>
             </div>

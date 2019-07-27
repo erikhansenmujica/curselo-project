@@ -2,7 +2,7 @@ import React from "react"
 import CursosComprados from "../../components/alumnos/CursosComprados"
 import  {connect} from "react-redux";
 import {auth} from "../../config/app"
-import {getMyPurchaseCourse} from "../../action-creators/getMyPurchaseCourse"
+import {getMyPurchaseCourse,removeCourses} from "../../action-creators/getMyPurchaseCourse"
 class CursosCompradosContainer extends React.Component{
     constructor(props){
         super(props)
@@ -14,7 +14,10 @@ class CursosCompradosContainer extends React.Component{
     }
 
     componentDidUpdate(){
-        if(!this.props.user) this.props.history.push("/alumnos/cursos")
+        if(!this.props.user) {
+            this.props.removeCourses()
+            this.props.history.push("/alumnos/cursos")
+        }
     }
 
     render(){
@@ -26,7 +29,8 @@ class CursosCompradosContainer extends React.Component{
 }
 
 const mapDispatchToProps = (dispatch) =>({
-    fetchCourses:(id)=>dispatch(getMyPurchaseCourse(id))
+    fetchCourses:(id)=>dispatch(getMyPurchaseCourse(id)),
+    removeCourses:()=>dispatch(removeCourses())
 })
 
 const mapStateToProps = (state) => ({

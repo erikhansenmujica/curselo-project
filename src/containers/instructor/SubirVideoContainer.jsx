@@ -65,15 +65,8 @@ export default class SubirVideoContainer extends React.Component {
              obj
           ).then(data2 => {
            
-            if(document.getElementById("modalContactForm2").classList.contains("show"))document.getElementById("buttonToggler").click()
+            if(document.getElementById("modalContactForm2").classList.contains("show"))document.getElementById("buttonToggler1").click()
             this.props.history.push(`/instructor/cursos/${cursoId}`);
-          if (
-            document
-              .getElementById("modalContactForm2")
-              .classList.contains("show")
-          )
-            document.getElementById("buttonToggler").click();
-          this.props.history.push(`/instructor/cursos/${cursoId}`);
         });
 
         }
