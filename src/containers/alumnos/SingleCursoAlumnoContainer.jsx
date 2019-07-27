@@ -7,37 +7,39 @@ import { connect } from "react-redux";
 class SingleCursoAlumnoContainer extends Component {
   constructor(props) {
     super(props);
-    this.state={
-      studentCourse:[]
-    }
+    this.state = {
+      studentCourse: []
+    };
 
     this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount() {
     this.props.getCurso(this.props.match.params.cursoId);
-
-   
   }
-  componentDidUpdate(){
-    if(this.props.isLoggedIn.uid&&!this.state.studentCourse[0]) this.props
-    .getMyPurchaseCourse(this.props.isLoggedIn.uid)
-    .then(courses => {
-      let cursos;
-      if (!courses.data.items)return this.setState({studentCourse:[1]})
-    else cursos= courses.data.items.filter(course => 
-        course.id === this.props.courseId
-        )
-      cursos[0]?this.setState({
-      studentCourse:cursos
-      }) : this.setState({
-        studentCourse:[1]
-      })
-  });
-   else if (!this.props.isLoggedIn.uid&&this.state.studentCourse[0]) {
-     this.setState({
-       studentCourse:[]
-     })
-   }
+  componentDidUpdate() {
+    if (this.props.isLoggedIn.uid && !this.state.studentCourse[0])
+      this.props
+        .getMyPurchaseCourse(this.props.isLoggedIn.uid)
+        .then(courses => {
+          let cursos;
+          if (!courses.data.items) return this.setState({ studentCourse: [1] });
+          else
+            cursos = courses.data.items.filter(
+              course => course.id === this.props.courseId
+            );
+          cursos[0]
+            ? this.setState({
+                studentCourse: cursos
+              })
+            : this.setState({
+                studentCourse: [1]
+              });
+        });
+    else if (!this.props.isLoggedIn.uid && this.state.studentCourse[0]) {
+      this.setState({
+        studentCourse: []
+      });
+    }
   }
   handleClick(e) {
     e.preventDefault();
@@ -48,9 +50,8 @@ class SingleCursoAlumnoContainer extends Component {
     }
   }
 
-
   render() {
-    console.log(this.state)
+    console.log(this.state);
     return (
       <SingleCursoAlumno
         studentCourse={this.state.studentCourse}

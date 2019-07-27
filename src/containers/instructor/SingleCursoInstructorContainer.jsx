@@ -21,7 +21,7 @@ class SingleCursoInstructorContainer extends Component {
     this.props.forgetCourse();
     this.props.getCurso(this.props.match.params.cursoId);
   }
-  
+
   handleChange(e) {
     this.setState({
       section: e.target.value

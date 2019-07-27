@@ -8,19 +8,18 @@ const styles = {
   },
   button: {
     float: "right"
-  },
-  
+  }
 };
 
 export default props => (
   <div>
-   
     {props.secciones && props.secciones[0] ? (
       props.secciones.map((sec, i) => (
-        <div  className="card" key={sec.id} style={styles.nav}>
+        <div className="card" key={sec.id} style={styles.nav}>
           <div className="card-header">
             Section: {sec.name}
-            <button onClick={()=>props.deleteButton(sec.id)}
+            <button
+              onClick={() => props.deleteButton(sec.id)}
               type="button"
               className="btn btn-light"
               style={{ float: "right" }}
@@ -40,15 +39,15 @@ export default props => (
                 Add Topic
               </button>
             </Link>
-            </div>
-       
+          </div>
+
           <ul className="list-group list-group-flush">
-            <TopicsContainer secId={sec.id} courseId={props.courseId}/>
+            <TopicsContainer secId={sec.id} courseId={props.courseId} />
           </ul>
         </div>
       ))
     ) : (
-      <div></div>
+      <div />
     )}
   </div>
 );

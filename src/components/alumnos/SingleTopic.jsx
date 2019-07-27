@@ -19,11 +19,10 @@ const styles = {
     textTransform: " none"
   },
   textBox: {
-    marginTop:"20%",
-    height:"100%",
-    width:"100%",
-    backgroundColor:"#4D5B69"
-
+    marginTop: "20%",
+    height: "100%",
+    width: "100%",
+    backgroundColor: "#4D5B69"
   }
 };
 

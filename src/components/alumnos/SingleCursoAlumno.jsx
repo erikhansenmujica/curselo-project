@@ -5,24 +5,24 @@ const styles = {
   img: {
     marginTop: "15%"
   },
-  img2:{
-    marginTop:"15%",
-    width:"80%"
+  img2: {
+    marginTop: "15%",
+    width: "80%"
   },
   budget: {
     fontSize: "28px",
     textAlign: "center"
   },
-  button:{
-    display:"block",
-    margin:"auto"
+  button: {
+    display: "block",
+    margin: "auto"
   },
   button2: {
-    marginLeft:"2%"
+    marginLeft: "2%"
   },
-  title:{
-    fontSize:"28px",
-    textAlign:"center",
+  title: {
+    fontSize: "28px",
+    textAlign: "center",
     fontWeight: "bold"
   }
 };
@@ -49,7 +49,9 @@ export default ({ curso, handleClick, isLoggedIn, studentCourse }) => (
         </div>
         <div className="col-md-8">
           <div className="card-body">
-            <h5 className="card-title" style={styles.title}>{curso.name}</h5>
+            <h5 className="card-title" style={styles.title}>
+              {curso.name}
+            </h5>
             <p className="card-text">{curso.description}</p>
           </div>
         </div>

@@ -39,7 +39,7 @@ export default ({
   handleSetImg,
   imageUrl1,
   imageUrl2,
-  loading,
+  loading
 }) => (
   <div className="container" style={styles.position}>
     <form
@@ -174,16 +174,15 @@ export default ({
           <Link to="/instructor">
             <button className="btn btn-primary">Back to Home</button>
           </Link>
-          {imageUrl1 ? 
-          <button type="submit" className="btn btn-primary">
-            Create Course
-          </button>
-          :
-          <button type="submit" className="btn btn-primary" disabled>
-            Create Course
-          </button>
-
-          }
+          {imageUrl1 ? (
+            <button type="submit" className="btn btn-primary">
+              Create Course
+            </button>
+          ) : (
+            <button type="submit" className="btn btn-primary" disabled>
+              Create Course
+            </button>
+          )}
         </div>
       </div>
       <br />

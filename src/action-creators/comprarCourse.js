@@ -8,10 +8,8 @@ const purchaseCourse = course => {
   };
 };
 
-export const buyCourse = (courseId, userId) => (dispatch)=> {
+export const buyCourse = (courseId, userId) => dispatch => {
   return Axios.get(
     `https://curselo-dev.appspot.com/_ah/api/lms/v2/purchaseCourse?courseId=${courseId}&studentId=${userId}`
   ).then(res => dispatch(purchaseCourse(res)));
 };
-
-
