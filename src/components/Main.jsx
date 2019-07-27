@@ -116,11 +116,6 @@ const instructor = () => (
           path="/instructor/cursos/:cursoId"
           component={SingleCursoInstructorContainer}
         />
-
-        <Route path="/instructor/listaalumnos" component={Alumnos} />
-        <Route exact path="/instructor/listaalumnos" component={Alumnos} />
-        <Route path="/instructor/alumno" component={PerfilAlumno} />
-        <Route exact path="/instructor/alumno" component={PerfilAlumno} />
       </Switch>
     </div>
   </div>

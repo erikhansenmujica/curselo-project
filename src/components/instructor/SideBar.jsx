@@ -1,4 +1,3 @@
-
 import React from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
@@ -19,7 +18,7 @@ const styles = {
     transition: "all 0.3s"
   },
   text: {
-    color:'ligth-blue',
+    color: "ligth-blue",
     margin: "10px"
   },
   img: {
@@ -36,13 +35,13 @@ export default () => (
       <div style={styles.text}>
         <div>
           <Link to="/instructor">
-          <center>
-            <img
-              src="https://lh3.googleusercontent.com/ZmqnvDIzqxMj4NBjqevd7G-yyIixYtBnNSpEiThXoUjVnjKUORQgfuML-kW_SMQ5hWaMRHazEtRHalAvy23DvQ=s0"
-              alt=""
-              style={styles.img}
-            />
-          </center>
+            <center>
+              <img
+                src="https://lh3.googleusercontent.com/ZmqnvDIzqxMj4NBjqevd7G-yyIixYtBnNSpEiThXoUjVnjKUORQgfuML-kW_SMQ5hWaMRHazEtRHalAvy23DvQ=s0"
+                alt=""
+                style={styles.img}
+              />
+            </center>
           </Link>
         </div>
         <br />
@@ -50,7 +49,7 @@ export default () => (
           <Link to="/instructor">
             <button
               type="button"
-              className='btn btn-outline-light'
+              className="btn btn-outline-light"
               style={styles.btn}
             >
               <li className="active">Home</li>
@@ -61,7 +60,7 @@ export default () => (
             <Link to="/instructor/cursos">
               <button
                 type="button"
-                className='btn btn-outline-light'
+                className="btn btn-outline-light"
                 style={styles.btn}
               >
                 Cursos
@@ -73,29 +72,15 @@ export default () => (
             <Link to="/instructor/crear">
               <button
                 type="button"
-                className='btn btn-outline-light'
+                className="btn btn-outline-light"
                 style={styles.btn}
               >
                 Crear Cursos
               </button>
             </Link>
           </li>
-          <li>
-            <br />
-            <Link to="/instructor/listaalumnos">
-              <button
-                type="button"
-                className='btn btn-outline-light'
-                style={styles.btn}
-              >
-                Alumnos
-              </button>
-            </Link>
-          </li>
         </ul>
       </div>
     </nav>
-
-
   </div>
 );
