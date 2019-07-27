@@ -13,7 +13,7 @@ const styles = {
     left: "0",
     height: "100vh",
     zIndex: "999",
-    background: "#90CAF9",
+    background: "#43505D",
     color: "#fff",
     transition: "all 0.3s"
   },
