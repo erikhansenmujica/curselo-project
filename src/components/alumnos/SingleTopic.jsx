@@ -3,6 +3,10 @@ import SideBar from "../alumnos/SideBar";
 import Vimeo from "@u-wave/react-vimeo";
 
 const styles = {
+  container: {
+    height: "100%",
+    width: "100%"
+  },
   video: {
     objectFit: "cover"
   },
@@ -11,7 +15,6 @@ const styles = {
     fontSize: " 25px;",
     letterSpacing: " 1.3px",
     wordSpacing: " 3.4px",
-    color: " #DCE5EE",
     fontWeight: " normal",
     textDecoration: " none solid rgb(68, 68, 68)",
     fontStyle: " italic",
@@ -19,20 +22,34 @@ const styles = {
     textTransform: " none"
   },
   textBox: {
-    marginTop: "20%",
-    height: "100%",
-    width: "100%",
-    backgroundColor: "#4D5B69"
+    marginLeft: "260px",
+    height: "86vh",
+    width: "81vw",
+    textAlign: "center",
+    overflowY: "scroll"
+  },
+  videoBox: {
+    marginLeft: "330px",
+    marginTop: "10px",
+    overflowY: "scroll"
+  },
+  pdfBox: {
+    marginLeft: "46vw",
+    marginTop:"30vh",
+    
+  },
+  pdf:{
+    height:"20vh",
+    width:"20vw"
   }
 };
 
 export default props => (
-  <div>
+  <div style={styles.container}>
     <SideBar cursoId={props.cursoId} history={props.history} />
-    <div
-      style={{ marginLeft: "330px", marginTop: "10px", overflowY: "scroll" }}
-    >
-      {props.topic.contentURL && props.topic.contentURL.includes("vimeo") ? (
+
+    {props.topic.contentURL && props.topic.contentURL.includes("vimeo") ? (
+      <div style={styles.videoBox}>
         <Vimeo
           width="950"
           video={props.topic.contentURL.slice(
@@ -42,19 +59,23 @@ export default props => (
           autoplay
           style={styles.video}
         />
-      ) : props.topic.contentURL &&
-        props.topic.contentURL.includes("firebase") ? (
+      </div>
+    ) : props.topic.contentURL &&
+      props.topic.contentURL.includes("firebase") ? (
+      <div style={styles.pdfBox}>
         <a href={props.topic.contentURL} target="_blank">
+      <button type="button" className="btn btn-outline-dark btn-lg" style={styles.pdf}>
           Open pdf
+      </button>
         </a>
-      ) : (
-        props.topic.content &&
-        props.topic.content.length && (
-          <div style={styles.textBox}>
-            <p style={styles.text}>{props.topic.content}</p>
-          </div>
-        )
-      )}
-    </div>
+      </div>
+    ) : (
+      props.topic.content &&
+      props.topic.content.length && (
+        <div style={styles.textBox}>
+          <p style={styles.text}>{props.topic.content}</p>
+        </div>
+      )
+    )}
   </div>
 );
