@@ -44,7 +44,7 @@ export default ({cursos}) => {
                 </Link>
 
                 <Link to={`/alumnos/cursos/comprados/${curso.id}`}>
-                  <div className="btn btn-primary">View Content</div>
+                  <div className="btn btn-outline-dark" >View Content</div>
                 </Link>
               </div>
             </div>

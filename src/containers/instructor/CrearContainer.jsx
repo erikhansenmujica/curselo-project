@@ -29,10 +29,6 @@ class CrearContainer extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    //if(!this.state.imageUrl1.length){ alert("Debe cargar una imagen")}
-    // else if(!this.state.name.length) alert("Debe cargar un nombre")
-    // else if(!this.state.price) alert("Debe cargar un precio para su curso")
-    // else if(!this.state.description.length) alert("Debe cargar una descripcion de su curso")
     if (this.state.imageUrl1.length && this.state.name.length && this.state.price && this.state.description.length)this.props
       .newCourse({
         name: this.state.name,

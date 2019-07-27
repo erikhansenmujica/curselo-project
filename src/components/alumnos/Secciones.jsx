@@ -2,13 +2,17 @@ import React from "react";
 import TopicsAlumnosContainer from "../../containers/alumnos/TopicsAlumnosContainer";
 
 const styles={
+    box:{
+      marginBottom:"100px"
+    },
     text:{
         width:"100%",
         display:"inline-block",
-        color:"black",
+        color:"#94A4B3",
         textAlign:"center"
     },
     btn: {
+      color:"#94A4B3",
         width:"98%",
         border:"none",
         textAlign:"center",
@@ -18,7 +22,7 @@ const styles={
 }
 
 export default ({sections, cursoId, history}) =>
-<div>   
+<div style={styles.box}>   
         {sections&&sections.length&&sections.map(sec=>
     <div key={sec.id}>  
   <p style={styles.text} >

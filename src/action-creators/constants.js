@@ -13,3 +13,4 @@ export const DELOG_USER = "DELOG_USER";
 export const ADD_PURCHASED = "ADD_PURCHASED"
 export const SEARCH_COURSES = "SEARCH_COURSES";
 export const UPDATE_COURSE = "UPDATE_COURSE";
+export const REM_PURCHASED = "REM_PURCHASED"

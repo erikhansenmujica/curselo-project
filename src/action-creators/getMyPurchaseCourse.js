@@ -1,9 +1,13 @@
 import Axios from "axios";
-import {ADD_PURCHASED} from "../action-creators/constants"
+import {ADD_PURCHASED, REM_PURCHASED} from "../action-creators/constants"
 
 const fetchCursos = (cursos)=>({
   type:ADD_PURCHASED,
   cursos
+})
+
+const remove = ()=>({
+  type:REM_PURCHASED
 })
 
 export const getMyPurchaseCourse = studentId => dispatch =>
@@ -13,3 +17,5 @@ export const getMyPurchaseCourse = studentId => dispatch =>
     dispatch(fetchCursos(cursos.data.items))
     return cursos
   });
+
+export const removeCourses = () => dispatch => dispatch(remove())
