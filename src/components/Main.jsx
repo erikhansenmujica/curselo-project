@@ -21,6 +21,7 @@ import PerfilAlumno from "./instructor/PerfilAlumno";
 import EditarTemaContainer from "../containers/instructor/EditarTemaContainer"
 import SingleTopicContainer from "../containers/alumnos/SingleTopicContainer";
 import EditarCursoContainer from "../containers/instructor/EditarCursoContainer"
+import LogUser from "./LogUser";
 
 export default props => (
   <div>
@@ -33,11 +34,18 @@ export default props => (
             render={() => <Log logear={props.logear} history={props.history} />}
           />
         ))}
-
+    {props.loading?
       <Route
         path="/alumnos"
         render={() => <Alumnos history={props.history} />}
+      />:
+      <Route
+      render={() => <LogUser logearAlumno={props.logearAlumno} history={props.history}/>}
+    
       />
+  
+  }
+    
 
       <Route exact path="/" component={HomeContainer} />
     </Switch>
