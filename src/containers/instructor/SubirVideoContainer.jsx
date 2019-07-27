@@ -12,15 +12,16 @@ let client = new Vimeo(
 
 export default class SubirVideoContainer extends React.Component {
   constructor(props) {
-    super(props); 
-    this.state={
-      name:"",
-      file:"",
-      load:true
-    }
+    super(props);
+    this.state = {
+      name: "",
+      file: "",
+      load: true
+    };
 
     this.handleSetFile = this.handleSetFile.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
   handleChange(e) {
     this.setState({
@@ -38,9 +39,9 @@ export default class SubirVideoContainer extends React.Component {
 
   handleUpload(e) {
     e.preventDefault();
-    
+
     const file = this.state.file;
-    let cursoId = this.props.cursoId;
+    let cursoId = this.props.courseId;
     let sectionId = this.props.sectionId;
     client
       .upload(
@@ -48,21 +49,42 @@ export default class SubirVideoContainer extends React.Component {
         (uri)=> {
           
           let videoId = uri.slice(7)
+          var obj={}
+         
+          if(this.props.topicId){
+      
+            obj={sectionId: this.props.sectionId,id:this.props.topicId}
+            if(videoId) obj.contentURL=`www.vimeo.com${videoId}`
+            else obj.contentURL=this.props.topic.contentURL
+            if(this.state.name.length) obj.name=this.state.name
+            else obj.name=this.props.topic.name
+          }
+         else obj= { sectionId: this.props.sectionId, contentURL:`www.vimeo.com${videoId}`, name:this.state.name }
           Axios.post(
             "https://curselo-dev.appspot.com/_ah/api/lms/v2/saveCourseTopic",
-            { sectionId: sectionId, contentURL: `www.vimeo.com/${videoId}` }
+             obj
           ).then(data2 => {
-            this.setState({
-              load:false
-            })
+           
             if(document.getElementById("modalContactForm2").classList.contains("show"))document.getElementById("buttonToggler").click()
             this.props.history.push(`/instructor/cursos/${cursoId}`);
-          });
-        },
+          if (
+            document
+              .getElementById("modalContactForm2")
+              .classList.contains("show")
+          )
+            document.getElementById("buttonToggler").click();
+          this.props.history.push(`/instructor/cursos/${cursoId}`);
+        });
 
-        function(bytesUploaded, bytesTotal) {
+        }
+      ,
+
+        (bytesUploaded, bytesTotal)=> {
           var percentage = ((bytesUploaded / bytesTotal) * 100).toFixed(2);
-          
+          this.setState({
+            load:false
+          })
+          console.log(percentage)
         },
         function(error) {
           console.log("Failed because: " + error);
@@ -75,8 +97,8 @@ export default class SubirVideoContainer extends React.Component {
   render() {
     return (
       <SubirVideo
-      load={this.state.load}
-      handleChange={this.handleChange}
+        load={this.state.load}
+        handleChange={this.handleChange}
         courseId={this.props.cursoId}
         sectionId={this.props.sectionId}
         handleSetFile={this.handleSetFile}

@@ -9,15 +9,16 @@ const styles = {
     width: "65px"
   },
   search: {
-    display: "block",
+    display: "inline",
     margin: "auto"
   },
   child: {
-    paddingLeft: "20%"
+    float:"right",
+    display:"flex"
   }
 };
 
-export default ({ user, handleLogOut }) => {
+export default ({ user, handleLogOut, handleSearch, handleSubmit, search }) => {
   return (
     <div className="navbar navbar-expand-lg navbar-light" style={styles.colors}>
       <button
@@ -41,28 +42,26 @@ export default ({ user, handleLogOut }) => {
         </div>
       </Link>
       <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <form className="form-inline my-2 my-lg-0" style={styles.search}>
+        <form
+          className="form-inline my-2 my-lg-0"
+          style={styles.search}
+          onSubmit={handleSubmit}
+        >
           <input
             className="form-control mr-sm-2"
             type="search"
             placeholder="Search"
+            value={search}
             aria-label="Search"
+            onChange={handleSearch}
           />
           <button className="btn btn-primary" type="submit">
             Search
           </button>
         </form>
-        <ul className="navbar-nav mr-auto mt-2 mt-lg-0" style={styles.child}>
-          <li className="nav-item">
-            <button
-              className="btn btn-default btn-rounded"
-              data-toggle="modal"
-              data-target="#darkModalForm"
-            >
-              LogIn
-            </button>
-          </li>
+     
           {user ? (
+           <ul className="navbar-nav" style={styles.child}>
             <li className="nav-item">
               <button
                 className="btn btn-default btn-rounded mb-4"
@@ -71,7 +70,28 @@ export default ({ user, handleLogOut }) => {
                 LogOut
               </button>
             </li>
+             <li className="nav-item">
+            <Link to="/alumnos/cursos/comprados"> <button
+               className="btn btn-default btn-rounded mb-4"
+               style={{float:"right"}}
+            
+             >
+               My courses
+             </button>
+             </Link>
+           </li>
+           </ul>
           ) : (
+            <ul className="navbar-nav" style={styles.child}>
+            <li className="nav-item">
+              <button
+                className="btn btn-default btn-rounded"
+                data-toggle="modal"
+                data-target="#darkModalForm"
+              >
+                LogIn
+              </button>
+            </li>
             <li className="nav-item">
               <button
                 className="btn btn-default btn-rounded mb-4"
@@ -81,8 +101,8 @@ export default ({ user, handleLogOut }) => {
                 SignIn
               </button>
             </li>
-          )}
         </ul>
+          )}
       </div>
       <SignUpContainer />
     </div>

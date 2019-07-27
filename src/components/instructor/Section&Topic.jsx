@@ -19,7 +19,14 @@ export default props => (
       props.secciones.map((sec, i) => (
         <div  className="card" key={sec.id} style={styles.nav}>
           <div className="card-header">
-            Seccion: {sec.name}
+            Section: {sec.name}
+            <button onClick={()=>props.deleteButton(sec.id)}
+              type="button"
+              className="btn btn-light"
+              style={{ float: "right" }}
+            >
+              <i className="fas fa-trash-alt" />
+            </button>
             <Link
               to={`/instructor/cursos/${props.courseId}/section/${
                 props.secciones[i].id
@@ -33,9 +40,10 @@ export default props => (
                 Add Topic
               </button>
             </Link>
-          </div>
+            </div>
+       
           <ul className="list-group list-group-flush">
-            <TopicsContainer secId={sec.id} />
+            <TopicsContainer secId={sec.id} courseId={props.courseId}/>
           </ul>
         </div>
       ))

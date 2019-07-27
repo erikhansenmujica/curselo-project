@@ -3,7 +3,7 @@ import CrearCurso from "../../components/instructor/CrearCurso";
 import { firebase, db } from "../../config/app";
 import { connect } from "react-redux";
 import { auth } from "../../config/app";
-import {createCourse} from "../../action-creators/cursosInstructor"
+import { createCourse } from "../../action-creators/cursosInstructor";
 
 class CrearContainer extends React.Component {
   constructor(props) {
@@ -12,12 +12,15 @@ class CrearContainer extends React.Component {
       name: "",
       description: "",
       price: 0,
-      
+      image: "",
+      imageUrl1: "",
+      imageUrl2: "",
+      loading: true
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleUpload = this.handleUpload.bind(this);
-    this.handleSetFile = this.handleSetFile.bind(this);
+    this.handleUploadImg = this.handleUploadImg.bind(this);
+    this.handleSetImg = this.handleSetImg.bind(this);
   }
   handleChange(e) {
     this.setState({
@@ -26,46 +29,76 @@ class CrearContainer extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.newCourse({ 
-      name: this.state.name,
-      price: this.state.price,
-      description: this.state.description,
-      ownerId: auth.currentUser.uid})
+    if(!this.state.imageUrl1.length) alert("Debe cargar una imagen")
+    if(!this.state.name.length) alert("Debe cargar un nombre")
+    if(!this.state.price) alert("Debe cargar un precio para su curso")
+    if(!this.state.description.length) alert("Debe cargar una descripcion de su curso")
+    if(this.state.imageUrl1.length && this.state.name.length && this.state.price && this.state.description.length)this.props
+      .newCourse({
+        name: this.state.name,
+        price: this.state.price,
+        description: this.state.description,
+        ownerId: auth.currentUser.uid,
+        images: {
+          imagen1: {
+            url: this.state.imageUrl1
+          }
+        }
+      })
       .then(data => {
         this.props.history.push(`/instructor/cursos/${data.id}`);
       });
   }
 
-  handleSetFile(e) {
+  handleSetImg(e) {
     e.preventDefault();
-    let f = e.target.files[0];
+    let img = e.target.files[0];
     this.setState({
-      file: f
+      image: img
     });
   }
 
-  handleUpload(e) {
+  handleUploadImg(e) {
+    this.setState({
+      loading: false
+    })
     e.preventDefault();
-    const file = this.state.file;
-    const storageRef = firebase.storage().ref(`/files/${file.name}`);
-    storageRef.put(file).then(file => console.log("FILE?", file));
+    const file = this.state.image;
+    const storageRef = firebase.storage().ref(`/images/${auth.currentUser.uid}/${file.name}`);
+    storageRef.put(file).then(file => console.log("FILE?", file))
+    storageRef.getDownloadURL()
+    .then(data => { this.setState({
+      imageUrl1: data,
+      loading: true
+    })
+  })
   }
 
   render() {
     return (
+      <div>
+
       <CrearCurso
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
         handleUpload={this.handleUpload}
-        handleSetFile={this.handleSetFile}
-      />
+        handleSetImg={this.handleSetImg}
+        handleUploadImg={this.handleUploadImg}
+        imageUrl1={this.state.imageUrl1}
+        imageUrl2={this.state.imageUrl2}
+        loading={this.state.loading}
+        />
+        
+        </div>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch) =>({
-  newCourse: (obj)=>dispatch(createCourse(obj))
-})
+const mapDispatchToProps = dispatch => ({
+  newCourse: obj => dispatch(createCourse(obj))
+});
 
-
-export default connect (null, mapDispatchToProps)(CrearContainer)
+export default connect(
+  null,
+  mapDispatchToProps
+)(CrearContainer);

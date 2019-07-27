@@ -164,17 +164,17 @@ export default ({
           )}
         </div>
       </div>
-
       <div style={{ marginTop: "10px" }}>
         <div style={styles.button}>
           <button type="submit" className="btn btn-primary">
             Cancel
           </button>
           <button type="submit" className="btn btn-primary">
-            Create Course
+            Update Data
           </button>
         </div>
       </div>
+
       <br />
       <br />
     </form>

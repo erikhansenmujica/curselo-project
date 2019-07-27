@@ -13,23 +13,22 @@ const style = {
     marginBottom: "1%"
   },
   center: {
-    textAlign: "center", 
-    marginTop:"35px",
-    fontSize:"46px"
+    textAlign: "center",
+    marginTop: "35px",
+    fontSize: "46px"
   }
 };
-export default ({ cursos }) => (
+export default ({ cursos,deleteButton }) => (
   <div>
     <div style={style.container}>
       {cursos ? (
         cursos.map(curso => (
           <div key={curso.id} className="card" style={style.childs}>
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTUyfcgnFWzf2GBPS8kpRhpa01uVuyuN40ZxOWNz-WcMXvUBgtkg"
-              className="card-img-top"
-              alt=""
-            />
+            <Link to={`/instructor/cursos/${curso.id}`}>
+            {curso.images ? <img alt="" className="card-img-top" src={curso.images.imagen1.url}/> : <img alt="" className="card-img-top" src='https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg' />}
+              </Link>
             <div className="card-body">
+            <Link to={`/instructor/cursos/${curso.id}`}>
               <h5 className="card-title">{curso.name}</h5>
               <p className="card-text">
                 {curso.description.length > 120
@@ -37,9 +36,17 @@ export default ({ cursos }) => (
                   : curso.description}
               </p>
 
+                  </Link>
               <Link to={`/instructor/cursos/${curso.id}`}>
-                <div className="btn btn-primary">Go somewhere</div>
+                <div className="btn btn-primary">Course Details</div>
               </Link>
+              <button onClick={()=>deleteButton(curso.id)}
+              type="button"
+              className="btn btn-danger"
+              style={{ float: "right" }}
+            >
+              <i className="fas fa-trash-alt" />
+            </button>
             </div>
           </div>
         ))

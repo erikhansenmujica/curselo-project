@@ -1,6 +1,7 @@
 import React from "react";
 import HomeContainer from "../containers/HomeContainer";
 import { Route, Switch } from "react-router-dom";
+import Log from './Log'
 import CrearContainer from "../containers/instructor/CrearContainer";
 import Cursos from "../containers/alumnos/Cursos";
 import InstructorContainer from "../containers/instructor/InstructorContainer";
@@ -14,7 +15,14 @@ import SignUpContainer from "../containers/SignUpContainer";
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
 import Log from "./Log";
 import ChatContainer from "../containers/ChatContainer";
-import ChatSidebarContainer from "../containers/ChatSidebarContainer"
+// import ChatSidebarContainer from "../containers/ChatSidebarContainer"
+import CursosCompradosContainer from "../containers/alumnos/CursosCompradosContainer";
+import SingleCursoCompradoContainer from "../containers/alumnos/SingleCursoCompradoContainer";
+import ComprarContainer from "../containers/alumnos/ComprarContainer";
+import SearchContainer from "../containers/alumnos/SearchContainer";
+import EditarTemaContainer from "../containers/instructor/EditarTemaContainer"
+import SingleTopicContainer from "../containers/alumnos/SingleTopicContainer";
+import EditarCursoContainer from "../containers/instructor/EditarCursoContainer"
 
 export default props => (
   <div>
@@ -27,19 +35,34 @@ export default props => (
             render={() => <Log logear={props.logear} history={props.history} />}
           />
         ))}
-      <Route path="/alumnos" component={alumnos} />
+
       <Route path="/chat/" component={chat} />
+
+      <Route
+        path="/alumnos"
+        render={() => <Alumnos history={props.history} />}
+      />
+
       <Route exact path="/" component={HomeContainer} />
     </Switch>
   </div>
 );
 
-const alumnos = () => (
+const Alumnos = props => (
   <div>
-    <NavbarContainer />
+    <NavbarContainer history={props.history} />
     <Switch>
+      <Route
+        exact
+        path="/alumnos/cursos/:cursoId/comprar"
+        component={ComprarContainer}
+      />
       <Route exact path="/alumnos/signUp" component={SignUpContainer} />
       <Route exact path="/alumnos/cursos" component={Cursos} />
+      <Route exact path="/alumnos/cursos/comprados" component={CursosCompradosContainer} />
+      <Route exact path="/alumnos/cursos/comprados/:cursoId" component={SingleCursoCompradoContainer} />
+      <Route exact path="/alumnos/cursos/comprados/:cursoId/section/:sectionId/topic/:topicId" component={SingleTopicContainer} />
+      <Route exact path="/alumnos/cursos/search" component={SearchContainer} />
       <Route
         exact
         path="/alumnos/cursos/:cursoId"
@@ -72,6 +95,18 @@ const instructor = () => (
           exact
           path="/instructor/cursos/:cursoId/section/:sectionId"
           component={CrearTemaContainer}
+        />
+
+        <Route
+          exact
+          path="/instructor/cursos/:courseId/edit"
+          component={EditarCursoContainer}
+        />
+
+        <Route
+          exact
+          path="/instructor/cursos/:courseId/section/:secId/topic/:topicId"
+          component={EditarTemaContainer}
         />
 
         <Route

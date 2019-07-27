@@ -1,14 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import SubirTextoContainer from "../../containers/instructor/SubirTextoContainer";
 import SubirArchivosContainer from "../../containers/instructor/SubirArchivosContainer";
 import SubirVideoContainer from "../../containers/instructor/SubirVideoContainer";
 
-export default ({ courseId, sectionId, history }) => (
+export default ({ courseId, sectionId, history, topicId, topic }) => (
   <div>
     <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <h1 className="display-4">New Topic!</h1>
-      <p className="lead">What do you want to share?</p>
+      <h1 className="display-4">Edit Topic!</h1>
+      <p className="lead">
+        What do you want to change? (if only the name you can change it in any
+        of them)
+      </p>
     </div>
 
     <div className="container">
@@ -46,29 +48,27 @@ export default ({ courseId, sectionId, history }) => (
           </button>
         </div>
       </div>
-      <Link to={`/instructor/cursos/${courseId}`}>
-        <div>
-          <button type="button" className="btn btn-primary">
-            Back to Course
-          </button>
-        </div>
-      </Link>
     </div>
-
     <SubirTextoContainer
       courseId={courseId}
       sectionId={sectionId}
       history={history}
+      topicId={topicId}
+      topic={topic}
     />
     <SubirArchivosContainer
       courseId={courseId}
       sectionId={sectionId}
       history={history}
+      topicId={topicId}
+      topic={topic}
     />
     <SubirVideoContainer
       courseId={courseId}
       sectionId={sectionId}
       history={history}
+      topicId={topicId}
+      topic={topic}
     />
   </div>
 );
