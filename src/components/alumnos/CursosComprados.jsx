@@ -27,11 +27,7 @@ export default ({cursos}) => {
           cursos.map(curso => (
             <div key={curso.id} className="card" style={style.childs}>
               <Link to={`/alumnos/cursos/comprados/${curso.id}`}>
-                <img
-                  src={curso.images.imagen1.url}
-                  className="card-img-top"
-                  alt=""
-                />
+              {curso.images ? <img alt="" className="card-img-top" src={curso.images.imagen1&&curso.images.imagen1.url}/> : <img alt="" className="card-img-top" src='https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg' />}
               </Link>
               <div className="card-body">
                 <Link to={`/alumnos/cursos/comprados/${curso.id}`}>
