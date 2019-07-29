@@ -59,7 +59,7 @@ export default ({ user, handleLogOut, handleSearch, handleSubmit, search }) => {
             aria-label="Search"
             onChange={handleSearch}
           />
-          <button className="btn btn-light" type="submit" style={styles.text}>
+          <button className="btn btn-outline-dark" type="submit" style={styles.text}>
             Search
           </button>
         </form>
@@ -79,7 +79,7 @@ export default ({ user, handleLogOut, handleSearch, handleSubmit, search }) => {
              <li className="nav-item">
             <Link to="/alumnos/cursos/comprados"> <button
                className="btn btn-outline-dark"
-               style={{float:"right"}}
+               style={styles.text}
             
              >
                My courses
@@ -89,7 +89,7 @@ export default ({ user, handleLogOut, handleSearch, handleSubmit, search }) => {
            <li className="nav-item">
             <Link to="/chat/mychats"> <button
                className="btn btn-outline-dark"
-               style={{float:"right"}}
+               style={styles.text}
             
              >
                My chats

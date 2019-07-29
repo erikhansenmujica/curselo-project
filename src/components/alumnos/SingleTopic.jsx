@@ -23,8 +23,8 @@ const styles = {
   },
   textBox: {
     marginLeft: "260px",
-    height: "86vh",
-    width: "81vw",
+    height: "80vh",
+    width: "75vw",
     textAlign: "center",
     overflowY: "scroll"
   },

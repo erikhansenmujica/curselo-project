@@ -24,7 +24,7 @@ const styles = {
 export default ({ sections, cursoId, history }) => (
   <div style={styles.box}>
     {sections &&
-      sections.length &&
+      sections.length ?
       sections.map(sec => (
         <div key={sec.id}>
           <p style={styles.text}>
@@ -47,6 +47,8 @@ export default ({ sections, cursoId, history }) => (
             history={history}
           />
         </div>
-      ))}
+      )):
+      <p>Este curso no tiene contenido</p>
+      }
   </div>
 );

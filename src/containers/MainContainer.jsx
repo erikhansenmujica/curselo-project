@@ -9,7 +9,8 @@ class MainConTainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false
+      loadingInstructor: false,
+      loadingAlumno: false,
     };
     this.logear=this.logear.bind(this)
     this.logearAlumno=this.logearAlumno.bind(this)
@@ -19,7 +20,7 @@ logear (){
   auth.onAuthStateChanged((user)=> {
     if (user) {
       this.setState({
-        loading:true
+        loadingInstructor:true
     })
     } else {
       const provider = new firebase.auth.GoogleAuthProvider();
@@ -28,7 +29,7 @@ logear (){
         .signInWithPopup(provider)
         .then((user) => {
             this.setState({
-                loading:true
+              loadingInstructor:true
             })
             return user
         })
@@ -40,18 +41,18 @@ logearAlumno(){
     if (user) {
       this.props.logUser(user)
       this.setState({
-        loading:true
+        loadingAlumno:true
     })
     } else {
       this.setState({
-        loading:true
+        loadingAlumno:true
     })
     }
   });   
 
 }
   render() {
-    return <Main loading={this.state.loading} logear={this.logear} logearAlumno={this.logearAlumno}history={this.props.history}/>;
+    return <Main loadingInstructor={this.state.loadingInstructor} loadingAlumno={this.state.loadingAlumno} logear={this.logear} logearAlumno={this.logearAlumno}history={this.props.history}/>;
   }
 }
 
