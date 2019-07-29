@@ -28,6 +28,7 @@ const styles = {
 };
 export default ({ curso, handleClick, isLoggedIn, studentCourse, createChat }) => (
   <div>
+   
     <div className="card mb-3 container">
       <div className="row no-gutters">
         <div className="col-md-4">
@@ -75,11 +76,7 @@ export default ({ curso, handleClick, isLoggedIn, studentCourse, createChat }) =
         </Link>
       )}
     </div>
-    <div style={{
-     float: "right", 
-     marginRight: "10%"}}>
-      <button onClick={createChat} type="button" className="btn btn-outline-secondary btn-lg">Iniciar Chat con Instructor</button>
-   </div>
+   
     <Link to="/alumnos/cursos">
       <div style={styles.button2}>
         <button type="button" className="btn btn-outline-dark">

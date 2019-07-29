@@ -3,8 +3,6 @@ import SingleCursoAlumno from "../../components/alumnos/SingleCursoAlumno";
 import { getMyPurchaseCourse } from "../../action-creators/getMyPurchaseCourse";
 import { fetchCursoAlumno } from "../../action-creators/cursosAlumnos";
 import { connect } from "react-redux";
-import { store, firebase, db, auth } from "../../config/app";
-import Axios from "axios";
 
 class SingleCursoAlumnoContainer extends Component {
   constructor(props) {
@@ -13,62 +11,13 @@ class SingleCursoAlumnoContainer extends Component {
       studentCourse: []
     };
 
-    this.createChat = this.createChat.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount() {
     this.props.getCurso(this.props.match.params.cursoId);
   }
 
-  createChat() {
-    let studentId = auth.currentUser.uid;
-    let courseId = this.props.curso.id;
-    let studentName = auth.currentUser.email;
-    Axios.get(
-      `https://curselo-dev.appspot.com/_ah/api/lms/v2/getCourse?courseId=${courseId}`
-    ).then(courseData => {
-      let instructorId = courseData.data.ownerId;
-      let instructorName = courseData.data.speakerInfo;
-      let chatId = instructorId + "-" + studentId;
-      let chatters = [instructorId, studentId];
-      let chattersName = [instructorName, studentName];
-
-      for (let i = 0; i < 2; i++) {
-        if (i == 0) {
-          let Carlos = db
-            .collection("usuarios")
-            .doc(`${chatters[i]}`)
-            .collection("CHATS");
-          Carlos.doc(chatId).set({
-            instructor: instructorId,
-            student: studentId,
-            instrName: instructorName,
-            studName: studentName,
-            unreadMsjs: false,
-            unreadNumber: 0,
-            with: chattersName[1].split("@")[0]
-          });
-        }
-        if (i == 1) {
-          let Carlos = db
-            .collection("usuarios")
-            .doc(`${chatters[i]}`)
-            .collection("CHATS");
-          Carlos.doc(chatId).set({
-            instructor: instructorId,
-            student: studentId,
-            instrName: instructorName,
-            studName: studentName,
-            unreadMsjs: false,
-            unreadNumber: 0,
-            with: chattersName[0]
-          });
-        }
-      }
-      this.props.history.push(`/chat/${instructorId}/${studentId}`);
-    });
-  }
-
+ 
   componentDidMount() {
     this.props.getCurso(this.props.match.params.cursoId);
   }
@@ -109,7 +58,6 @@ class SingleCursoAlumnoContainer extends Component {
   render() {
     return (
       <SingleCursoAlumno
-        createChat={this.createChat}
         studentCourse={this.state.studentCourse}
         curso={this.props.curso}
         purchaseCourse={this.props.purchaseCourse}

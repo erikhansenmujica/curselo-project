@@ -31,6 +31,11 @@ const styles = {
 };
 export default props => (
   <div style={styles.div}>
+    <div style={{
+     float: "right", 
+     marginRight: "10%"}}>
+      <button onClick={()=>props.createChat(props.cursoId)} type="button" className="btn btn-outline-secondary btn-lg">Iniciar Chat con Instructor</button>
+   </div>
     <div className="jumbotron" style={styles.jumbotron}>
       <div className="container">
         <h1 className="display-3" style={styles.title}>
