@@ -116,7 +116,7 @@ export default ({ user, handleLogOut, handleSearch, handleSubmit, search }) => {
                 data-target="#modalRegisterForm"
                 style={styles.text}
               >
-                SignIn
+                Sign Up
               </button>
             </li>
           </ul>

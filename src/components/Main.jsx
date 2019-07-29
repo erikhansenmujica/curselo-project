@@ -32,7 +32,7 @@ export default props => (
           <Route path="/instructor" component={instructor} />
         ) : (
           <Route
-            render={() => <Log logear={props.logear} history={props.history} />}
+            render={() => <Log logear={props.logear} history={props.history} />}  
           />
         ))}
     {window.location.href.includes("alumnos") &&(props.loadingAlumno?
