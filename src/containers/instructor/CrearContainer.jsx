@@ -9,6 +9,7 @@ class CrearContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      speakerInfo: "",
       name: "",
       description: "",
       price: 0,
@@ -33,13 +34,15 @@ class CrearContainer extends React.Component {
       this.state.imageUrl1.length &&
       this.state.name.length &&
       this.state.price &&
-      this.state.description.length
+      this.state.description.length &&
+      this.state.speakerInfo.length
     )
       this.props
         .newCourse({
           name: this.state.name,
           price: this.state.price,
           description: this.state.description,
+          speakerInfo:this.state.speakerInfo,
           ownerId: auth.currentUser.uid,
           images: {
             imagen1: {
@@ -69,7 +72,7 @@ class CrearContainer extends React.Component {
     const storageRef = firebase
       .storage()
       .ref(`/images/${auth.currentUser.uid}/${file.name}`);
-    storageRef.put(file).then(file => console.log("FILE?", file));
+    storageRef.put(file).then(file => file);
     storageRef.getDownloadURL().then(data => {
       this.setState({
         imageUrl1: data,
@@ -79,6 +82,7 @@ class CrearContainer extends React.Component {
   }
 
   render() {
+    console.log(this.state, 'STATE')
     return (
       <div>
         <CrearCurso
@@ -90,9 +94,6 @@ class CrearContainer extends React.Component {
           imageUrl1={this.state.imageUrl1}
           imageUrl2={this.state.imageUrl2}
           loading={this.state.loading}
-          name={this.state.name}
-          price={this.state.price}
-          description={this.state.description}
         />
       </div>
     );

@@ -24,7 +24,6 @@ class CursosCompradosContainer extends React.Component {
   }
 
   render() {
-    console.log(this.props.user);
     return <CursosComprados cursos={this.props.cursos} />;
   }
 }

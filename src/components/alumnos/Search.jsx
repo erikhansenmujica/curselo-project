@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 const style = {
   container: {
     display: "flex",
@@ -14,6 +15,12 @@ const style = {
   linksColor: {
     color: "black",
     textDecoration: "none"
+  },
+  button: {
+    marginLeft: "25%",
+    marginRight: "25%",
+    display: "block",
+    marginTop: "20%"
   }
 };
 
@@ -52,7 +59,9 @@ export default ({ searchCourses }) => {
                 </p>
               </Link>
               <Link to={`/alumnos/cursos/${curso.id}`}>
-                <div className="btn btn-primary">View Details</div>
+                <div style={style.button}>
+                  <button className="btn btn-outline-dark">View Details</button>
+                </div>
               </Link>
             </div>
           </div>

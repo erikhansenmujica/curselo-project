@@ -6,16 +6,27 @@ const styles = {
   },
   title: {
     textAlign: "center",
-    fontSize: "46px"
+    fontSize: "52px",
+    color: "white"
   },
   subTitle: {
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: "32px",
+    marginTop: "1%"
   },
   jumbotron: {
     backgroundImage:
-    "url(" +
-    "https://www.sfh.ie/sites/default/themes/go2_omega/images/bg-education-courses-workshops.jpg" +
-    ")",
+      "url(" +
+      "https://images.unsplash.com/photo-1515261439133-0f6cfb098e04?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" +
+      ")"
+  },
+  card: {
+    marginTop: "-5%"
+  },
+  cardBody: {
+    marginTop: "-2%",
+    fontSize: "16px",
+    textAlign: "center"
   }
 };
 export default props => (
@@ -25,35 +36,37 @@ export default props => (
         <h1 className="display-3" style={styles.title}>
           Welcome to your course!
         </h1>
-        <p />
-        <p />
       </div>
     </div>
-    <br />
-    <div class="card">
-      <p class="display-3" style={styles.title}>News</p>
-      <div class="card-body">
+    <div className="card" style={styles.card}>
+      <div className="card-body" style={styles.cardBody}>
+        <p className="display-3" style={styles.subTitle}>
+          News
+        </p>
         You have access to videos, files and texts, which can help you during
         this learning. Also you can view this anytime that you want, if the
         course end you can do it again a lot of times
       </div>
     </div>
-    <div class="card">
-      <p class="display-3" style={styles.title}>Messages</p>
-      <div class="card-body">
+    <div className="card">
+      <div className="card-body" style={styles.cardBody}>
+        <p className="display-3" style={styles.subTitle}>
+          Messages
+        </p>
         You can talk with your teacher, by our chat. You can ask at anytime that
         you want if you don't understand something.
       </div>
     </div>
-    <div class="card">
-      <p class="display-3" style={styles.title}>Contact us</p>
-      <div class="card-body">
+    <div className="card">
+      <div className="card-body" style={styles.cardBody}>
+        <p className="display-3" style={styles.subTitle}>
+          Contact us
+        </p>
         If you have more than 5 courses with the same teacher, you can open your
-        account being like teacher free for 3 months. For more information
-        contact us
+        account being like teacher. Try to open free for one month, if you like
+        you have an offer for 3 months. For more information contact us
       </div>
     </div>
-    <hr />
     <SideBar cursoId={props.cursoId} history={props.history} />
   </div>
 );
