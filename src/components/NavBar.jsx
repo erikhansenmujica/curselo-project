@@ -76,22 +76,29 @@ export default ({ user, handleLogOut, handleSearch, handleSubmit, search }) => {
                 LogOut
               </button>
             </li>
-            <li className="nav-item">
-              <Link to="/alumnos/cursos/comprados">
-                {" "}
-                <button
-                  className="btn btn-outline-dark"
-                  type="button"
-                  style={{ float: "right" }}
-                  style={styles.text}
-                >
-                  My courses
-                </button>
-              </Link>
-            </li>
-          </ul>
-        ) : (
-          <ul className="navbar-nav" style={styles.child}>
+             <li className="nav-item">
+            <Link to="/alumnos/cursos/comprados"> <button
+               className="btn btn-outline-dark"
+               style={{float:"right"}}
+            
+             >
+               My courses
+             </button>
+             </Link>
+           </li>
+           <li className="nav-item">
+            <Link to="/chat/mychats"> <button
+               className="btn btn-outline-dark"
+               style={{float:"right"}}
+            
+             >
+               My chats
+             </button>
+             </Link>
+           </li>
+           </ul>
+          ) : (
+            <ul className="navbar-nav" style={styles.child}>
             <li className="nav-item">
               <button
                 className="btn btn-outline-dark"

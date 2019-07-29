@@ -13,11 +13,12 @@ import InstructorCursosContainer from "../containers/instructor/InstructorCursos
 import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
 import SignUpContainer from "../containers/SignUpContainer";
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
+import ChatContainer from "../containers/ChatContainer";
 import CursosCompradosContainer from "../containers/alumnos/CursosCompradosContainer";
 import SingleCursoCompradoContainer from "../containers/alumnos/SingleCursoCompradoContainer";
 import ComprarContainer from "../containers/alumnos/ComprarContainer";
 import SearchContainer from "../containers/alumnos/SearchContainer";
-import PerfilAlumno from "./instructor/PerfilAlumno";
+import MyChatsContainer from "../containers/MyChatsContainer"
 import EditarTemaContainer from "../containers/instructor/EditarTemaContainer";
 import SingleTopicContainer from "../containers/alumnos/SingleTopicContainer";
 import EditarCursoContainer from "../containers/instructor/EditarCursoContainer"
@@ -34,6 +35,9 @@ export default props => (
             render={() => <Log logear={props.logear} history={props.history} />}
           />
         ))}
+
+      <Route path="/chat/" component={chat} />
+
     {props.loading?
       <Route
         path="/alumnos"
@@ -140,3 +144,16 @@ const instructor = () => (
     </div>
   </div>
 );
+
+const chat = () => (
+  <div>
+    <Route
+      exact
+      path="/chat/:instructorId/:userId"
+      component={ChatContainer}
+    />
+    <Route path="/chat/mychats" component={MyChatsContainer} />
+  </div>
+);
+
+
