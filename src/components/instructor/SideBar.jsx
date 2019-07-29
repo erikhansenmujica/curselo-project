@@ -82,13 +82,13 @@ export default () => (
           </li>
           <li>
             <br />
-            <Link to="/instructor/listaalumnos">
+            <Link to="/chat/mychats">
               <button
                 type="button"
                 className='btn btn-outline-light'
                 style={styles.btn}
               >
-                Alumnos
+                Mis Conversaciones
               </button>
             </Link>
           </li>

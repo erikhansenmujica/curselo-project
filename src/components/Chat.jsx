@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 const margin = {
   height: "100%",
-  maxHeight:"100%",
+  maxHeight: "100%",
   // marginTop: "-2%",
   // marginBottom: "5%",
   // marginRight: "1%",
   // marginLeft: "1%",
   backgroundImage:
     "url(" +
-"https://www.solidbackgrounds.com/images/2880x1800/2880x1800-pastel-blue-solid-color-background.jpg" +
+    "https://www.solidbackgrounds.com/images/2880x1800/2880x1800-pastel-blue-solid-color-background.jpg" +
     ")",
   backgroundSize: "container"
 };
@@ -18,7 +18,7 @@ const margin = {
 const chatBar = {
   position: "fixed",
   bottom: "0%",
-  width: "90%",
+  width: "100%",
   right: "0%"
 };
 
@@ -43,16 +43,23 @@ export default ({
   handleSubmit,
   inputValue,
   messages,
-  currentUser
+  currentUser,
+  returnToChats
 }) => (
   <div style={margin}>
-    <div style={{
-      background :"#bdd2d9",
-      opacity : "0.8"
-    }} className="jumbotron jumbotron-fluid">
+    <div
+      style={{
+        background: "#bdd2d9",
+        opacity: "0.8"
+      }}
+      className="jumbotron jumbotron-fluid"
+    >
       <div className="container">
         <h6 className="display-4">Welcome to the Curselo Messenger</h6>
       </div>
+    </div>
+    <div>
+      <button onClick={returnToChats}>VOLVER ATRAS</button>
     </div>
     <div>
       <ul
@@ -84,7 +91,8 @@ export default ({
                     textAlign: "center",
                     border: "1px solid grey",
                     boxShadow: "1px 2px #a9b8cf",
-                    color: "#e9ecf2"
+                    color: "#e9ecf2",
+                    marginRight: "7px"
                   }}
                 >
                   {msg.message}

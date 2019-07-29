@@ -80,6 +80,16 @@ export default ({ user, handleLogOut, handleSearch, handleSubmit, search }) => {
              </button>
              </Link>
            </li>
+           <li className="nav-item">
+            <Link to="/chat/mychats"> <button
+               className="btn btn-default btn-rounded mb-4"
+               style={{float:"right"}}
+            
+             >
+               My chats
+             </button>
+             </Link>
+           </li>
            </ul>
           ) : (
             <ul className="navbar-nav" style={styles.child}>

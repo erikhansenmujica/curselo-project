@@ -1,51 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-<<<<<<< HEAD
-export default ({ curso, createChat }) => (
-  <div
-    style={{
-      height: "100vh",
-      width: "100vw",
-      backgroundColor: "#F3F6FC"
-    }}
-  >
-    <div
-      style={{
-        borderRadius: "4px",
-        backgroundColor: "white",
-        height: "60vh",
-        width: "80vw",
-        marginLeft: "10%",
-        borderStyle: "solid",
-        borderWidth: "2px",
-        borderColor: "#E4E9F4",      
-      }}
-    >
-    <div style={{
-        display: "flex",
-        flexDirection: "row"
-    }}>
-      <div
-        style={{
-          float: "left"
-        }}
-      >
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSFiS3k5Xqg9CFuoghOVJPtpO8Wgz4QpaVbx0Ei5dOJoBWKoMY"
-          alt=""
-          height="300vh"
-        />
-      </div>
-      <div
-        style={{
-          marginTop: "5%",
-          float: "left"
-        }}
-      >
-        {curso && <h3>{curso.name}</h3>}
-        {curso && <p>{curso.description}</p>}
-=======
 const styles = {
   img: {
     marginTop: "15%"
@@ -71,7 +26,7 @@ const styles = {
     fontWeight: "bold"
   }
 };
-export default ({ curso, handleClick, isLoggedIn, studentCourse }) => (
+export default ({ curso, handleClick, isLoggedIn, studentCourse, createChat }) => (
   <div>
     <div className="card mb-3 container">
       <div className="row no-gutters">
@@ -98,7 +53,6 @@ export default ({ curso, handleClick, isLoggedIn, studentCourse }) => (
             <p className="card-text">{curso.description}</p>
           </div>
         </div>
->>>>>>> 8cae383ac1b976d6fb15d9e43defb8a9b24dba45
       </div>
       {isLoggedIn.uid && (studentCourse[0] && studentCourse[0].id) ? (
         <div className="alert alert-success" role="alert" style={styles.budget}>
@@ -119,26 +73,17 @@ export default ({ curso, handleClick, isLoggedIn, studentCourse }) => (
         </Link>
       )}
     </div>
-<<<<<<< HEAD
-   <div style={{marginLeft: "10%"}}>
-      <button type="button" className="btn btn-outline-secondary btn-lg">Comprar: U$D{curso.price}</button>
-   </div>
-
-   <div style={{
+    <div style={{
      float: "right", 
      marginRight: "10%"}}>
       <button onClick={createChat} type="button" className="btn btn-outline-secondary btn-lg">Iniciar Chat con Instructor</button>
    </div>
-
-
-=======
     <Link to="/alumnos/cursos">
       <div style={styles.button2}>
-        <button type="button" class="btn btn-outline-dark">
+        <button type="button" className="btn btn-outline-dark">
           Volver Atras
         </button>
       </div>
     </Link>
->>>>>>> 8cae383ac1b976d6fb15d9e43defb8a9b24dba45
   </div>
-);
+)
