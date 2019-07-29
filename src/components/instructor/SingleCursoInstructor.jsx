@@ -8,11 +8,7 @@ const styles = {
     margin: "auto"
   },
   img: {
-    display: "flex",
-    justifyContent: "space-between"
-    // marignRight: "20%",
-    // float: "rigth",
-    // display: "inline-block"
+    marginTop: "-19%"
   },
   text: {
     fontSize: "24px",
@@ -41,7 +37,6 @@ const styles = {
 
 export default props => (
   <div>
-    {console.log("Y estos props?????", props)}
     <div className="jumbotron mt-3">
       <div className="row no-gutters">
         <div className="col-md-8">
@@ -53,41 +48,15 @@ export default props => (
           </div>
         </div>
       </div>
-      <div
-        style={{
-          right: "80px",
-          width: "251px",
-          height: "100px",
-          position: "absolute",
-          top: "0"
-        }}
-      >
+      <div>
         <img
           style={styles.img}
           src={props.curso.images && props.curso.images.imagen1.url}
-          className="card-img rounded float-right"
+          class="rounded float-right"
           alt="..."
         />
       </div>
     </div>
-
-    {/* <div className="jumbotron mt-3">
-      <h1 style={styles.title}>{props.curso.name}</h1>
-      <p style={{ textAlign: "left" }} className="lead">
-        {props.curso.description}
-      {props.curso.images && (
-        <div className="col-sm-3  main" style={styles.imagen}>
-        <img src={props.curso.images.imagen1.url} width="100%" alt="" />
-      </div>
-    )}
-    </p>
-    </div> */}
-
-    {/* {props.curso.images && (
-      <div className="col-sm-3  main" style={styles.imagen}>
-        <img src={props.curso.images.imagen1.url} width="100%" alt="" />
-      </div>
-    )} */}
 
     {props.curso.name && (
       <div>
@@ -101,7 +70,6 @@ export default props => (
                   style={styles.edit}
                   onClick={() => {}}
                 >
-                  {" "}
                   Edit this Course
                   <i className="fas fa-pencil-alt" />
                 </button>
