@@ -30,7 +30,6 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^3.0.0",
     "firebase": "^6.3.0",
-    "firebase-admin": "^8.3.0",
     "firebase-tools": "^7.1.0",
     "fs": "0.0.1-security",
     "mdbootstrap": "^4.8.5",
