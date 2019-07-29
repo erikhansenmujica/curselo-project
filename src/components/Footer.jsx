@@ -7,7 +7,7 @@ const footer = {
   width: "100%",
   backgroundColor: "#43505D",
   color: "white",
-  textAlign: "center"
+  textAlign: "center",
 };
 export default () => (
   <div style={footer}>
