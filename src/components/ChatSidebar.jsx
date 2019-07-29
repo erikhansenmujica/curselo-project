@@ -13,7 +13,7 @@ const styles = {
     left: "0",
     height: "100vh",
     zIndex: "999",
-    background: "#43505D",
+    background: "#90CAF9",
     color: "#fff",
     transition: "all 0.3s"
   },
@@ -55,42 +55,6 @@ export default () => (
               <li className="active">Home</li>
             </button>
           </Link>
-          <li>
-            <br />
-            <Link to="/instructor/cursos">
-              <button
-                type="button"
-                className="btn btn-outline-light"
-                style={styles.btn}
-              >
-                Cursos
-              </button>
-            </Link>
-          </li>
-          <br />
-          <li>
-            <Link to="/instructor/crear">
-              <button
-                type="button"
-                className="btn btn-outline-light"
-                style={styles.btn}
-              >
-                Crear Cursos
-              </button>
-            </Link>
-          </li>
-          <li>
-            <br />
-            <Link to="/chat/mychats">
-              <button
-                type="button"
-                className='btn btn-outline-light'
-                style={styles.btn}
-              >
-                Mis Conversaciones
-              </button>
-            </Link>
-          </li>
         </ul>
       </div>
     </nav>
