@@ -17,7 +17,6 @@ import CursosCompradosContainer from "../containers/alumnos/CursosCompradosConta
 import SingleCursoCompradoContainer from "../containers/alumnos/SingleCursoCompradoContainer";
 import ComprarContainer from "../containers/alumnos/ComprarContainer";
 import SearchContainer from "../containers/alumnos/SearchContainer";
-import PerfilAlumno from "./instructor/PerfilAlumno";
 import EditarTemaContainer from "../containers/instructor/EditarTemaContainer";
 import SingleTopicContainer from "../containers/alumnos/SingleTopicContainer";
 import EditarCursoContainer from "../containers/instructor/EditarCursoContainer"
@@ -27,14 +26,14 @@ export default props => (
   <div>
     <Switch>
       {window.location.href.includes("instructor") &&
-        (props.loading ? (
+        (props.loadingInstructor ? (
           <Route path="/instructor" component={instructor} />
         ) : (
           <Route
             render={() => <Log logear={props.logear} history={props.history} />}
           />
         ))}
-    {props.loading?
+    {props.loadingAlumno?
       <Route
         path="/alumnos"
         render={() => <Alumnos history={props.history} />}
