@@ -16,6 +16,9 @@ const style = {
     textAlign: "center",
     marginTop: "35px",
     fontSize: "46px"
+  },
+  text:{
+    color:"black"
   }
 };
 export default ({ cursos, deleteButton }) => (
@@ -41,15 +44,15 @@ export default ({ cursos, deleteButton }) => (
             </Link>
             <div className="card-body">
               <Link to={`/instructor/cursos/${curso.id}`}>
-                <h5 className="card-title">{curso.name}</h5>
-                <p className="card-text">
+                <h5 className="card-title" style={style.text}>{curso.name}</h5>
+                <p className="card-text" style={style.text}>
                   {curso.description.length > 120
                     ? curso.description.slice(0, 120) + "..."
                     : curso.description}
                 </p>
               </Link>
               <Link to={`/instructor/cursos/${curso.id}`}>
-                <div className="btn btn-primary">Course Details</div>
+                <div className="btn btn-outline-dark">Course Details</div>
               </Link>
               <button
                 onClick={() => deleteButton(curso.id)}

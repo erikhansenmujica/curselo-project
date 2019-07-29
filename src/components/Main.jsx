@@ -2,6 +2,7 @@ import React from "react";
 import HomeContainer from "../containers/HomeContainer";
 import { Route, Switch } from "react-router-dom";
 import Log from "./Log";
+import Footer from "../components/Footer";
 import CrearContainer from "../containers/instructor/CrearContainer";
 import Cursos from "../containers/alumnos/Cursos";
 import InstructorContainer from "../containers/instructor/InstructorContainer";
@@ -18,10 +19,10 @@ import CursosCompradosContainer from "../containers/alumnos/CursosCompradosConta
 import SingleCursoCompradoContainer from "../containers/alumnos/SingleCursoCompradoContainer";
 import ComprarContainer from "../containers/alumnos/ComprarContainer";
 import SearchContainer from "../containers/alumnos/SearchContainer";
-import MyChatsContainer from "../containers/MyChatsContainer"
+import MyChatsContainer from "../containers/MyChatsContainer";
 import EditarTemaContainer from "../containers/instructor/EditarTemaContainer";
 import SingleTopicContainer from "../containers/alumnos/SingleTopicContainer";
-import EditarCursoContainer from "../containers/instructor/EditarCursoContainer"
+import EditarCursoContainer from "../containers/instructor/EditarCursoContainer";
 import LogUser from "./LogUser";
 
 export default props => (
@@ -38,18 +39,21 @@ export default props => (
 
       <Route path="/chat/" component={chat} />
 
-    {props.loading?
-      <Route
-        path="/alumnos"
-        render={() => <Alumnos history={props.history} />}
-      />:
-      <Route
-      render={() => <LogUser logearAlumno={props.logearAlumno} history={props.history}/>}
-    
-      />
-  
-  }
-    
+      {props.loading ? (
+        <Route
+          path="/alumnos"
+          render={() => <Alumnos history={props.history} />}
+        />
+      ) : (
+        <Route
+          render={() => (
+            <LogUser
+              logearAlumno={props.logearAlumno}
+              history={props.history}
+            />
+          )}
+        />
+      )}
 
       <Route exact path="/" component={HomeContainer} />
     </Switch>
@@ -59,6 +63,7 @@ export default props => (
 const Alumnos = props => (
   <div>
     <NavbarContainer history={props.history} />
+    <Footer />
     <Switch>
       <Route
         exact
@@ -147,13 +152,7 @@ const instructor = () => (
 
 const chat = () => (
   <div>
-    <Route
-      exact
-      path="/chat/:instructorId/:userId"
-      component={ChatContainer}
-    />
+    <Route exact path="/chat/:instructorId/:userId" component={ChatContainer} />
     <Route path="/chat/mychats" component={MyChatsContainer} />
   </div>
 );
-
-
