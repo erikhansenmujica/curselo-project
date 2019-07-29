@@ -2,17 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const margin = {
-  height: "100%",
-  maxHeight: "100%",
-  // marginTop: "-2%",
-  // marginBottom: "5%",
-  // marginRight: "1%",
-  // marginLeft: "1%",
+  height: "1000px",
+  width: "100%",
+  marginBottom: "3%",
+  position: "absolute",
   backgroundImage:
     "url(" +
-    "https://www.solidbackgrounds.com/images/2880x1800/2880x1800-pastel-blue-solid-color-background.jpg" +
+    " https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png" +
     ")",
   backgroundSize: "container"
+};
+const text = {
+  marginLeft: "18%",
+  fontSize: "51px"
 };
 
 const chatBar = {
@@ -20,22 +22,6 @@ const chatBar = {
   bottom: "0%",
   width: "100%",
   right: "0%"
-};
-
-const yourMsgStyle = {
-  textAlign: "left",
-  color: "grey",
-  background: "yellow"
-};
-
-const myMsgStyle = {
-  textAlign: "right",
-  color: "green",
-  background: "red",
-  height: "70px",
-  width: "50px"
-
-  // display: "block"
 };
 
 export default ({
@@ -49,17 +35,27 @@ export default ({
   <div style={margin}>
     <div
       style={{
-        background: "#bdd2d9",
-        opacity: "0.8"
+        background: "#43505D",
+        opacity: "0.8",
+        color:"white"
       }}
       className="jumbotron jumbotron-fluid"
     >
       <div className="container">
-        <h6 className="display-4">Welcome to the Curselo Messenger</h6>
+        <h6 className="display-4" style={text}>
+          Welcome to the Curselo Messenger
+        </h6>
       </div>
-    </div>
-    <div>
-      <button onClick={returnToChats}>VOLVER ATRAS</button>
+      <button
+        style={{
+          marginLeft: "2%"
+        }}
+        onClick={returnToChats}
+        type="button"
+        className="btn btn-light"
+      >
+        Go Back
+      </button>
     </div>
     <div>
       <ul
@@ -73,6 +69,7 @@ export default ({
           messages.map(msg =>
             currentUser.uid == msg.from ? (
               <div
+                key={msg.message}
                 style={{
                   display: "grid",
                   alignItems: "center",
@@ -82,16 +79,14 @@ export default ({
                 <span
                   style={{
                     display: "inline-block",
-                    padding: "10px 0px",
+                    padding: "3px 10px",
                     paddingLeft: "7px",
                     paddingRight: "7px",
-                    background: "#005c99",
+                    background: "#70CAF4",
                     marginTop: "15px",
                     borderRadius: "3px",
-                    textAlign: "center",
-                    border: "1px solid grey",
                     boxShadow: "1px 2px #a9b8cf",
-                    color: "#e9ecf2",
+                    color: "black",
                     marginRight: "7px"
                   }}
                 >
@@ -109,16 +104,14 @@ export default ({
                 <span
                   style={{
                     display: "inline-block",
-                    padding: "10px 0px",
+                    padding: "3px 10px",
                     paddingLeft: "7px",
                     paddingRight: "7px",
-                    background: "#1c555e",
+                    background: "#CBEBFB",
                     marginTop: "15px",
                     borderRadius: "3px",
                     textAlign: "center",
-                    border: "1px solid grey",
-                    boxShadow: "1px 2px #a9b8cf",
-                    color: "#798285"
+                    boxShadow: "1px 2px #a9b8cf"
                   }}
                 >
                   {msg.message}
