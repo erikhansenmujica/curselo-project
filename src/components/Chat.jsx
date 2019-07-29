@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const margin = {
-  height: "1000px",
+  height: "93.7vh",
+  overflowY:"scroll",
   width: "100%",
   marginBottom: "3%",
   position: "absolute",
