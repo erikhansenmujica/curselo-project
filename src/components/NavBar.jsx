@@ -78,7 +78,7 @@ export default ({ user, handleLogOut, handleSearch, handleSubmit, search }) => {
             </li>
              <li className="nav-item">
             <Link to="/alumnos/cursos/comprados"> <button
-               className="btn btn-default btn-rounded mb-4"
+               className="btn btn-outline-dark"
                style={{float:"right"}}
             
              >
@@ -88,7 +88,7 @@ export default ({ user, handleLogOut, handleSearch, handleSubmit, search }) => {
            </li>
            <li className="nav-item">
             <Link to="/chat/mychats"> <button
-               className="btn btn-default btn-rounded mb-4"
+               className="btn btn-outline-dark"
                style={{float:"right"}}
             
              >
