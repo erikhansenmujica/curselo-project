@@ -4,13 +4,14 @@ import SeccionesAlumnoContainer from "../../containers/alumnos/SeccionesAlumnoCo
 const styles = {
   wrapper: {
     display: "flex",
-    width: "100%"
+    width: "100%",
+    position: "fixed",
   },
   sidebar: {
     overflowY: "scroll",
     marginTop: "81px",
     width: "260px",
-    position: " fixed",
+    position: "fixed",
     top: "0",
     left: "0",
     height: "100%",

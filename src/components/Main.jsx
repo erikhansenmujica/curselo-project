@@ -29,31 +29,25 @@ export default props => (
   <div>
     <Switch>
       {window.location.href.includes("instructor") &&
-        (props.loading ? (
+        (props.loadingInstructor ? (
           <Route path="/instructor" component={instructor} />
         ) : (
           <Route
             render={() => <Log logear={props.logear} history={props.history} />}
           />
         ))}
-
+    {window.location.href.includes("alumnos") &&(props.loadingAlumno?
+      <Route
+        path="/alumnos"
+        render={() => <Alumnos history={props.history} />}
+      />:
+      <Route
+      render={() => <LogUser logearAlumno={props.logearAlumno} history={props.history}/>}
+    
+      />
+    )
+  }
       <Route path="/chat/" component={chat} />
-
-      {props.loading ? (
-        <Route
-          path="/alumnos"
-          render={() => <Alumnos history={props.history} />}
-        />
-      ) : (
-        <Route
-          render={() => (
-            <LogUser
-              logearAlumno={props.logearAlumno}
-              history={props.history}
-            />
-          )}
-        />
-      )}
 
       <Route exact path="/" component={HomeContainer} />
     </Switch>

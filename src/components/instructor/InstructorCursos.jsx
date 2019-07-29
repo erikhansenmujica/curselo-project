@@ -19,7 +19,13 @@ const style = {
   },
   text:{
     color:"black"
-  }
+  },
+  button: {
+    marginLeft: "30%",
+    marginRight: "25%",
+    display: "block",
+    marginTop: "20%"
+  },
 };
 export default ({ cursos, deleteButton }) => (
   <div>
@@ -69,7 +75,7 @@ export default ({ cursos, deleteButton }) => (
         <div className="container" style={style.center}>
           <p>Ups!...Todavia no tiene ningun curso creado</p>
           <Link to="/instructor/crear">
-            <button className="btn btn-primary" type="button">
+            <button className="btn btn-primary" style={style.button} type="button">
               Crear Curso
             </button>
           </Link>
