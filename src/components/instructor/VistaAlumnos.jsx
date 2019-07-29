@@ -5,7 +5,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import { FixedSizeList } from "react-window";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
-import alumno from './PerfilAlumno'
+import alumno from "./PerfilAlumno";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,12 +20,16 @@ function Row(props) {
   const { style, alumno } = props;
 
   return (
-
-      <ListItem button style={style} key={alumno}
-      component={Link } to={`/instructor/alumno`}>
-        {" "}
-        <ListItemText primary={`Alumno ${alumno + 1}`} />
-      </ListItem>
+    <ListItem
+      button
+      style={style}
+      key={alumno}
+      component={Link}
+      to={`/instructor/alumno`}
+    >
+      {" "}
+      <ListItemText primary={`Alumno ${alumno + 1}`} />
+    </ListItem>
   );
 }
 

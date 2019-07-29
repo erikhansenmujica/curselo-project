@@ -18,35 +18,47 @@ const style = {
     fontSize: "46px"
   }
 };
-export default ({ cursos,deleteButton }) => (
+export default ({ cursos, deleteButton }) => (
   <div>
     <div style={style.container}>
       {cursos ? (
         cursos.map(curso => (
           <div key={curso.id} className="card" style={style.childs}>
             <Link to={`/instructor/cursos/${curso.id}`}>
-            {curso.images ? <img alt="" className="card-img-top" src={curso.images.imagen1.url}/> : <img alt="" className="card-img-top" src='https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg' />}
-              </Link>
+              {curso.images ? (
+                <img
+                  alt=""
+                  className="card-img-top"
+                  src={curso.images.imagen1.url}
+                />
+              ) : (
+                <img
+                  alt=""
+                  className="card-img-top"
+                  src="https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg"
+                />
+              )}
+            </Link>
             <div className="card-body">
-            <Link to={`/instructor/cursos/${curso.id}`}>
-              <h5 className="card-title">{curso.name}</h5>
-              <p className="card-text">
-                {curso.description.length > 120
-                  ? curso.description.slice(0, 120) + "..."
-                  : curso.description}
-              </p>
-
-                  </Link>
+              <Link to={`/instructor/cursos/${curso.id}`}>
+                <h5 className="card-title">{curso.name}</h5>
+                <p className="card-text">
+                  {curso.description.length > 120
+                    ? curso.description.slice(0, 120) + "..."
+                    : curso.description}
+                </p>
+              </Link>
               <Link to={`/instructor/cursos/${curso.id}`}>
                 <div className="btn btn-primary">Course Details</div>
               </Link>
-              <button onClick={()=>deleteButton(curso.id)}
-              type="button"
-              className="btn btn-danger"
-              style={{ float: "right" }}
-            >
-              <i className="fas fa-trash-alt" />
-            </button>
+              <button
+                onClick={() => deleteButton(curso.id)}
+                type="button"
+                className="btn btn-danger"
+                style={{ float: "right" }}
+              >
+                <i className="fas fa-trash-alt" />
+              </button>
             </div>
           </div>
         ))

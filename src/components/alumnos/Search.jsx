@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 const style = {
   container: {
     display: "flex",
@@ -14,6 +15,12 @@ const style = {
   linksColor: {
     color: "black",
     textDecoration: "none"
+  },
+  button: {
+    marginLeft: "25%",
+    marginRight: "25%",
+    display: "block",
+    marginTop: "20%"
   }
 };
 
@@ -24,7 +31,19 @@ export default ({ searchCourses }) => {
         searchCourses.map(curso => (
           <div key={curso.id} className="card" style={style.childs}>
             <Link to={`/alumnos/cursos/${curso.id}`}>
-            {curso.images ? <img alt="" className="card-img-top" src={curso.images.imagen1.url}/> : <img alt="" className="card-img-top" src='https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg' />}
+              {curso.images ? (
+                <img
+                  alt=""
+                  className="card-img-top"
+                  src={curso.images.imagen1.url}
+                />
+              ) : (
+                <img
+                  alt=""
+                  className="card-img-top"
+                  src="https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg"
+                />
+              )}
             </Link>
             <div className="card-body">
               <Link to={`/alumnos/cursos/${curso.id}`}>
@@ -40,7 +59,9 @@ export default ({ searchCourses }) => {
                 </p>
               </Link>
               <Link to={`/alumnos/cursos/${curso.id}`}>
-                <div className="btn btn-primary">View Details</div>
+                <div style={style.button}>
+                  <button className="btn btn-outline-dark">View Details</button>
+                </div>
               </Link>
             </div>
           </div>

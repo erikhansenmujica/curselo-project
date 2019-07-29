@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const styles = {
   button: {
@@ -50,9 +51,22 @@ export default ({
       }}
     >
       <div className="card bg mb-3" style={styles.cards}>
+        <div className="card-header">Your Name: </div>
+        <div className="card-body">
+          <input
+            required
+            type="text"
+            name="speakerInfo"
+            className="form-control"
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+      <div className="card bg mb-3" style={styles.cards}>
         <div className="card-header">Name: </div>
         <div className="card-body">
           <input
+            required
             type="text"
             name="name"
             className="form-control"
@@ -64,6 +78,7 @@ export default ({
         <div className="card-header">Price: </div>
         <div className="card-body">
           <input
+            required
             name="price"
             type="number"
             className="form-control"
@@ -75,6 +90,7 @@ export default ({
         <div className="card-header">Description: </div>
         <div className="card-body">
           <input
+            required
             type="text"
             name="description"
             className="form-control"
@@ -167,12 +183,18 @@ export default ({
 
       <div style={{ marginTop: "10px" }}>
         <div style={styles.button}>
-          <button type="submit" className="btn btn-primary">
-            Cancel
-          </button>
-          <button type="submit" className="btn btn-primary">
-            Create Course
-          </button>
+          <Link to="/instructor">
+            <button className="btn btn-primary">Back to Home</button>
+          </Link>
+          {imageUrl1 ? (
+            <button type="submit" className="btn btn-primary">
+              Create Course
+            </button>
+          ) : (
+            <button type="submit" className="btn btn-primary" disabled>
+              Create Course
+            </button>
+          )}
         </div>
       </div>
       <br />

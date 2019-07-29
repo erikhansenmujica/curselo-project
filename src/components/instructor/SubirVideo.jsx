@@ -20,9 +20,15 @@ const loader = {
   marginLeft: "45%"
 };
 
-export default ({ handleUpload, handleSetFile,handleChange, load,courseId, sectionId}) => (
+export default ({
+  handleUpload,
+  handleSetFile,
+  handleChange,
+  load,
+  courseId,
+  sectionId
+}) => (
   <div style={style}>
-
     <div
       className="modal fade"
       id="modalContactForm2"
@@ -66,16 +72,23 @@ export default ({ handleUpload, handleSetFile,handleChange, load,courseId, secti
                 onChange={handleSetFile}
               />
             </div>
-            {
-              !load&&
-            <div style={loader} className="spinner-border text-info" role="status">
-              <span className="sr-only">Loading...</span>
-            </div>
-
-            }
+            {!load && (
+              <div
+                style={loader}
+                className="spinner-border text-info"
+                role="status"
+              >
+                <span className="sr-only">Loading...</span>
+              </div>
+            )}
             <div className="modal-footer d-flex justify-content-center">
-              <button type="submit" id="buttonToggler"className="btn btn-unique"data-toggle="modal"
-            data-target="#modalContactForm2">
+              <button
+                type="submit"
+                id="buttonToggler1"
+                className="btn btn-unique"
+                data-toggle="modal"
+                data-target="#modalContactForm2"
+              >
                 Upload Video <i className="fas fa-paper-plane-o ml-1" />
               </button>
             </div>

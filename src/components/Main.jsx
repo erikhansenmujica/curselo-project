@@ -18,10 +18,11 @@ import CursosCompradosContainer from "../containers/alumnos/CursosCompradosConta
 import SingleCursoCompradoContainer from "../containers/alumnos/SingleCursoCompradoContainer";
 import ComprarContainer from "../containers/alumnos/ComprarContainer";
 import SearchContainer from "../containers/alumnos/SearchContainer";
+import MyChatsContainer from "../containers/MyChatsContainer"
 import EditarTemaContainer from "../containers/instructor/EditarTemaContainer";
 import SingleTopicContainer from "../containers/alumnos/SingleTopicContainer";
-import EditarCursoContainer from "../containers/instructor/EditarCursoContainer";
-import MyChatsContainer from "../containers/MyChatsContainer"
+import EditarCursoContainer from "../containers/instructor/EditarCursoContainer"
+import LogUser from "./LogUser";
 
 export default props => (
   <div>
@@ -37,10 +38,18 @@ export default props => (
 
       <Route path="/chat/" component={chat} />
 
+    {props.loading?
       <Route
         path="/alumnos"
         render={() => <Alumnos history={props.history} />}
+      />:
+      <Route
+      render={() => <LogUser logearAlumno={props.logearAlumno} history={props.history}/>}
+    
       />
+  
+  }
+    
 
       <Route exact path="/" component={HomeContainer} />
     </Switch>

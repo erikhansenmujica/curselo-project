@@ -15,7 +15,9 @@ class ComprarContainer extends React.Component {
   }
 
   render() {
-    return <Comprar handlePurchase={this.handlePurchase} curso={this.props.curso} />;
+    return (
+      <Comprar handlePurchase={this.handlePurchase} curso={this.props.curso} />
+    );
   }
 }
 
