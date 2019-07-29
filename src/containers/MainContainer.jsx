@@ -20,7 +20,7 @@ logear (){
   auth.onAuthStateChanged((user)=> {
     if (user) {
       this.setState({
-        loading:true
+        loadingInstructor:true
     })
     } else {
       const provider = new firebase.auth.GoogleAuthProvider();

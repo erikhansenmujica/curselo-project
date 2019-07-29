@@ -33,7 +33,7 @@ export default props => (
             render={() => <Log logear={props.logear} history={props.history} />}
           />
         ))}
-    {props.loadingAlumno?
+    {window.location.href.includes("alumnos") &&(props.loadingAlumno?
       <Route
         path="/alumnos"
         render={() => <Alumnos history={props.history} />}
@@ -42,7 +42,7 @@ export default props => (
       render={() => <LogUser logearAlumno={props.logearAlumno} history={props.history}/>}
     
       />
-  
+    )
   }
     
 
