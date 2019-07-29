@@ -11,9 +11,8 @@ const style = {
     height: "160px"
   },
   button: {
-    marginLeft:"45%"
-  },
-
+    marginLeft: "45%"
+  }
 };
 const ListGroupPage = props => {
   return (
@@ -34,7 +33,6 @@ const ListGroupPage = props => {
         className="btn btn-outline-dark"
         type="submit"
         onClick={props.handlePurchase}
-        
       >
         Compra Curso
       </button>
