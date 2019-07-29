@@ -77,7 +77,7 @@ export default ({ curso, handleClick, isLoggedIn, studentCourse }) => (
     </div>
     <Link to="/alumnos/cursos">
       <div style={styles.button2}>
-        <button type="button" class="btn btn-outline-dark">
+        <button type="button" className="btn btn-outline-dark">
           Volver Atras
         </button>
       </div>
