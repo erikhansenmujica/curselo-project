@@ -24,6 +24,7 @@ import EditarTemaContainer from "../containers/instructor/EditarTemaContainer";
 import SingleTopicContainer from "../containers/alumnos/SingleTopicContainer";
 import EditarCursoContainer from "../containers/instructor/EditarCursoContainer";
 import LogUser from "./LogUser";
+import LogChat from "./LogChat";
 
 export default props => (
   <div>
@@ -47,7 +48,17 @@ export default props => (
       />
     )
   }
-      <Route path="/chat/" component={chat} />
+    {window.location.href.includes("chat") &&(props.loadingChat?
+      <Route
+      path="/chat/"
+        component={chat}
+      />:
+      <Route
+      render={() => <LogChat logearChat={props.logearChat} history={props.history}/>}
+    
+      />
+    )
+  }
 
       <Route exact path="/" component={HomeContainer} />
     </Switch>
