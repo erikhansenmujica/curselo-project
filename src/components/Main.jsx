@@ -13,10 +13,12 @@ import InstructorCursosContainer from "../containers/instructor/InstructorCursos
 import CrearTemaContainer from "../containers/instructor/CrearTemaContainer";
 import SignUpContainer from "../containers/SignUpContainer";
 import SubirVideoContainer from "../containers/instructor/SubirVideoContainer";
+import ChatContainer from "../containers/ChatContainer";
 import CursosCompradosContainer from "../containers/alumnos/CursosCompradosContainer";
 import SingleCursoCompradoContainer from "../containers/alumnos/SingleCursoCompradoContainer";
 import ComprarContainer from "../containers/alumnos/ComprarContainer";
 import SearchContainer from "../containers/alumnos/SearchContainer";
+import MyChatsContainer from "../containers/MyChatsContainer"
 import EditarTemaContainer from "../containers/instructor/EditarTemaContainer";
 import SingleTopicContainer from "../containers/alumnos/SingleTopicContainer";
 import EditarCursoContainer from "../containers/instructor/EditarCursoContainer"
@@ -44,7 +46,7 @@ export default props => (
       />
     )
   }
-    
+      <Route path="/chat/" component={chat} />
 
       <Route exact path="/" component={HomeContainer} />
     </Switch>
@@ -139,3 +141,16 @@ const instructor = () => (
     </div>
   </div>
 );
+
+const chat = () => (
+  <div>
+    <Route
+      exact
+      path="/chat/:instructorId/:userId"
+      component={ChatContainer}
+    />
+    <Route path="/chat/mychats" component={MyChatsContainer} />
+  </div>
+);
+
+

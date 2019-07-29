@@ -26,7 +26,7 @@ const styles = {
     fontWeight: "bold"
   }
 };
-export default ({ curso, handleClick, isLoggedIn, studentCourse }) => (
+export default ({ curso, handleClick, isLoggedIn, studentCourse, createChat }) => (
   <div>
     <div className="card mb-3 container">
       <div className="row no-gutters">
@@ -75,12 +75,17 @@ export default ({ curso, handleClick, isLoggedIn, studentCourse }) => (
         </Link>
       )}
     </div>
+    <div style={{
+     float: "right", 
+     marginRight: "10%"}}>
+      <button onClick={createChat} type="button" className="btn btn-outline-secondary btn-lg">Iniciar Chat con Instructor</button>
+   </div>
     <Link to="/alumnos/cursos">
       <div style={styles.button2}>
-        <button type="button" class="btn btn-outline-dark">
+        <button type="button" className="btn btn-outline-dark">
           Volver Atras
         </button>
       </div>
     </Link>
   </div>
-);
+)

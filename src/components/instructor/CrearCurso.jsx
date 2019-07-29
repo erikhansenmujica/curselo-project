@@ -51,6 +51,18 @@ export default ({
       }}
     >
       <div className="card bg mb-3" style={styles.cards}>
+        <div className="card-header">Your Name: </div>
+        <div className="card-body">
+          <input
+            required
+            type="text"
+            name="speakerInfo"
+            className="form-control"
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+      <div className="card bg mb-3" style={styles.cards}>
         <div className="card-header">Name: </div>
         <div className="card-body">
           <input

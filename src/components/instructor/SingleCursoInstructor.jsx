@@ -7,55 +7,98 @@ const styles = {
     display: "block",
     margin: "auto"
   },
+  img: {
+    display: "flex",
+    justifyContent: "space-between"
+    // marignRight: "20%",
+    // float: "rigth",
+    // display: "inline-block"
+  },
   text: {
     fontSize: "24px",
     textAlign: "left"
   },
   title: {
     fontSize: "40px",
-    textAlign: "center"
+    textAlign: "left"
   },
   imagen: {
+    marginTop: "20px",
+    margin: "auto",
+    textAlign: "right"
+  },
+  edit: {
     margin: "auto",
     display: "block",
-    textAlign: "center"
+    textAlign: "left",
+    marginTop: "50px"
   },
   flex: {
-    display: "flex"
+    display: "flex",
+    marginTop: "20px"
   }
 };
 
 export default props => (
   <div>
+    {console.log("Y estos props?????", props)}
     <div className="jumbotron mt-3">
-      <h1 style={styles.title}>Create your course</h1>
-      <p style={{ textAlign: "center" }} className="lead">
-        Help other people learn new skills, advance their careers and explore
-        their hobbies by sharing your knowledge.
-      </p>
+      <div className="row no-gutters">
+        <div className="col-md-8">
+          <div className="card-body">
+            <h5 className="card-title" style={styles.title}>
+              {props.curso.name}
+            </h5>
+            <p className="card-text">{props.curso.description}</p>
+          </div>
+        </div>
+      </div>
+      <div
+        style={{
+          right: "80px",
+          width: "251px",
+          height: "100px",
+          position: "absolute",
+          top: "0"
+        }}
+      >
+        <img
+          style={styles.img}
+          src={props.curso.images && props.curso.images.imagen1.url}
+          className="card-img rounded float-right"
+          alt="..."
+        />
+      </div>
     </div>
 
-    {props.curso.images && (
-      <div className="col-sm-3  main" style={styles.imagen}>
+    {/* <div className="jumbotron mt-3">
+      <h1 style={styles.title}>{props.curso.name}</h1>
+      <p style={{ textAlign: "left" }} className="lead">
+        {props.curso.description}
+      {props.curso.images && (
+        <div className="col-sm-3  main" style={styles.imagen}>
         <img src={props.curso.images.imagen1.url} width="100%" alt="" />
       </div>
     )}
+    </p>
+    </div> */}
+
+    {/* {props.curso.images && (
+      <div className="col-sm-3  main" style={styles.imagen}>
+        <img src={props.curso.images.imagen1.url} width="100%" alt="" />
+      </div>
+    )} */}
 
     {props.curso.name && (
       <div>
         <div className="media" style={styles.flex}>
           <div className="media-body">
             <p className="mt-0" style={styles.text}>
-              Course: {props.curso.name}
               <Link to={`/instructor/cursos/${props.curso.id}/edit`}>
                 <button
                   type="button"
                   className="btn btn-light"
-                  style={{
-                    float: "right",
-                    marginBottom: "5px",
-                    marginRight: "10px"
-                  }}
+                  style={styles.edit}
                   onClick={() => {}}
                 >
                   {" "}
