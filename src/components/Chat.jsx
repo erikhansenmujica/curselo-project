@@ -96,6 +96,7 @@ export default ({
               </div>
             ) : (
               <div
+              key={msg.message}
                 style={{
                   display: "grid",
                   alignItems: "center",
