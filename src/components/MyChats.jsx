@@ -24,7 +24,9 @@ export default ({
   currentUser,
   handleClick,
   returnToHome
-}) => (
+}) => {
+
+  return (
   <div style={margin}>
     <div
       style={{
@@ -60,9 +62,10 @@ export default ({
       >
         {messages && messages.length > 0 ? (
           messages.map(msg =>
+           
             msg.unreadMsjs ? (
               <div
-                key={msg.id}
+                key={msg.student}
                 style={{
                   display: "grid",
                   alignItems: "center",
@@ -125,4 +128,5 @@ export default ({
       <div className="product-device product-device-2 shadow-sm d-none d-md-block" />
     </div>
   </div>
-);
+)
+}

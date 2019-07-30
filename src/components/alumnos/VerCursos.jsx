@@ -5,7 +5,8 @@ const style = {
   container: {
     display: "flex",
     flexFlow: "row wrap",
-    justifyContent: "space-evenly"
+    justifyContent: "space-evenly",
+    marginBottom:"50px"
   },
   childs: {
     width: "18rem",
@@ -22,7 +23,8 @@ const style = {
     width: "100%",
     height: "200px",
     display: "block",
-    margin: "auto"
+    margin: "auto",
+    objectFit:"contain"
   },
   text: {
     fontSize: "26px",

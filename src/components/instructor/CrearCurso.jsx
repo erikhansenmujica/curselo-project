@@ -63,7 +63,7 @@ export default ({
         </div>
       </div>
       <div className="card bg mb-3" style={styles.cards}>
-        <div className="card-header">Name: </div>
+        <div className="card-header">Course Title: </div>
         <div className="card-body">
           <input
             required
@@ -121,7 +121,7 @@ export default ({
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header text-center">
-              <h4 className="modal-title w-100 font-weight-bold">Upload PDF</h4>
+              <h4 className="modal-title w-100 font-weight-bold">Upload Image</h4>
               <button
                 type="button"
                 className="close"
@@ -153,7 +153,7 @@ export default ({
                 onClick={handleUploadImg}
                 type="button"
                 id="buttonToggler"
-                className="btn btn-info"
+                className="btn btn-outline-info"
                 data-toggle="modal"
                 data-target="#modalContactForm1"
               >
