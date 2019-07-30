@@ -25,7 +25,7 @@ export default ({
   handleClick,
   returnToHome
 }) => {
-  console.log(messages)
+
   return (
   <div style={margin}>
     <div
