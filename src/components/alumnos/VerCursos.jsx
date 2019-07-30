@@ -23,7 +23,8 @@ const style = {
     width: "100%",
     height: "200px",
     display: "block",
-    margin: "auto"
+    margin: "auto",
+    objectFit:"contain"
   },
   text: {
     fontSize: "26px",

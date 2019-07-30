@@ -153,7 +153,7 @@ export default ({
                 onClick={handleUploadImg}
                 type="button"
                 id="buttonToggler"
-                className="btn btn-info"
+                className="btn btn-outline-info"
                 data-toggle="modal"
                 data-target="#modalContactForm1"
               >
