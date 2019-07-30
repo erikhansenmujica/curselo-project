@@ -7,9 +7,7 @@ const styles = {
     display: "block",
     margin: "auto"
   },
-  img: {
-    marginTop: "-19%"
-  },
+
   text: {
     fontSize: "24px",
     textAlign: "left"
@@ -47,14 +45,15 @@ export default props => (
             <p className="card-text">{props.curso.description}</p>
           </div>
         </div>
-      </div>
-      <div>
-        <img
-          style={styles.img}
-          src={props.curso.images && props.curso.images.imagen1.url}
-          class="rounded float-right"
-          alt="..."
-        />
+        <div className="col-md-4">
+          <img
+            width='350px'
+            style={styles.img}
+            src={props.curso.images && props.curso.images.imagen1.url}
+            class="rounded"
+            alt="..."
+          />
+        </div>
       </div>
     </div>
 

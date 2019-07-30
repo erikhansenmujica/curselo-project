@@ -42,6 +42,7 @@ export default ({ cursos, deleteButton }) => (
                 />
               ) : (
                 <img
+                style={{height: "200px"}}
                   alt=""
                   className="card-img-top"
                   src="https://www.grupomisol.com/wp-content/uploads/2014/11/no-imagen.jpg"
@@ -64,7 +65,7 @@ export default ({ cursos, deleteButton }) => (
                 onClick={() => deleteButton(curso.id)}
                 type="button"
                 className="btn btn-danger"
-                style={{ float: "right" }}
+                style={{ float: "right", display: "flex" }}
               >
                 <i className="fas fa-trash-alt" />
               </button>
