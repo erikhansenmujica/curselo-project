@@ -59,7 +59,8 @@ export default ({
       </button>
     </div>
     <div>
-      <ul
+      <div
+      
         style={{
           display: "grid",
           alignItems: "center",
@@ -70,7 +71,7 @@ export default ({
           messages.map(msg =>
             currentUser.uid == msg.from ? (
               <div
-                key={msg.message}
+                key={msg.student}
                 style={{
                   display: "grid",
                   alignItems: "center",
@@ -120,7 +121,7 @@ export default ({
               </div>
             )
           )}
-      </ul>
+      </div>
 
       <form onSubmit={handleSubmit} style={chatBar}>
         <input

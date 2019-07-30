@@ -63,7 +63,7 @@ export default ({
         </div>
       </div>
       <div className="card bg mb-3" style={styles.cards}>
-        <div className="card-header">Name: </div>
+        <div className="card-header">Course Title: </div>
         <div className="card-body">
           <input
             required
