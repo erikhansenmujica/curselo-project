@@ -12,6 +12,6 @@ const footer = {
 };
 export default () => (
   <div style={footer}>
-    <p>Curselo SAS © Copyright 2019 Todos los derechos reservados </p>
+    <p>Curselo SAS © Copyright 2019 All rights reserved </p>
   </div>
 );

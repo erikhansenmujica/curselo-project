@@ -3,6 +3,7 @@ import SingleCursoAlumno from "../../components/alumnos/SingleCursoAlumno";
 import { getMyPurchaseCourse } from "../../action-creators/getMyPurchaseCourse";
 import { fetchCursoAlumno } from "../../action-creators/cursosAlumnos";
 import { connect } from "react-redux";
+import {auth} from "../../config/app"
 
 class SingleCursoAlumnoContainer extends Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class SingleCursoAlumnoContainer extends Component {
   }
   handleClick(e) {
     e.preventDefault();
-    if (this.props.isLoggedIn.uid) {
+    if (auth.currentUser) {
       this.props.history.push(`/alumnos/cursos/${this.props.courseId}/comprar`);
     } else {
       alert("Registrate");

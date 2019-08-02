@@ -10,6 +10,7 @@ export default class MyChatsContainer extends Component {
     };
     this.userId = auth.currentUser.uid;
     this.returnToHome = this.returnToHome.bind(this);
+    this.unsubscribe;
   }
 
   returnToHome() {
@@ -17,11 +18,10 @@ export default class MyChatsContainer extends Component {
   }
 
   componentDidMount() {
-    db.collection("usuarios")
+   this.unsubscribe= db.collection("usuarios")
       .doc(this.userId)
       .collection("CHATS")
-      .get()
-      .then(snapshot => {
+      .onSnapshot(snapshot => {
         let msgs = [];
         snapshot.forEach(doc => {
           let chat = doc.data();
@@ -30,7 +30,10 @@ export default class MyChatsContainer extends Component {
         this.setState({
           chats: msgs
         });
-      });
+      })
+  }
+  componentWillUnmount(){
+    this.unsubscribe()
   }
 
   render() {

@@ -10,6 +10,7 @@ class ChatContainer extends Component {
       message: "",
       messages: []
     };
+    this.unsuscribe;
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.returnToChats = this.returnToChats.bind(this);
@@ -40,7 +41,7 @@ class ChatContainer extends Component {
       return aId - bId;
     }
 
-    db.collection("mensajeria")
+    this.unsuscribe=db.collection("mensajeria")
       .doc(`${this.instructorId}-${this.studentId}`)
       .collection("CHATS")
       .onSnapshot(querySnapshot => {
@@ -63,7 +64,9 @@ class ChatContainer extends Component {
           });
       });
   }
-
+  componentWillUnmount(){
+    this.unsuscribe()
+  }
   handleSubmit(e) {
     e.preventDefault();
     db.collection("mensajeria")

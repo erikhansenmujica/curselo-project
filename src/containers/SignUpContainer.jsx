@@ -28,9 +28,8 @@ class SignUpContainer extends React.Component {
     const password = this.state.password;
 
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
-      this.props.createUser(cred);
-      alert("Hello  " + cred.user.email);
-    });
+      
+    })
   }
   handleSignIn(e) {
     e.preventDefault();
