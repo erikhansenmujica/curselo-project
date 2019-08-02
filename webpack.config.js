@@ -9,6 +9,9 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     context: __dirname,
+    node: {
+      fs: 'empty'
+    },
     module: {
       rules: [
         {
@@ -21,6 +24,10 @@ module.exports = {
               "@babel/env"
             ]
         }
+        },
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
         }
       ]
     },
