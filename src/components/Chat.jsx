@@ -68,10 +68,10 @@ export default ({
         }}
       >
         {messages &&
-          messages.map(msg =>
+          messages.map((msg, i=0) =>
             currentUser.uid == msg.from ? (
               <div
-                key={msg.student}
+                key={i++}
                 style={{
                   display: "grid",
                   alignItems: "center",
@@ -97,7 +97,7 @@ export default ({
               </div>
             ) : (
               <div
-              key={msg.message}
+              key={i++}
                 style={{
                   display: "grid",
                   alignItems: "center",

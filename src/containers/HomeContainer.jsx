@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Home from "../components/Home";
 import { firebase } from "../config/app";
+import {deLogUser } from "../action-creators/createUser";
+import { connect } from "react-redux";
 
-export default class HomeContainer extends Component {
+class HomeContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,6 +13,18 @@ export default class HomeContainer extends Component {
 
     this.googleLogin = this.googleLogin.bind(this);
     this.setAlumno = this.setAlumno.bind(this);
+  }
+
+  componentDidMount(){
+    firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      this.props.deLogUser({});
+    })
+    .catch(function(error) {
+      alert(error);
+    });
   }
 
   setAlumno() {
@@ -27,3 +41,15 @@ export default class HomeContainer extends Component {
     return <Home googleLogin={this.googleLogin} setAlumno={this.setAlumno} />;
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    user: firebase.auth().currentUser,
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  deLogUser: () => dispatch(deLogUser()),
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(HomeContainer)

@@ -31,11 +31,20 @@ const styles = {
 };
 export default props => (
   <div style={styles.div}>
-    <div style={{
-     float: "right", 
-     marginRight: "10%"}}>
-      <button onClick={()=>props.createChat(props.cursoId)} type="button" className="btn btn-outline-secondary btn-lg">Iniciar Chat con Instructor</button>
-   </div>
+    <div
+      style={{
+        float: "right",
+        marginRight: "10%"
+      }}
+    >
+      <button
+        onClick={() => props.createChat(props.cursoId)}
+        type="button"
+        className="btn btn-outline-secondary btn-lg"
+      >
+        Chat with your teacher
+      </button>
+    </div>
     <div className="jumbotron" style={styles.jumbotron}>
       <div className="container">
         <h1 className="display-3" style={styles.title}>
@@ -46,11 +55,11 @@ export default props => (
     <div className="card" style={styles.card}>
       <div className="card-body" style={styles.cardBody}>
         <p className="display-3" style={styles.subTitle}>
-          News
+          Content
         </p>
-        You have access to videos, files and texts, which can help you during
-        this learning. Also you can view this anytime that you want, if the
-        course end you can do it again a lot of times
+        From this page you'll be able to access videos, files and texts which will enhance your
+        learning process. The lessons aren't going anywhere so you can view them anytime
+        you want, event after you complete the course.
       </div>
     </div>
     <div className="card">
@@ -58,8 +67,8 @@ export default props => (
         <p className="display-3" style={styles.subTitle}>
           Messages
         </p>
-        You can talk with your teacher, by our chat. You can ask at anytime that
-        you want if you don't understand something.
+        You can contact your teacher through our chat in case you
+        have any questions or need assistance.
       </div>
     </div>
     <div className="card">
@@ -67,9 +76,9 @@ export default props => (
         <p className="display-3" style={styles.subTitle}>
           Contact us
         </p>
-        If you have more than 5 courses with the same teacher, you can open your
-        account being like teacher. Try to open free for one month, if you like
-        you have an offer for 3 months. For more information contact us
+        Feel free to contact us if you have any questions or concerns. The
+        Curselo team is here to help you and make your learning experience as
+        smooth and enjoyable as possible. Happy learning!
       </div>
     </div>
     <SideBar cursoId={props.cursoId} history={props.history} />

@@ -61,11 +61,11 @@ export default ({
         }}
       >
         {messages && messages.length > 0 ? (
-          messages.map(msg =>
+          messages.map((msg, i=0) =>
            
             msg.unreadMsjs ? (
               <div
-                key={msg.student}
+                key={i++}
                 style={{
                   display: "grid",
                   alignItems: "center",
@@ -75,18 +75,12 @@ export default ({
                 <Link to={`/chat/${msg.instructor}/${msg.student}`}>
                   <button
                     onClick={handleClick}
+                    className="btn btn-success"
                     style={{
-                      display: "inline-block",
                       padding: "10px 0px",
                       paddingLeft: "7px",
                       paddingRight: "7px",
-                      background: "#1c555e",
                       marginTop: "15px",
-                      borderRadius: "3px",
-                      textAlign: "center",
-                      border: "1px solid grey",
-                      boxShadow: "1px 2px #a9b8cf",
-                      color: "#798285"
                     }}
                   >
                     Conversation with {msg.with} : You have {msg.unreadNumber}{" "}
@@ -96,6 +90,7 @@ export default ({
               </div>
             ) : (
               <div
+              key={i++}
                 style={{
                   display: "grid",
                   alignItems: "center",
@@ -121,7 +116,7 @@ export default ({
             )
           )
         ) : (
-          <h1>Loading.....</h1>
+          <h1 >Loading.....</h1>
         )}
       </ul>
       <div className="product-device shadow-sm d-none d-md-block" />
